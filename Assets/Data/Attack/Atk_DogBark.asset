@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Atk_DogBark
   m_EditorClassIdentifier: TOME::TOME.Data.AttackPatternSO
   type: 0
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 7947959904764755813, guid: 1f9a15ebca5dafd44889162f91fe1af0, type: 3}
   projectileSpeed: 12
   aoeRadius: 0
   pierce: 0

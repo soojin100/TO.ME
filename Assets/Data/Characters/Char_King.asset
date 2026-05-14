@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Data.CharacterSO
   id: king
   displayName: "\uC655"
-  corePrefab: {fileID: 0}
+  corePrefab: {fileID: 8311500395026078127, guid: a7b5ca6f0c3019e4681ca64740aaa8a9, type: 3}
   icon: {fileID: 8344611326427422913, guid: 09cc343868139f8459419f3ab03e370b, type: 3}
   bodyTint: {r: 1, g: 0.85, b: 0.3, a: 1}
   hp: 140

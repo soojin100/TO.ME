@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Data.CharacterSO
   id: stray_dog
   displayName: "\uC0AC\uD328 \uAC15\uC544\uC9C0"
-  corePrefab: {fileID: 0}
+  corePrefab: {fileID: 2992235185679065721, guid: 67d3a34e62f2dfc4198d381b75ecb612, type: 3}
   icon: {fileID: 8344611326427422913, guid: 09cc343868139f8459419f3ab03e370b, type: 3}
   bodyTint: {r: 1, g: 1, b: 1, a: 1}
   hp: 100

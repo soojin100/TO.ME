@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Data.CharacterSO
   id: wizard
   displayName: "\uB9C8\uBC95\uC0AC \uC0AC\uC774\uB290\uB77C"
-  corePrefab: {fileID: 0}
+  corePrefab: {fileID: 2700103042279789463, guid: 034d19cc65d36d94a979081ab36a1601, type: 3}
   icon: {fileID: 8344611326427422913, guid: 09cc343868139f8459419f3ab03e370b, type: 3}
   bodyTint: {r: 0.7, g: 0.5, b: 1, a: 1}
   hp: 90
