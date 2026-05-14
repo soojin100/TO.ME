@@ -31,6 +31,7 @@ namespace TOME.Managers
 
         public void Begin(EnemySO timedDropSource)
         {
+            Stop();
             _timedSource = timedDropSource;
             _active = true;
             if (CombatManager.I != null) CombatManager.I.OnEnemyKilled += OnEnemyKilled;

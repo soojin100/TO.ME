@@ -31,7 +31,7 @@ namespace TOME.Gameplay.Items
             _targetY = targetY;
             _driftSpeed = driftSpeed;
             _tr.position = spawnPos;
-            if (_sr && def != null && def.icon) _sr.sprite = def.icon;
+            if (_sr) _sr.sprite = def != null ? def.icon : null;
             _active = true;
         }
 
