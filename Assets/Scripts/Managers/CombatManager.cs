@@ -35,6 +35,7 @@ namespace TOME.Managers
         readonly Dictionary<GameObject, EnemySO> instToDef = new(64);
         float savedFixedDt;
         StageSO stage;
+        bool started;
 
         void Awake()
         {
@@ -46,7 +47,9 @@ namespace TOME.Managers
         {
             stage = s;
             IsFinished = false;
+            IsPaused   = false;
             TimeLeft   = s.timeLimit;
+            Time.timeScale = 1f;
 
             TotalEnemies = 0;
             foreach (var e in s.spawns) TotalEnemies += e.totalCount;
@@ -62,6 +65,7 @@ namespace TOME.Managers
             OnTimerChanged?.Invoke(TimeLeft);
 
             foreach (var e in s.spawns) StartCoroutine(SpawnLoop(e));
+            started = true;
         }
 
         IEnumerator SpawnLoop(EnemySpawnEntry e)
@@ -116,7 +120,7 @@ namespace TOME.Managers
 
         void Update()
         {
-            if (IsFinished || IsPaused) return;
+            if (!started || IsFinished || IsPaused) return;
             TimeLeft -= Time.deltaTime;
             OnTimerChanged?.Invoke(TimeLeft);
             if (TimeLeft <= 0f) Finish(false);
@@ -145,6 +149,7 @@ namespace TOME.Managers
             if (IsFinished) return;
             IsFinished = true;
             IsPaused = false;
+            started = false;
             AudioListener.pause = false;
             Time.fixedDeltaTime = savedFixedDt > 0f ? savedFixedDt : 0.02f;
             Time.timeScale = 0f;
