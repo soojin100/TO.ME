@@ -15,10 +15,10 @@ MonoBehaviour:
   id: stage1
   title: "\uC9D1\uD0C8\uCD9C \uC2DC\uB3C4 1"
   thumbnail: {fileID: 8344611326427422913, guid: 09cc343868139f8459419f3ab03e370b, type: 3}
-  introText: "\uD0DD\uBC30 \uC0C1\uC790\uB97C \uD30C\uAD34 \uC2DC\uCEF0 \uC8FC\uC778\uC758
-    \uC815\uC2E0\uC744 \uC3ED \uBE7C\uB193\uC790"
-  clearedIntroText: "\uD0DD\uBC30 \uC0C1\uC790\uB97C \uD30C\uAD34 \uC2DC\uCEF0 \uC8FC\uC778\uC758
-    \uC815\uC2E0\uC744 \uC3ED \uBE7C\uB193\uC790\n>\uC131\uACF5\uD588\uB2E4\uD558\uD558\uD558\uD558"
+  introText: "\uD0DD\uBC30 \uC0C1\uC790\uB97C \uD30C\uAD34 \uC2DC\uCF1C \uC8FC\uC778\uC758
+    \uC815\uC2E0\uC744 \uC3D9 \uBE7C\uB193\uC790"
+  clearedIntroText: "\uD0DD\uBC30 \uC0C1\uC790\uB97C \uD30C\uAD34 \uC2DC\uCF1C \uC8FC\uC778\uC758
+    \uC815\uC2E0\uC744 \uC3D9 \uBE7C\uB193\uC790\n>\uC131\uACF5\uD588\uB2E4\uD558\uD558\uD558\uD558"
   startCharacter: {fileID: 11400000, guid: 72c123b18ca981144b8c72ebd23092b8, type: 2}
   timeLimit: 60
   spawns:

@@ -18,7 +18,7 @@ namespace TOME.Core
         {
             if (I != null && I != this) { Destroy(gameObject); return; }
             I = this; DontDestroyOnLoad(gameObject);
-            if (group) group.alpha = 0f;
+            if (group) { group.alpha = 0f; group.blocksRaycasts = false; }
         }
 
         /// 페이드아웃 → 씬 로드 → 페이드인을 영속 SceneFader가 호스팅한다.
