@@ -1,0 +1,8 @@
+{
+    "name": "TOME",
+    "rootNamespace": "TOME",
+    "references": ["Unity.TextMeshPro"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "autoReferenced": true
+}
