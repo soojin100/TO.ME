@@ -21,6 +21,7 @@ namespace TOME.Managers
 
         IEnumerator Start()
         {
+            Time.timeScale = 1f;
             var stage = GameManager.I?.CurrentStage;
             if (!stage) yield break;
 
