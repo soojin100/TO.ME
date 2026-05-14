@@ -15,7 +15,11 @@ namespace TOME.Gameplay.Player
         public void Bind(CharacterSO def)
         {
             Def = def;
-            if (body && def.icon) body.sprite = def.icon;
+            if (body)
+            {
+                if (def.icon) body.sprite = def.icon;
+                body.color = def.bodyTint;
+            }
             if (animator && !string.IsNullOrEmpty(idleStateName)) animator.Play(idleStateName, 0, 0f);
         }
     }

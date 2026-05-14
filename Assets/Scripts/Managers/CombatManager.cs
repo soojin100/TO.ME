@@ -29,6 +29,7 @@ namespace TOME.Managers
         public event Action<int,int> OnCountChanged;
         public event Action<float>   OnTimerChanged;
         public event Action<bool>    OnFinished;
+        public event Action<EnemySO,Vector3> OnEnemyKilled;
 
         readonly Dictionary<EnemySO, ObjectPool> pools = new(8);
         readonly Dictionary<GameObject, EnemySO> instToDef = new(64);
@@ -100,12 +101,14 @@ namespace TOME.Managers
             RemainingToKill = Mathf.Max(0, RemainingToKill - 1);
             OnCountChanged?.Invoke(RemainingToKill, TotalEnemies);
 
-            // 풀 반환
             var go = e.gameObject;
-            if (instToDef.TryGetValue(go, out var def) && pools.TryGetValue(def, out var pool))
-                pool.Release(go);
-            else
-                go.SetActive(false);
+            if (instToDef.TryGetValue(go, out var def))
+            {
+                OnEnemyKilled?.Invoke(def, go.transform.position);
+                if (pools.TryGetValue(def, out var pool)) pool.Release(go);
+                else go.SetActive(false);
+            }
+            else go.SetActive(false);
 
             if (RemainingToKill == 0) Finish(true);
         }
@@ -140,6 +143,7 @@ namespace TOME.Managers
         {
             if (IsFinished) return;
             IsFinished = true;
+            Time.timeScale = 0f;
             OnFinished?.Invoke(win);
         }
     }
