@@ -38,6 +38,7 @@ namespace TOME.Map
         /// <summary>MapNode가 클릭 시 호출.</summary>
         public void OnNodeSelected(NodeSO node)
         {
+            if (DialogueManager.I != null && DialogueManager.I.IsPlaying) return;
             if (node == null || node.stages == null || node.stages.Length == 0) return;
             _pendingNode  = node;
             _pendingStage = node.stages[0];
