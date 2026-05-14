@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using TMPro;
 using TOME.Core;
 using TOME.Data;
@@ -8,8 +7,8 @@ using TOME.Managers;
 
 namespace TOME.UI
 {
-    /// <summary>DialogueManager 구독. 말풍선 표시 + 클릭 진행 + 스킵.</summary>
-    public class DialogueUI : MonoBehaviour, IPointerClickHandler
+    /// <summary>DialogueManager 구독, 말풍선 표시. 항상 활성 GameObject에 부착하고 root(자식)만 토글한다.</summary>
+    public class DialogueUI : MonoBehaviour
     {
         [SerializeField] GameObject root;
         [SerializeField] TMP_Text  speakerLabel;
@@ -55,11 +54,6 @@ namespace TOME.UI
         void OnEnd()
         {
             if (root) root.SetActive(false);
-        }
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            DialogueManager.I?.Advance();
         }
 
         void OnSkip()
