@@ -18,6 +18,8 @@ namespace TOME.Data
         public string id;
         public string title;
         public Sprite thumbnail;
+        [TextArea] public string introText;          // 스테이지 정보 팝업 소개문
+        [TextArea] public string clearedIntroText;   // 클리어 후 표시할 소개문
 
         [Header("Combat")]
         public CharacterSO startCharacter;
