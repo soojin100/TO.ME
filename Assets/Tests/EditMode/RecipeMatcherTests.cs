@@ -8,18 +8,30 @@ namespace TOME.Tests.EditMode
 {
     public class RecipeMatcherTests
     {
-        static ItemSO MakeItem(string id)
+        readonly List<ScriptableObject> _created = new();
+
+        ItemSO MakeItem(string id)
         {
             var it = ScriptableObject.CreateInstance<ItemSO>();
             it.id = id;
+            _created.Add(it);
             return it;
         }
 
-        static RecipeSO MakeRecipe(params ItemSO[] ingredients)
+        RecipeSO MakeRecipe(params ItemSO[] ingredients)
         {
             var r = ScriptableObject.CreateInstance<RecipeSO>();
             r.ingredients = ingredients;
+            _created.Add(r);
             return r;
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            RecipeMatcher.Init(System.Array.Empty<RecipeSO>());
+            foreach (var o in _created) Object.DestroyImmediate(o);
+            _created.Clear();
         }
 
         [Test]
