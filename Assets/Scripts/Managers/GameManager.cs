@@ -29,7 +29,7 @@ namespace TOME.Managers
             CurrentStage = stage;
             LastStageResult = StageResult.None;
             PendingPostDialogueId = null;
-            StartCoroutine(SceneLoader.LoadAsync(SceneKeys.Stage));
+            SceneFader.I.TransitionToScene(SceneKeys.Stage);
         }
 
         // StageManager.OnFinished에서 호출 — 대사 책임을 맵 씬으로 이전하는 와이어링
@@ -45,7 +45,7 @@ namespace TOME.Managers
         public void ReturnToMap()
         {
             Time.timeScale = 1f;
-            StartCoroutine(SceneLoader.LoadAsync(SceneKeys.Map));
+            SceneFader.I.TransitionToScene(SceneKeys.Map);
         }
     }
 }
