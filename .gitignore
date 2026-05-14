@@ -55,3 +55,9 @@ sysinfo.txt
 !Assets/
 !Packages/
 !ProjectSettings/
+
+# Claude Code session data
+.claude/
+
+# VS solution
+*.slnx
