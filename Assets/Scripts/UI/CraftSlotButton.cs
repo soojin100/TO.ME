@@ -15,10 +15,9 @@ namespace TOME.UI
         int _index;
         Action<int> _cb;
 
-        void Awake() { _btn = GetComponent<Button>(); }
-
         public void Init(int index, Action<int> onClick)
         {
+            if (_btn == null) _btn = GetComponent<Button>();
             _index = index;
             _cb = onClick;
             _btn.onClick.AddListener(() => _cb?.Invoke(_index));
