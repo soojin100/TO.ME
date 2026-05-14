@@ -55,6 +55,7 @@ namespace TOME.Managers
         {
             if (player) player.EquipCharacter(ch, GameManager.I.CurrentNode?.bonus);
             CombatManager.I?.Resume();
+            if (AudioManager.I != null) AudioManager.I.PlaySfx(AudioManager.I.dog2Sfx);
         }
 
         void OnFinished(bool win)

@@ -100,6 +100,7 @@ namespace TOME.Managers
             AliveOnField    = Mathf.Max(0, AliveOnField - 1);
             RemainingToKill = Mathf.Max(0, RemainingToKill - 1);
             OnCountChanged?.Invoke(RemainingToKill, TotalEnemies);
+            if (AudioManager.I != null) AudioManager.I.PlaySfx(AudioManager.I.enemySfx);
 
             var go = e.gameObject;
             if (instToDef.TryGetValue(go, out var def))

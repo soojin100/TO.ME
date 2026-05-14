@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using TOME.Core;
 using TOME.Data;
 using TOME.Managers;
 
@@ -44,6 +45,11 @@ namespace TOME.UI
             if (root) root.SetActive(true);
             if (speakerLabel) speakerLabel.text = e.speaker;
             if (textLabel)    textLabel.text    = e.text;
+            if (AudioManager.I != null)
+            {
+                bool isOwner = e.speaker != null && e.speaker.Contains("주인");
+                AudioManager.I.PlaySfx(isOwner ? AudioManager.I.humanSfx : AudioManager.I.dogSfx);
+            }
         }
 
         void OnEnd()
