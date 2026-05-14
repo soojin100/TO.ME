@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TOME.Core;
 using TOME.Data;
+using TOME.Gameplay.Enemy;
 using TOME.Gameplay.Player;
 using TOME.Gameplay.Merge;
 using TOME.UI;
@@ -25,6 +26,7 @@ namespace TOME.Managers
 
             RecipeMatcher.Init(recipes);
             InventoryManager.I?.Clear();
+            EnemyRegistry.Clear();
 
             if (player)
             {
@@ -41,6 +43,12 @@ namespace TOME.Managers
 
             if (CombatManager.I != null)     CombatManager.I.OnFinished        += OnFinished;
             if (MergeCraftManager.I != null) MergeCraftManager.I.OnCraftSucceeded += OnCrafted;
+            if (player != null)              player.OnDied                     += OnPlayerDied;
+        }
+
+        void OnPlayerDied()
+        {
+            CombatManager.I?.Finish(false);
         }
 
         void OnCrafted(CharacterSO ch)
@@ -61,6 +69,7 @@ namespace TOME.Managers
         {
             if (CombatManager.I != null)     CombatManager.I.OnFinished        -= OnFinished;
             if (MergeCraftManager.I != null) MergeCraftManager.I.OnCraftSucceeded -= OnCrafted;
+            if (player != null) player.OnDied -= OnPlayerDied;
         }
     }
 }

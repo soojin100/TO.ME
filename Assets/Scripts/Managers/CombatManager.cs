@@ -139,7 +139,7 @@ namespace TOME.Managers
             AudioListener.pause = false;
         }
 
-        void Finish(bool win)
+        public void Finish(bool win)
         {
             if (IsFinished) return;
             IsFinished = true;

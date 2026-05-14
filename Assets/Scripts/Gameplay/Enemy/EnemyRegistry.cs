@@ -10,6 +10,7 @@ namespace TOME.Gameplay.Enemy
 
         public static void Register  (EnemyBase e) { if (e && !alive.Contains(e)) alive.Add(e); }
         public static void Unregister(EnemyBase e) { alive.Remove(e); }
+        public static void Clear() => alive.Clear();
 
         public static EnemyBase FindNearest(Vector3 from, float maxRange)
         {
