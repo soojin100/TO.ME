@@ -32,6 +32,7 @@ namespace TOME.Managers
             StartCoroutine(SceneLoader.LoadAsync(SceneKeys.Stage));
         }
 
+        // StageManager.OnFinished에서 호출 — 대사 책임을 맵 씬으로 이전하는 와이어링
         public void RecordStageResult(bool win)
         {
             LastStageResult = win ? StageResult.Win : StageResult.Lose;

@@ -143,6 +143,9 @@ namespace TOME.Managers
         {
             if (IsFinished) return;
             IsFinished = true;
+            IsPaused = false;
+            AudioListener.pause = false;
+            Time.fixedDeltaTime = savedFixedDt > 0f ? savedFixedDt : 0.02f;
             Time.timeScale = 0f;
             OnFinished?.Invoke(win);
         }

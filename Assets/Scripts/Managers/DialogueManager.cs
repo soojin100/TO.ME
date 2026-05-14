@@ -51,7 +51,6 @@ namespace TOME.Managers
         {
             if (!IsPlaying) return;
             _skip = true;
-            _advance = true;
         }
 
         IEnumerator Run(string startId)
@@ -63,7 +62,7 @@ namespace TOME.Managers
             {
                 OnLine?.Invoke(e);
                 _advance = false;
-                while (!_advance) yield return null;
+                while (!_advance && !_skip) yield return null;
                 cur = e.next;
             }
             IsPlaying = false;
