@@ -30,7 +30,7 @@ namespace TOME.Utils
             return dict;
         }
 
-        // 쉼표 안 따옴표 안전 처리(간이)
+        // 쉼표/따옴표 처리. 따옴표 안의 "" 는 리터럴 " 로 이스케이프.
         static List<string> SplitCsv(string line)
         {
             var result = new List<string>(4);
@@ -39,7 +39,12 @@ namespace TOME.Utils
             for (int i = 0; i < line.Length; i++)
             {
                 char ch = line[i];
-                if (ch == '"') { inQ = !inQ; continue; }
+                if (ch == '"')
+                {
+                    if (inQ && i + 1 < line.Length && line[i + 1] == '"') { buf.Append('"'); i++; }
+                    else inQ = !inQ;
+                    continue;
+                }
                 if (ch == ',' && !inQ) { result.Add(buf.ToString()); buf.Clear(); }
                 else buf.Append(ch);
             }

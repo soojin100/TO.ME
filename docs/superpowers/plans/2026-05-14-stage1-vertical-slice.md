@@ -1818,7 +1818,7 @@ Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>"
 
 - [ ] **Step 3: 매니저 배치**
 
-- `CombatManager` ← `CombatManager`. 필드: enemyRoot = EnemyRoot, enemyPrefab = `Enemy.prefab`, spawnXRange = (-3, 3), spawnY = 4.5, prewarmPerType = 4
+- `CombatManager` ← `CombatManager`. 필드: enemyRoot = EnemyRoot, enemyPrefab = `Enemy.prefab`, spawnXRange = (-3, 3), spawnY = 4.5, enemyPrewarmCount = 4
 - `InventoryManager` ← `InventoryManager`
 - `MergeCraftManager` ← `MergeCraftManager`
 - `ItemDropManager` ← `ItemDropManager`. 필드: itemPickupPrefab = `ItemPickup.prefab`, itemRoot = ItemRoot, collectionY = -7, driftSpeed = 2.5, timedDropInterval = 6, timedSpawnXRange = (-2.5, 2.5), timedSpawnY = 3, prewarm = 6

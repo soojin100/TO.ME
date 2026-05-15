@@ -29,7 +29,6 @@ namespace TOME.Tests.EditMode
         [TearDown]
         public void TearDown()
         {
-            RecipeMatcher.Init(System.Array.Empty<RecipeSO>());
             foreach (var o in _created) Object.DestroyImmediate(o);
             _created.Clear();
         }
@@ -40,10 +39,11 @@ namespace TOME.Tests.EditMode
             var potion = MakeItem("potion");
             var star = MakeItem("star");
             var recipe = MakeRecipe(potion, star);
-            RecipeMatcher.Init(new[] { recipe });
+            var matcher = new RecipeMatcher();
+            matcher.Init(new[] { recipe });
 
-            var matchAB = RecipeMatcher.Match(new List<ItemSO> { potion, star });
-            var matchBA = RecipeMatcher.Match(new List<ItemSO> { star, potion });
+            var matchAB = matcher.Match(new List<ItemSO> { potion, star });
+            var matchBA = matcher.Match(new List<ItemSO> { star, potion });
 
             Assert.AreSame(recipe, matchAB);
             Assert.AreSame(recipe, matchBA);
@@ -55,9 +55,10 @@ namespace TOME.Tests.EditMode
             var potion = MakeItem("potion");
             var star = MakeItem("star");
             var sword = MakeItem("sword");
-            RecipeMatcher.Init(new[] { MakeRecipe(potion, star) });
+            var matcher = new RecipeMatcher();
+            matcher.Init(new[] { MakeRecipe(potion, star) });
 
-            var result = RecipeMatcher.Match(new List<ItemSO> { potion, sword });
+            var result = matcher.Match(new List<ItemSO> { potion, sword });
 
             Assert.IsNull(result);
         }

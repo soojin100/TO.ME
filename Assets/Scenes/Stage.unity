@@ -2106,7 +2106,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 2020189849917299389, guid: 9e6a0562a2094934facb22969424c9c7, type: 3}
   spawnXRange: {x: -3, y: 3}
   spawnY: 4.5
-  prewarmPerType: 4
+  enemyPrewarmCount: 4
 --- !u!4 &942886474
 Transform:
   m_ObjectHideFlags: 0

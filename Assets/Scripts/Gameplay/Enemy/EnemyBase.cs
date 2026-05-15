@@ -11,9 +11,11 @@ namespace TOME.Gameplay.Enemy
     {
         public EnemySO Def { get; private set; }
         public int Hp { get; private set; }
+        public bool IsAlive => _alive;
 
         Action<EnemyBase> onDeath;
         Transform _tr;
+        PlayerShell _player;
         Transform _playerTr;
         float _attackCooldown;
         bool _alive;
@@ -32,8 +34,8 @@ namespace TOME.Gameplay.Enemy
             _attackCooldown = 0f;
             _alive   = true;
 
-            var ps = FindPlayer();
-            _playerTr = ps ? ps.transform : null;
+            _player   = FindPlayer();
+            _playerTr = _player ? _player.transform : null;
 
             gameObject.SetActive(true);
             EnemyRegistry.Register(this);
@@ -73,8 +75,7 @@ namespace TOME.Gameplay.Enemy
                 _attackCooldown -= Time.deltaTime;
                 if (_attackCooldown <= 0f)
                 {
-                    var ps = _playerTr.GetComponent<PlayerShell>();
-                    if (ps) ps.TakeDamage(Def.atk);
+                    if (_player) _player.TakeDamage(Def.atk);
                     _attackCooldown = AttackPeriod;
                 }
             }

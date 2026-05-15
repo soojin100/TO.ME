@@ -16,7 +16,6 @@ namespace TOME.Map
         [SerializeField] Color   unlockedColor = Color.white;
 
         Button _btn;
-        bool   _lastUnlocked;
 
         void Awake()
         {
@@ -25,20 +24,16 @@ namespace TOME.Map
             if (def && icon && def.iconOnMap) icon.sprite = def.iconOnMap;
         }
 
-        void Start()    { Refresh(true); }
-        void OnEnable() { Refresh(true); }
+        void Start()    { Refresh(); }
+        void OnEnable() { Refresh(); }
 
-        void Refresh(bool force)
+        void Refresh()
         {
             if (!def) return;
             bool u = MapManager.I != null && MapManager.I.IsUnlocked(def);
-            if (!force && u == _lastUnlocked) return;
-            _lastUnlocked = u;
             _btn.interactable = u;
             if (icon) icon.color = u ? unlockedColor : lockedColor;
         }
-
-        public void NotifyUnlockChanged() => Refresh(false);
 
         void OnClick()
         {

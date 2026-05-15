@@ -41,6 +41,9 @@ namespace TOME.Gameplay.Items
             Vector3 p = _tr.position;
             p.y = Mathf.MoveTowards(p.y, _targetY, _driftSpeed * Time.deltaTime);
             _tr.position = p;
+
+            // 수집 영역까지 내려왔는데 미획득 시 회수 — 필드에 무한 누적 방지
+            if (Mathf.Approximately(p.y, _targetY)) Despawn();
         }
 
         void OnTriggerEnter2D(Collider2D other)

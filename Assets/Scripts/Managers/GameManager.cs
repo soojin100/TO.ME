@@ -22,6 +22,8 @@ namespace TOME.Managers
             I = this; DontDestroyOnLoad(gameObject);
         }
 
+        void OnDestroy() { if (I == this) I = null; }
+
         public void EnterStage(NodeSO node, StageSO stage)
         {
             Time.timeScale = 1f;

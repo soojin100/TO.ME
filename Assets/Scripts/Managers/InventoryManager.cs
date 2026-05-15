@@ -21,6 +21,8 @@ namespace TOME.Managers
             I = this;
         }
 
+        void OnDestroy() { if (I == this) I = null; }
+
         public void Clear()
         {
             items.Clear();

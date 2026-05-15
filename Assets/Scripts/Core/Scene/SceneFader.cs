@@ -21,6 +21,8 @@ namespace TOME.Core
             if (group) { group.alpha = 0f; group.blocksRaycasts = false; }
         }
 
+        void OnDestroy() { if (I == this) I = null; }
+
         /// 페이드아웃 → 씬 로드 → 페이드인을 영속 SceneFader가 호스팅한다.
         /// 호출자(BootstrapEntry/GameManager)가 씬 언로드로 파괴돼도 전환이 끊기지 않는다.
         public void TransitionToScene(string sceneName, float? fade = null)

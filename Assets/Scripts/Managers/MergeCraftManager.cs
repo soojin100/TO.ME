@@ -14,6 +14,7 @@ namespace TOME.Managers
         public const int SlotCount = 4;
         readonly ItemSO[] slots = new ItemSO[SlotCount];
         readonly List<ItemSO> _previewBuf = new(SlotCount);   // GC 회피
+        readonly RecipeMatcher _matcher = new();
 
         public event Action OnSlotsChanged;
         public event Action<CharacterSO> OnCraftSucceeded;
@@ -23,6 +24,11 @@ namespace TOME.Managers
             if (I != null && I != this) { Destroy(gameObject); return; }
             I = this;
         }
+
+        void OnDestroy() { if (I == this) I = null; }
+
+        /// 씬별 조합 규칙 주입. StageManager / MapStageGate가 호출.
+        public void SetRecipes(IEnumerable<RecipeSO> recipes) => _matcher.Init(recipes);
 
         public ItemSO GetSlot(int i) => (i >= 0 && i < SlotCount) ? slots[i] : null;
 
@@ -50,7 +56,7 @@ namespace TOME.Managers
         {
             _previewBuf.Clear();
             for (int i = 0; i < SlotCount; i++) if (slots[i]) _previewBuf.Add(slots[i]);
-            var recipe = RecipeMatcher.Match(_previewBuf);
+            var recipe = _matcher.Match(_previewBuf);
             return recipe ? recipe.result : null;
         }
 

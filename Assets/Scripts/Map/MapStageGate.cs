@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TOME.Core;
 using TOME.Data;
 using TOME.Managers;
-using TOME.Gameplay.Merge;
 
 namespace TOME.Map
 {
-    /// <summary>맵에서 조합을 성공하면 스테이지 버튼을 잠금 해제한다.</summary>
+    /// <summary>맵에서 조합을 성공하면 스테이지 버튼을 잠금 해제한다. 해제 상태는 저장에 영속.</summary>
     public class MapStageGate : MonoBehaviour
     {
         [SerializeField] List<RecipeSO> recipes;       // 맵에서 가능한 조합 목록
@@ -16,9 +16,15 @@ namespace TOME.Map
 
         void Start()
         {
-            RecipeMatcher.Init(recipes);
-            if (stageButton) stageButton.interactable = false;
-            if (MergeCraftManager.I != null)
+            MergeCraftManager.I?.SetRecipes(recipes);
+
+            bool alreadyUnlocked = unlockResult != null
+                && SaveSystemManager.I != null
+                && SaveSystemManager.I.IsCharUnlocked(unlockResult.id);
+
+            if (stageButton) stageButton.interactable = alreadyUnlocked;
+
+            if (!alreadyUnlocked && MergeCraftManager.I != null)
                 MergeCraftManager.I.OnCraftSucceeded += OnCraftSucceeded;
         }
 
@@ -30,8 +36,9 @@ namespace TOME.Map
 
         void OnCraftSucceeded(CharacterSO result)
         {
-            if (result == unlockResult && stageButton)
-                stageButton.interactable = true;
+            if (result != unlockResult) return;
+            if (unlockResult != null) SaveSystemManager.I?.UnlockChar(unlockResult.id);
+            if (stageButton) stageButton.interactable = true;
         }
     }
 }

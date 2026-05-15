@@ -1,18 +1,19 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 using TOME.Data;
 
 namespace TOME.Gameplay.Merge
 {
-    /// 부팅 시 모든 RecipeSO를 정렬키 → SO 로 캐시. 매칭 O(1).
-    public static class RecipeMatcher
+    /// 레시피 목록을 정렬키 → SO 로 캐시. 매칭 O(1).
+    /// 인스턴스 단위라 서로 다른 조합 규칙 집합이 동시에 공존해도 충돌하지 않는다.
+    public class RecipeMatcher
     {
-        static Dictionary<string, RecipeSO> cache;
+        readonly Dictionary<string, RecipeSO> cache = new(32);
 
-        public static void Init(IEnumerable<RecipeSO> recipes)
+        public void Init(IEnumerable<RecipeSO> recipes)
         {
-            cache = new Dictionary<string, RecipeSO>(32);
+            cache.Clear();
+            if (recipes == null) return;
             foreach (var r in recipes)
             {
                 if (!r || r.ingredients == null) continue;
@@ -21,9 +22,9 @@ namespace TOME.Gameplay.Merge
             }
         }
 
-        public static RecipeSO Match(IList<ItemSO> ingredients)
+        public RecipeSO Match(IList<ItemSO> ingredients)
         {
-            if (cache == null || ingredients == null || ingredients.Count == 0) return null;
+            if (ingredients == null || ingredients.Count == 0) return null;
             var key = string.Join(",", ingredients.Where(i => i).Select(i => i.id).OrderBy(s => s));
             return cache.TryGetValue(key, out var r) ? r : null;
         }
