@@ -12,14 +12,25 @@ namespace TOME.UI
         [SerializeField] Image icon;
 
         Button _btn;
+        bool _listenerAdded;
         ItemSO _item;
         Action<ItemSO> _cb;
 
-        void Awake()
+        Button Btn
         {
-            _btn = GetComponent<Button>();
-            _btn.onClick.AddListener(() => { if (_item != null) _cb?.Invoke(_item); });
+            get
+            {
+                if (_btn == null) _btn = GetComponent<Button>();
+                if (!_listenerAdded && _btn != null)
+                {
+                    _btn.onClick.AddListener(() => { if (_item != null) _cb?.Invoke(_item); });
+                    _listenerAdded = true;
+                }
+                return _btn;
+            }
         }
+
+        void Awake() { var _ = Btn; }
 
         public void Bind(ItemSO item, float iconScale, Action<ItemSO> cb)
         {
@@ -31,7 +42,7 @@ namespace TOME.UI
                 if (item != null && item.icon) icon.sprite = item.icon;
                 icon.transform.localScale = Vector3.one * iconScale;
             }
-            _btn.interactable = item != null;
+            Btn.interactable = item != null;
         }
 
         public void Clear()
@@ -39,7 +50,7 @@ namespace TOME.UI
             _item = null;
             _cb   = null;
             if (icon) icon.enabled = false;
-            _btn.interactable = false;
+            Btn.interactable = false;
         }
     }
 }

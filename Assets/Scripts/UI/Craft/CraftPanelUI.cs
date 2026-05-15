@@ -21,7 +21,8 @@ namespace TOME.UI
 
         void Awake()
         {
-            if (root) root.SetActive(false);
+            // root 초기 비활성은 씬 상태에 맡긴다. Awake에서 SetActive(false) 호출 시
+            // root가 자기 자신/조상이면 Open() 직후 Awake가 다시 끄는 회로 발생.
             for (int i = 0; i < craftSlots.Length; i++)
             {
                 int idx = i;
@@ -29,18 +30,25 @@ namespace TOME.UI
             }
             if (resultButton) resultButton.onClick.AddListener(OnResultClicked);
             if (closeButton)  closeButton.onClick.AddListener(OnClose);
+
+            // 인벤토리 바는 항상 활성 상태이므로 Awake에서 한 번만 구독.
+            // 패널이 닫혀 있어도 슬롯 클릭으로 자동 열림.
+            if (inventoryBar) inventoryBar.OnItemClicked += OnInventoryItemClicked;
         }
 
         void OnEnable()
         {
-            if (inventoryBar) inventoryBar.OnItemClicked += OnInventoryItemClicked;
             if (MergeCraftManager.I != null) MergeCraftManager.I.OnSlotsChanged += RefreshSlots;
         }
 
         void OnDisable()
         {
-            if (inventoryBar) inventoryBar.OnItemClicked -= OnInventoryItemClicked;
             if (MergeCraftManager.I != null) MergeCraftManager.I.OnSlotsChanged -= RefreshSlots;
+        }
+
+        void OnDestroy()
+        {
+            if (inventoryBar) inventoryBar.OnItemClicked -= OnInventoryItemClicked;
         }
 
         /// <summary>HudUI가 인벤토리 버튼 클릭 시 호출.</summary>
@@ -63,6 +71,10 @@ namespace TOME.UI
         void OnInventoryItemClicked(ItemSO item)
         {
             if (MergeCraftManager.I == null) return;
+
+            // 패널이 닫혀 있으면 먼저 열기
+            if (root && !root.activeSelf) Open();
+
             for (int i = 0; i < MergeCraftManager.SlotCount; i++)
             {
                 if (MergeCraftManager.I.GetSlot(i) == null)

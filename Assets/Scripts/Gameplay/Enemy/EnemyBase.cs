@@ -45,7 +45,7 @@ namespace TOME.Gameplay.Enemy
         static PlayerShell FindPlayer()
         {
             if (_cachedPlayer) return _cachedPlayer;
-            _cachedPlayer = UnityEngine.Object.FindFirstObjectByType<PlayerShell>();
+            _cachedPlayer = UnityEngine.Object.FindAnyObjectByType<PlayerShell>();
             return _cachedPlayer;
         }
 

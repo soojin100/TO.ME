@@ -43,6 +43,16 @@ namespace TOME.UI
 
         void EnsureButtons()
         {
+            // 씬에 미리 배치된 자식 슬롯이 있으면 먼저 흡수 (에디터에서 4칸이 보이도록)
+            if (_buttons.Count == 0 && slotContainer != null)
+            {
+                for (int i = 0; i < slotContainer.childCount && _buttons.Count < visibleCount; i++)
+                {
+                    if (slotContainer.GetChild(i).TryGetComponent<InventorySlotButton>(out var existing))
+                        _buttons.Add(existing);
+                }
+            }
+            // 부족하면 프리팹으로 채움
             while (_buttons.Count < visibleCount && slotButtonPrefab && slotContainer)
             {
                 var go = Instantiate(slotButtonPrefab, slotContainer);
@@ -69,8 +79,10 @@ namespace TOME.UI
                 else
                     _buttons[i].Clear();
             }
-            if (prevButton) prevButton.interactable = _page > 0;
-            if (nextButton) nextButton.interactable = _page < maxPage;
+            // 아이템 수가 visibleCount 이하이면 화살표 자체를 숨김 (회색 처리 X)
+            bool needsPaging = count > visibleCount;
+            if (prevButton) prevButton.gameObject.SetActive(needsPaging && _page > 0);
+            if (nextButton) nextButton.gameObject.SetActive(needsPaging && _page < maxPage);
         }
 
         void OnSlotClicked(ItemSO item) => OnItemClicked?.Invoke(item);

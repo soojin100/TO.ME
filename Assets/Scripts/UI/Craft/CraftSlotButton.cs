@@ -15,12 +15,16 @@ namespace TOME.UI
         int _index;
         Action<int> _cb;
 
+        Button Btn
+        {
+            get { if (_btn == null) _btn = GetComponent<Button>(); return _btn; }
+        }
+
         public void Init(int index, Action<int> onClick)
         {
-            if (_btn == null) _btn = GetComponent<Button>();
             _index = index;
             _cb = onClick;
-            _btn.onClick.AddListener(() => _cb?.Invoke(_index));
+            Btn.onClick.AddListener(() => _cb?.Invoke(_index));
         }
 
         public void Bind(ItemSO item)
