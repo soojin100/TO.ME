@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e818f926cfd0d6249af2f7c0a4f13d16, type: 3}
+  m_Name: Node_1_2
+  m_EditorClassIdentifier: TOME::TOME.Data.NodeSO
+  id: stage_1_2
+  nodeName: "복도 1-2"
+  mapPosition: {x: 0, y: 0}
+  iconOnMap: {fileID: 8692975658937942140, guid: 9f30b8396d97b91459c8a004f4e6107b, type: 3}
+  stages:
+  - {fileID: 11400000, guid: 4ce46a17c3566e2409c8467e38951a6e, type: 2}
+  bonus:
+    atkMul: 0
+    atkSpeedMul: 0
+    hpMul: 0
+    moveSpeedMul: 0
+  unlocksOnClear: []
+  unlockedByDefault: 1

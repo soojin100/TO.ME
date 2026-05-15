@@ -22,6 +22,8 @@ namespace TOME.Core
             I = this; DontDestroyOnLoad(gameObject);
         }
 
+        void OnDestroy() { if (I == this) I = null; }
+
         public void PlayBgm(AudioClip clip)
         {
             if (!bgmSource || !clip) return;

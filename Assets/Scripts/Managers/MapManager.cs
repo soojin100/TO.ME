@@ -20,6 +20,8 @@ namespace TOME.Managers
             RebuildUnlockSet();
         }
 
+        void OnDestroy() { if (I == this) I = null; }
+
         void RebuildUnlockSet()
         {
             unlocked.Clear();

@@ -5,7 +5,6 @@ using TOME.Core;
 using TOME.Data;
 using TOME.Gameplay.Enemy;
 using TOME.Gameplay.Player;
-using TOME.Gameplay.Merge;
 using TOME.UI;
 
 namespace TOME.Managers
@@ -25,7 +24,7 @@ namespace TOME.Managers
             var stage = GameManager.I?.CurrentStage;
             if (!stage) yield break;
 
-            RecipeMatcher.Init(recipes);
+            MergeCraftManager.I?.SetRecipes(recipes);
             InventoryManager.I?.Clear();
             EnemyRegistry.Clear();
 
@@ -38,13 +37,14 @@ namespace TOME.Managers
 
             yield return null;
 
-            CombatManager.I?.BeginStage(stage);
-            if (itemDropManager != null && stage.spawns != null && stage.spawns.Length > 0)
-                itemDropManager.Begin(stage.spawns[0].enemy);
-
+            // 구독을 BeginStage 앞에 — 즉시 종료 조건이 생겨도 OnFinished 누락 방지
             if (CombatManager.I != null)     CombatManager.I.OnFinished        += OnFinished;
             if (MergeCraftManager.I != null) MergeCraftManager.I.OnCraftSucceeded += OnCrafted;
             if (player != null)              player.OnDied                     += OnPlayerDied;
+
+            CombatManager.I?.BeginStage(stage);
+            if (itemDropManager != null && stage.spawns != null && stage.spawns.Length > 0)
+                itemDropManager.Begin(stage.spawns[0].enemy);
         }
 
         void OnPlayerDied()

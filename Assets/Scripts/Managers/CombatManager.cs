@@ -17,7 +17,7 @@ namespace TOME.Managers
         [SerializeField] GameObject enemyPrefab;       // EnemyBase + SpriteRenderer + Collider2D
         [SerializeField] Vector2    spawnXRange = new(-3f, 3f);
         [SerializeField] float      spawnY = 4.5f;
-        [SerializeField] int        prewarmPerType = 4;
+        [SerializeField] int        enemyPrewarmCount = 4;
 
         public int   TotalEnemies   { get; private set; }
         public int   RemainingToKill{ get; private set; }
@@ -31,7 +31,7 @@ namespace TOME.Managers
         public event Action<bool>    OnFinished;
         public event Action<EnemySO,Vector3> OnEnemyKilled;
 
-        readonly Dictionary<EnemySO, ObjectPool> pools = new(8);
+        ObjectPool enemyPool;
         readonly Dictionary<GameObject, EnemySO> instToDef = new(64);
         float savedFixedDt;
         StageSO stage;
@@ -42,6 +42,8 @@ namespace TOME.Managers
             if (I != null && I != this) { Destroy(gameObject); return; }
             I = this;
         }
+
+        void OnDestroy() { if (I == this) I = null; }
 
         public void BeginStage(StageSO s)
         {
@@ -56,10 +58,9 @@ namespace TOME.Managers
             RemainingToKill = TotalEnemies;
             AliveOnField    = 0;
 
-            // 풀 예열
-            foreach (var e in s.spawns)
-                if (e.enemy && !pools.ContainsKey(e.enemy))
-                    pools[e.enemy] = new ObjectPool(enemyPrefab, prewarmPerType, enemyRoot);
+            // 풀 예열 — 모든 적이 동일 프리팹을 쓰므로 단일 풀
+            if (enemyPool == null && enemyPrefab)
+                enemyPool = new ObjectPool(enemyPrefab, enemyPrewarmCount, enemyRoot);
 
             OnCountChanged?.Invoke(RemainingToKill, TotalEnemies);
             OnTimerChanged?.Invoke(TimeLeft);
@@ -84,9 +85,9 @@ namespace TOME.Managers
 
         void SpawnOne(EnemySO def)
         {
-            if (!def || !pools.TryGetValue(def, out var pool)) return;
+            if (!def || enemyPool == null) return;
             float x = UnityEngine.Random.Range(spawnXRange.x, spawnXRange.y);
-            var go = pool.Get(new Vector3(x, spawnY, 0f), Quaternion.identity);
+            var go = enemyPool.Get(new Vector3(x, spawnY, 0f), Quaternion.identity);
 
             // SpriteRenderer 정의 반영 (프리팹의 SR 재사용)
             if (go.TryGetComponent<SpriteRenderer>(out var sr) && def.sprite) sr.sprite = def.sprite;
@@ -108,11 +109,9 @@ namespace TOME.Managers
 
             var go = e.gameObject;
             if (instToDef.TryGetValue(go, out var def))
-            {
                 OnEnemyKilled?.Invoke(def, go.transform.position);
-                if (pools.TryGetValue(def, out var pool)) pool.Release(go);
-                else go.SetActive(false);
-            }
+
+            if (enemyPool != null) enemyPool.Release(go);
             else go.SetActive(false);
 
             if (RemainingToKill == 0) Finish(true);

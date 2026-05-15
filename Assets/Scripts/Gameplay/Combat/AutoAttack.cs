@@ -16,13 +16,18 @@ namespace TOME.Gameplay.Combat
 
         public void Configure(AttackPatternSO p, Func<float> atk, Func<float> spd, Func<float> range)
         {
-            pattern  = p;
             getAtk   = atk;
             getAtkSpd= spd;
             getRange = range;
 
-            if (p && p.projectilePrefab)
-                projectilePool = new ObjectPool(p.projectilePrefab, 8);
+            // 패턴이 바뀔 때만 풀 재생성 (동일 패턴 재장착 시 누수 방지)
+            if (p != pattern)
+            {
+                projectilePool = (p && p.projectilePrefab)
+                    ? new ObjectPool(p.projectilePrefab, 8)
+                    : null;
+            }
+            pattern = p;
         }
 
         void Update()
@@ -44,7 +49,7 @@ namespace TOME.Gameplay.Combat
             {
                 var go = projectilePool.Get(transform.position, Quaternion.identity);
                 if (go.TryGetComponent<Projectile>(out var pj))
-                    pj.Launch(target.transform.position, pattern.projectileSpeed,
+                    pj.Launch(target, pattern.projectileSpeed,
                               Mathf.RoundToInt(getAtk()), projectilePool);
             }
             else

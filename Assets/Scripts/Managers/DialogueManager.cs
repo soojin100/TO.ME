@@ -23,13 +23,14 @@ namespace TOME.Managers
 
         bool _advance;
         bool _skip;
-        string _startId;
 
         void Awake()
         {
             if (I != null && I != this) { Destroy(gameObject); return; }
             I = this; DontDestroyOnLoad(gameObject);
         }
+
+        void OnDestroy() { if (I == this) I = null; }
 
         public void PreloadAll() => table = CsvImporter.LoadDialogue(dialogueCsv);
 
@@ -38,7 +39,6 @@ namespace TOME.Managers
             if (IsPlaying) return false;
             if (string.IsNullOrEmpty(startId) || table == null) return false;
             if (SaveSystemManager.I != null && SaveSystemManager.I.HasSeenDialogue(startId)) return false;
-            _startId = startId;
             StartCoroutine(Run(startId));
             return true;
         }
