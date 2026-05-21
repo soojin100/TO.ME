@@ -14,10 +14,14 @@ namespace TOME.UI
         [SerializeField] GameObject  root;
         [SerializeField] GameObject  clearGraphic;
         [SerializeField] GameObject  failGraphic;
+        [SerializeField] TMP_Text    resultText;        // To.You 스타일 텍스트형 결과 (선택)
+        [SerializeField] string      winText  = "스테이지 클리어!";
+        [SerializeField] string      loseText = "실패...";
         [SerializeField] GameObject  starsGroup;
         [SerializeField] Transform   rewardContainer;
         [SerializeField] GameObject  rewardIconPrefab;   // Image + TMP_Text
         [SerializeField] Button      returnButton;
+        [SerializeField] Button      retryButton;        // 다시하기 (선택)
         [SerializeField] PlayerShell player;
         [SerializeField] Transform   centerAnchor;
         [SerializeField] float       moveDuration = 0.5f;
@@ -31,6 +35,11 @@ namespace TOME.UI
                 returnButton.onClick.AddListener(OnReturn);
                 returnButton.gameObject.SetActive(false);
             }
+            if (retryButton)
+            {
+                retryButton.onClick.AddListener(OnRetry);
+                retryButton.gameObject.SetActive(false);
+            }
         }
 
         public void Show(bool win)
@@ -43,6 +52,7 @@ namespace TOME.UI
             if (root)         root.SetActive(true);
             if (clearGraphic) clearGraphic.SetActive(win);
             if (failGraphic)  failGraphic.SetActive(!win);
+            if (resultText)   resultText.text = win ? winText : loseText;
             if (starsGroup)   starsGroup.SetActive(win);
 
             if (player && centerAnchor)
@@ -64,6 +74,7 @@ namespace TOME.UI
 
             yield return new WaitForSecondsRealtime(showDelay);
             if (returnButton) returnButton.gameObject.SetActive(true);
+            if (retryButton)  retryButton.gameObject.SetActive(true);
         }
 
         void ShowRewards()
@@ -100,6 +111,18 @@ namespace TOME.UI
         {
             if (root) root.SetActive(false);
             GameManager.I?.ReturnToMap();
+        }
+
+        void OnRetry()
+        {
+            if (root) root.SetActive(false);
+            Time.timeScale = 1f;
+            // 같은 스테이지로 재진입 (페이드 전환). 노드/스테이지 정보가 있으면 EnterStage, 없으면 현재 씬 리로드.
+            if (GameManager.I != null && GameManager.I.CurrentStage != null)
+                GameManager.I.EnterStage(GameManager.I.CurrentNode, GameManager.I.CurrentStage);
+            else
+                UnityEngine.SceneManagement.SceneManager.LoadScene(
+                    UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
     }
 }

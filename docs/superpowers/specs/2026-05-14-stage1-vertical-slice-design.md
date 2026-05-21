@@ -3,6 +3,13 @@
 작성일: 2026-05-14
 기반 기획서: `NewGame_TO.ME` (오토배틀 + 머지, Unity 6000.4.0f1, 1080×1920 세로)
 
+## 참고/재사용 가능 리소스
+
+- **자매 프로젝트 `C:\Users\katie\Desktop\To.You`** (별도 Unity 프로젝트). 필요 시 스크립트·스프라이트·사운드 등을 가져와 활용 가능.
+  - 이미 구현된 대사 시스템: `Assets/Scripts/UI/Dialogue/DialogueUI.cs`(타이핑 효과, 화자 이미지, 캐릭터 등장 연출, 발화자 명도 처리, 선택지 팝업), `Assets/Scripts/Data/Dialogue/DialogueNode.cs`, `CharacterImageController`(`SetSpeaking` 명도 토글), `DialogueOverlayController` 등.
+  - 대사창튜토리얼 기획서가 요구하는 기능 다수가 To.You에 선구현돼 있으므로 패턴을 참고/이식한다 (네임스페이스만 `TOME.*`로 정리).
+  - 스프라이트: `Assets/Sprites/`.
+
 ## 목표
 
 기존 코드 뼈대(매니저·ScriptableObject 정의·풀링·세이브·씬 로더) 위에 실제로 플레이 가능한 스테이지 1개를 완성한다. 맵에서 스테이지를 누르고, 전투하고, 아이템을 조합해 캐릭터를 교체하고, 승패 결과를 보고, 맵으로 돌아오는 전체 루프를 검증하는 것이 범위다.

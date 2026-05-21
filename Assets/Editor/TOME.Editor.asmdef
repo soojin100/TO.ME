@@ -1,0 +1,8 @@
+{
+    "name": "TOME.Editor",
+    "rootNamespace": "TOME.EditorTools",
+    "references": ["TOME"],
+    "includePlatforms": ["Editor"],
+    "excludePlatforms": [],
+    "autoReferenced": true
+}

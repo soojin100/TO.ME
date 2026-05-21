@@ -4,12 +4,21 @@ using TOME.Managers;
 
 namespace TOME.UI
 {
-    /// <summary>대사창 클릭 시 다음 줄로 진행. 레이캐스트 가능한 대사 패널에 부착.</summary>
+    /// <summary>대사창 클릭 시 진행. 타이핑 중이면 DialogueUI가 즉시 완성 처리.</summary>
     public class DialogueAdvanceArea : MonoBehaviour, IPointerClickHandler
     {
+        [SerializeField] DialogueUI dialogueUI;
+
+        void Awake()
+        {
+            if (dialogueUI == null) dialogueUI = GetComponentInParent<DialogueUI>();
+            if (dialogueUI == null) dialogueUI = FindObjectOfType<DialogueUI>(true);
+        }
+
         public void OnPointerClick(PointerEventData eventData)
         {
-            DialogueManager.I?.Advance();
+            if (dialogueUI != null) dialogueUI.HandleTap();
+            else DialogueManager.I?.Advance();
         }
     }
 }

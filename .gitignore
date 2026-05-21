@@ -56,6 +56,13 @@ sysinfo.txt
 !Packages/
 !ProjectSettings/
 
+# Office(엑셀) 임시 잠금파일 — Assets/CSV/GameData.xlsx 편집 중 생성
+~$*
+
+# 에디터/MCP 임시 스크린샷
+/[Aa]ssets/[Ss]creenshots/
+/[Aa]ssets/[Ss]creenshots.meta
+
 # Claude Code session data
 .claude/
 

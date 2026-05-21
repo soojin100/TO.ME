@@ -15,6 +15,8 @@ namespace TOME.Core
         public string       lastNodeId;
         public int          coins;
         public long         savedAtUnix;
+        public string       playerName = "제임스";   // 인트로 이름 입력값 (기본값)
+        public bool         seenIntro;               // 첫 실행 튜토리얼 시청 여부
     }
 
     public class SaveSystemManager : MonoBehaviour
@@ -82,6 +84,20 @@ namespace TOME.Core
         public void MarkDialogueSeen(string id)
         {
             if (!Data.seenDialogues.Contains(id)) { Data.seenDialogues.Add(id); Save(); }
+        }
+
+        public string PlayerName =>
+            string.IsNullOrWhiteSpace(Data.playerName) ? "제임스" : Data.playerName;
+        public void SetPlayerName(string name)
+        {
+            Data.playerName = string.IsNullOrWhiteSpace(name) ? "제임스" : name.Trim();
+            Save();
+        }
+
+        public bool SeenIntro => Data.seenIntro;
+        public void MarkIntroSeen()
+        {
+            if (!Data.seenIntro) { Data.seenIntro = true; Save(); }
         }
 
         public bool IsPickupCollected(string id) => Data.collectedPickups.Contains(id);

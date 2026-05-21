@@ -17,12 +17,17 @@ namespace TOME.Managers
         [SerializeField] List<RecipeSO>   recipes;
         [SerializeField] ItemDropManager  itemDropManager;
         [SerializeField] ResultScreenUI   resultScreen;
+        [SerializeField] StageSO          debugStage;   // Stage 씬 단독 실행 테스트용 (Map 미경유 시 사용)
 
         IEnumerator Start()
         {
             Time.timeScale = 1f;
-            var stage = GameManager.I?.CurrentStage;
+            // Map 경유면 GameManager.CurrentStage, 단독 실행이면 debugStage로 폴백
+            var stage = GameManager.I != null ? GameManager.I.CurrentStage : null;
+            if (!stage) stage = debugStage;
             if (!stage) yield break;
+
+            var node = GameManager.I != null ? GameManager.I.CurrentNode : null;
 
             MergeCraftManager.I?.SetRecipes(recipes);
             InventoryManager.I?.Clear();
@@ -32,7 +37,7 @@ namespace TOME.Managers
             {
                 if (playerSpawn) player.transform.position = playerSpawn.position;
                 if (stage.startCharacter)
-                    player.EquipCharacter(stage.startCharacter, GameManager.I.CurrentNode?.bonus);
+                    player.EquipCharacter(stage.startCharacter, node != null ? node.bonus : null);
             }
 
             yield return null;
@@ -54,7 +59,8 @@ namespace TOME.Managers
 
         void OnCrafted(CharacterSO ch)
         {
-            if (player) player.EquipCharacter(ch, GameManager.I.CurrentNode?.bonus);
+            var node = GameManager.I != null ? GameManager.I.CurrentNode : null;
+            if (player) player.EquipCharacter(ch, node != null ? node.bonus : null);
             CombatManager.I?.Resume();
             if (AudioManager.I != null) AudioManager.I.PlaySfx(AudioManager.I.dog2Sfx);
         }
@@ -62,7 +68,8 @@ namespace TOME.Managers
         void OnFinished(bool win)
         {
             if (itemDropManager != null) itemDropManager.Stop();
-            if (win) MapManager.I?.MarkNodeCleared(GameManager.I.CurrentNode);
+            var node = GameManager.I != null ? GameManager.I.CurrentNode : null;
+            if (win && node != null) MapManager.I?.MarkNodeCleared(node);
             GameManager.I?.RecordStageResult(win);
             if (resultScreen) resultScreen.Show(win);
         }

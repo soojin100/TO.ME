@@ -48,11 +48,15 @@ namespace TOME.Core
         {
             if (!group) yield break;
             group.blocksRaycasts = true;
+            group.alpha = from;                 // 시작값 명시 — 스파이크로 첫 프레임이 건너뛰는 문제 방지
+            yield return null;                  // 전환 진입/로드 직후의 큰 deltaTime 프레임 1회 흘려보냄
             float t = 0f;
-            while (t < dur)
+            if (dur <= 0f) dur = 0.0001f;
+            while (t < 1f)
             {
-                t += Time.unscaledDeltaTime;
-                group.alpha = Mathf.Lerp(from, to, t / dur);
+                // 프레임 스파이크가 페이드를 한 번에 끝내지 않도록 per-frame 진행을 제한
+                t += Mathf.Min(Time.unscaledDeltaTime, 0.05f) / dur;
+                group.alpha = Mathf.Lerp(from, to, Mathf.Clamp01(t));
                 yield return null;
             }
             group.alpha = to;
