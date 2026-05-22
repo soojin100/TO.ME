@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Data.ItemSO
   id: star
   displayName: "\uBCC4"
-  icon: {fileID: -1878635728292780709, guid: b2a7ba60edd054147944a2565aed624d, type: 3}
+  icon: {fileID: 21300000, guid: 83f9b6f74374a3f49abb8102e8ae88de, type: 3}
   tier: 0

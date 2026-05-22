@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Data.ItemSO
   id: gem
   displayName: "\uBCF4\uC11D"
-  icon: {fileID: 3046713358202590708, guid: 79a514431cf9390438836ccb528ecd9b, type: 3}
+  icon: {fileID: 21300000, guid: a764e0440ce81f04193e6c07dde24c59, type: 3}
   tier: 1

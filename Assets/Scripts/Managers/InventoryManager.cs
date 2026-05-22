@@ -5,12 +5,12 @@ using TOME.Data;
 
 namespace TOME.Managers
 {
-    /// 스테이지 단위 인벤토리. 스테이지 시작 시 Clear, 종료 시 폐기.
+    /// 맵↔스테이지 공유 인벤토리. 데이터는 정적으로 세션 동안 유지된다.
     public class InventoryManager : MonoBehaviour
     {
         public static InventoryManager I { get; private set; }
 
-        readonly List<ItemSO> items = new(16);     // 인벤토리 바
+        static readonly List<ItemSO> items = new(16);   // 정적: 씬 전환에도 유지(맵↔스테이지 공유)
         public IReadOnlyList<ItemSO> Items => items;
 
         public event Action OnChanged;

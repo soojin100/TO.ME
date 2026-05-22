@@ -24,6 +24,14 @@ namespace TOME.Map
         void Awake()
         {
             _highlight = GetComponent<SpriteHighlight>();
+            SyncIcon();
+        }
+
+        // 스프라이트를 item.icon과 일치시킨다 (잘못된 임시 스프라이트 방지)
+        void SyncIcon()
+        {
+            if (item == null || item.icon == null) return;
+            if (TryGetComponent<SpriteRenderer>(out var sr)) sr.sprite = item.icon;
         }
 
         void Start()

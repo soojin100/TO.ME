@@ -7,7 +7,7 @@ using TOME.Managers;
 
 namespace TOME.UI
 {
-    /// <summary>InventoryManager 바인딩. 가로 페이징, 아이콘 30% 축소 표시.</summary>
+    /// <summary>InventoryManager 바인딩. 가로 페이징, 슬롯 채움 표시(iconScale).</summary>
     public class InventoryBarUI : MonoBehaviour
     {
         [SerializeField] Transform  slotContainer;
@@ -15,17 +15,26 @@ namespace TOME.UI
         [SerializeField] Button     prevButton;
         [SerializeField] Button     nextButton;
         [SerializeField] int        visibleCount = 4;
-        [SerializeField] float      iconScale    = 0.7f;
+        [SerializeField] float      iconScale    = 1f;
 
         public event Action<ItemSO> OnItemClicked;
 
         readonly List<InventorySlotButton> _buttons = new();
         int _page;
         bool _wired;
+        bool _subscribed;
 
-        void OnEnable()
+        void OnEnable() { Bind(); }
+        void Start()    { Bind(); }   // Awake 순서 경쟁 대비: 모든 Awake 후 한 번 더 구독 시도
+
+        // InventoryManager.I 준비 여부와 무관하게 멱등 구독 + 갱신
+        void Bind()
         {
-            if (InventoryManager.I != null) InventoryManager.I.OnChanged += Refresh;
+            if (InventoryManager.I != null && !_subscribed)
+            {
+                InventoryManager.I.OnChanged += Refresh;
+                _subscribed = true;
+            }
             if (!_wired)
             {
                 if (prevButton) prevButton.onClick.AddListener(PrevPage);
@@ -38,7 +47,8 @@ namespace TOME.UI
 
         void OnDisable()
         {
-            if (InventoryManager.I != null) InventoryManager.I.OnChanged -= Refresh;
+            if (_subscribed && InventoryManager.I != null) InventoryManager.I.OnChanged -= Refresh;
+            _subscribed = false;
         }
 
         void EnsureButtons()

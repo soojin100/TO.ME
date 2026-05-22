@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f70ed7ad6f513974199bcdeb7fca63e2, type: 3}
-  m_Name: Stage_1
+  m_Name: Stage_Tutorial
   m_EditorClassIdentifier: TOME::TOME.Data.StageSO
   id: stage1
-  title: "\uC9D1\uD0C8\uCD9C \uC2DC\uB3C4 1"
+  title: "\uD29C\uD1A0\uB9AC\uC5BC"
+  chapter: {fileID: 11400000, guid: 31c2e0719e706a745b37f59fd4e6bc87, type: 2}
+  difficulty: 1
   thumbnail: {fileID: 8344611326427422913, guid: 09cc343868139f8459419f3ab03e370b, type: 3}
   introText: "\uD0DD\uBC30 \uC0C1\uC790\uB97C \uD30C\uAD34 \uC2DC\uCF1C \uC8FC\uC778\uC758
     \uC815\uC2E0\uC744 \uC3D9 \uBE7C\uB193\uC790"

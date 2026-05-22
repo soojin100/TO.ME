@@ -20,5 +20,5 @@ MonoBehaviour:
   hp: 100
   atk: 10
   atkSpeed: 1
-  atkRange: 4
+  atkRange: 8
   attackPattern: {fileID: 11400000, guid: f616be62229438d4cafbc8ca2fe424ae, type: 2}

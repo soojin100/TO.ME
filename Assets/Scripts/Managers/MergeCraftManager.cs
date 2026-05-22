@@ -12,6 +12,9 @@ namespace TOME.Managers
         public static MergeCraftManager I { get; private set; }
 
         public const int SlotCount = 4;
+
+        [SerializeField] CharacterSO fallbackResult;   // 레시피 미일치 시 결과(똥 캐릭터)
+
         readonly ItemSO[] slots = new ItemSO[SlotCount];
         readonly List<ItemSO> _previewBuf = new(SlotCount);   // GC 회피
         readonly RecipeMatcher _matcher = new();
@@ -57,7 +60,9 @@ namespace TOME.Managers
             _previewBuf.Clear();
             for (int i = 0; i < SlotCount; i++) if (slots[i]) _previewBuf.Add(slots[i]);
             var recipe = _matcher.Match(_previewBuf);
-            return recipe ? recipe.result : null;
+            if (recipe) return recipe.result;
+            // 레시피가 없어도 아이템이 1개 이상 있으면 폴백(똥) 결과
+            return _previewBuf.Count > 0 ? fallbackResult : null;
         }
 
         /// 결과창 클릭 시 호출

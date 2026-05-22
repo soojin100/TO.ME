@@ -35,7 +35,7 @@ namespace TOME.UI.Combat
             if (player) player.OnHpChanged -= OnHp;
         }
 
-        void OnCount(int rem, int tot) { if (countLabel) countLabel.text = $"남은적 {tot - rem}/{tot}"; }
+        void OnCount(int rem, int tot) { if (countLabel) countLabel.text = $"남은적 {rem}/{tot}"; }
         void OnTimer(float t)          { if (timerLabel) timerLabel.text = $"{Mathf.CeilToInt(Mathf.Max(0f, t))}s"; }
         void OnHp(int hp, int max)     { if (hpBar) hpBar.value = (float)hp / Mathf.Max(1, max); }
 

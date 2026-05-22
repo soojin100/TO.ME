@@ -18,6 +18,8 @@ namespace TOME.UI
         [SerializeField] string      winText  = "스테이지 클리어!";
         [SerializeField] string      loseText = "실패...";
         [SerializeField] GameObject  starsGroup;
+        [SerializeField] GameObject[] starIcons;          // 난이도 별(최대 5). difficulty 만큼 표시
+        [SerializeField] Image       characterImage;      // 현재 장착 캐릭터 아이콘
         [SerializeField] Transform   rewardContainer;
         [SerializeField] GameObject  rewardIconPrefab;   // Image + TMP_Text
         [SerializeField] Button      returnButton;
@@ -42,8 +44,11 @@ namespace TOME.UI
             }
         }
 
-        public void Show(bool win)
+        StageSO _stage;
+
+        public void Show(bool win, StageSO stage = null)
         {
+            _stage = stage != null ? stage : (GameManager.I != null ? GameManager.I.CurrentStage : null);
             StartCoroutine(ShowRoutine(win));
         }
 
@@ -53,57 +58,55 @@ namespace TOME.UI
             if (clearGraphic) clearGraphic.SetActive(win);
             if (failGraphic)  failGraphic.SetActive(!win);
             if (resultText)   resultText.text = win ? winText : loseText;
-            if (starsGroup)   starsGroup.SetActive(win);
 
-            if (player && centerAnchor)
-            {
-                Transform pt = player.transform;
-                Vector3 from = pt.position;
-                Vector3 to   = centerAnchor.position;
-                float t = 0f;
-                while (t < moveDuration)
-                {
-                    t += Time.unscaledDeltaTime;
-                    pt.position = Vector3.Lerp(from, to, t / moveDuration);
-                    yield return null;
-                }
-                pt.position = to;
-            }
-
+            // 보상·캐릭터·별·문구는 즉시 함께 표시
+            SetupCharacter();
+            SetupStars();
             if (win) ShowRewards();
 
+            // 돌아가기 버튼은 결과를 잠시(showDelay) 보여준 뒤 등장
             yield return new WaitForSecondsRealtime(showDelay);
             if (returnButton) returnButton.gameObject.SetActive(true);
             if (retryButton)  retryButton.gameObject.SetActive(true);
         }
 
+        void SetupCharacter()
+        {
+            var ch = player != null ? player.CurrentChar : null;
+            if (characterImage)
+            {
+                bool ok = ch != null && ch.icon != null;
+                characterImage.enabled = ok;
+                if (ok) characterImage.sprite = ch.icon;
+            }
+            // 월드 강아지 플레이어를 숨기고 결과창 이미지로 대체
+            if (player) player.gameObject.SetActive(false);
+        }
+
+        void SetupStars()
+        {
+            if (starsGroup) starsGroup.SetActive(true);
+            if (starIcons == null) return;
+            int diff = _stage != null ? _stage.difficulty : 0;
+            for (int i = 0; i < starIcons.Length; i++)
+                if (starIcons[i]) starIcons[i].SetActive(i < diff);
+        }
+
+        // 이번 스테이지에서 실제로 획득한 아이템들을 아이콘으로 표시 (수량 텍스트 없음)
         void ShowRewards()
         {
-            var stage = GameManager.I != null ? GameManager.I.CurrentStage : null;
-            if (stage == null || stage.rewards == null || rewardContainer == null || rewardIconPrefab == null)
-                return;
+            if (rewardContainer == null || rewardIconPrefab == null) return;
+            var items = InventoryManager.I != null ? InventoryManager.I.Items : null;
+            if (items == null) return;
 
-            foreach (var r in stage.rewards)
+            foreach (var it in items)
             {
-                if (!r) continue;
-                var go = Instantiate(rewardIconPrefab, rewardContainer);
+                if (it == null) continue;
+                var go    = Instantiate(rewardIconPrefab, rewardContainer);
                 var img   = go.GetComponentInChildren<Image>();
                 var label = go.GetComponentInChildren<TMP_Text>();
-                if (r.type == RewardType.Item && r.item)
-                {
-                    if (img)   { img.enabled = r.item.icon != null; if (r.item.icon) img.sprite = r.item.icon; }
-                    if (label) label.text = $"x{r.amount}";
-                }
-                else if (r.type == RewardType.Coin)
-                {
-                    if (img)   img.enabled = false;
-                    if (label) label.text = $"+{r.amount}";
-                }
-                else if (r.type == RewardType.Character && r.character)
-                {
-                    if (img)   { img.enabled = r.character.icon != null; if (r.character.icon) img.sprite = r.character.icon; }
-                    if (label) label.text = r.character.displayName;
-                }
+                if (img)   { img.enabled = it.icon != null; if (it.icon) img.sprite = it.icon; }
+                if (label) label.text = string.Empty;   // "+50" 식 수량 대신 이미지로만
             }
         }
 

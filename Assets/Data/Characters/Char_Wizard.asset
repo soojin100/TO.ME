@@ -15,10 +15,10 @@ MonoBehaviour:
   id: wizard
   displayName: "\uB9C8\uBC95\uC0AC \uC0AC\uC774\uB290\uB77C"
   corePrefab: {fileID: 2700103042279789463, guid: 034d19cc65d36d94a979081ab36a1601, type: 3}
-  icon: {fileID: 8344611326427422913, guid: 09cc343868139f8459419f3ab03e370b, type: 3}
-  bodyTint: {r: 0.7, g: 0.5, b: 1, a: 1}
+  icon: {fileID: 21300000, guid: 126ed8a6f328abe47b2f88694f2ab7ed, type: 3}
+  bodyTint: {r: 1, g: 1, b: 1, a: 1}
   hp: 90
   atk: 18
   atkSpeed: 0.8
-  atkRange: 5
+  atkRange: 9
   attackPattern: {fileID: 11400000, guid: f616be62229438d4cafbc8ca2fe424ae, type: 2}

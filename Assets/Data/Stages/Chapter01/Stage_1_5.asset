@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Data.StageSO
   id: 1-5
   title: "\uC9D1\uD0C8\uCD9C \uC2DC\uB3C4 5"
+  chapter: {fileID: 11400000, guid: 31c2e0719e706a745b37f59fd4e6bc87, type: 2}
+  difficulty: 1
   thumbnail: {fileID: 0}
   introText: "\uAC70\uC758 \uB2E4 \uC654\uB2E4"
   clearedIntroText: 
   startCharacter: {fileID: 11400000, guid: 72c123b18ca981144b8c72ebd23092b8, type: 2}
   timeLimit: 65
+  enemyRoster: []
   spawns:
   - enemy: {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}
     totalCount: 11

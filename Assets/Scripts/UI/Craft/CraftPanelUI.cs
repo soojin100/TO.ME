@@ -96,14 +96,11 @@ namespace TOME.UI
             for (int i = 0; i < craftSlots.Length; i++)
                 craftSlots[i].Bind(MergeCraftManager.I.GetSlot(i));
 
-            var preview = MergeCraftManager.I.Preview();
-            if (resultIcon)
-            {
-                resultIcon.enabled = preview != null && preview.icon != null;
-                if (preview != null && preview.icon) resultIcon.sprite = preview.icon;
-            }
-            if (resultLabel)  resultLabel.text = preview != null ? preview.displayName : "";
-            if (resultButton) resultButton.interactable = preview != null;
+            // 결과(조합법)는 미리 보여주지 않는다. 조합 가능 여부만 노출.
+            bool canCraft = MergeCraftManager.I.Preview() != null;
+            if (resultIcon)   resultIcon.enabled = false;
+            if (resultLabel)  resultLabel.text = canCraft ? "?" : "";
+            if (resultButton) resultButton.interactable = canCraft;
         }
 
         void OnResultClicked()

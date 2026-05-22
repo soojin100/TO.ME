@@ -36,6 +36,8 @@ namespace TOME.Managers
         float savedFixedDt;
         StageSO stage;
         bool started;
+        EnemySpawnEntry[] _entries;     // 이번 스테이지의 실제 스폰 목록 (수동 또는 자동)
+        float _statMul = 1f;            // 자동 스폰 시 적 능력치 배수
 
         void Awake()
         {
@@ -53,8 +55,13 @@ namespace TOME.Managers
             TimeLeft   = s.timeLimit;
             Time.timeScale = 1f;
 
+            // 하이브리드: spawns가 있으면 수동(스케일 X), 비면 difficulty+로스터로 자동 생성(스케일 O)
+            bool manual = s.spawns != null && s.spawns.Length > 0;
+            _entries = manual ? s.spawns : DifficultyScaler.BuildSpawns(s.difficulty, ResolveRoster(s));
+            _statMul = manual ? 1f : DifficultyScaler.StatMultiplier(s.difficulty);
+
             TotalEnemies = 0;
-            foreach (var e in s.spawns) TotalEnemies += e.totalCount;
+            foreach (var e in _entries) TotalEnemies += e.totalCount;
             RemainingToKill = TotalEnemies;
             AliveOnField    = 0;
 
@@ -65,8 +72,18 @@ namespace TOME.Managers
             OnCountChanged?.Invoke(RemainingToKill, TotalEnemies);
             OnTimerChanged?.Invoke(TimeLeft);
 
-            foreach (var e in s.spawns) StartCoroutine(SpawnLoop(e));
+            foreach (var e in _entries) StartCoroutine(SpawnLoop(e));
             started = true;
+        }
+
+        // 자동 스폰용 적 로스터 결정: 스테이지 오버라이드 > 챕터 로스터
+        EnemySO[] ResolveRoster(StageSO s)
+        {
+            if (s == null) return null;
+            if (s.enemyRoster != null && s.enemyRoster.Length > 0) return s.enemyRoster;
+            if (s.chapter != null && s.chapter.enemyRoster != null && s.chapter.enemyRoster.Length > 0)
+                return s.chapter.enemyRoster;
+            return null;
         }
 
         IEnumerator SpawnLoop(EnemySpawnEntry e)
@@ -95,7 +112,7 @@ namespace TOME.Managers
             instToDef[go] = def;
 
             if (go.TryGetComponent<EnemyBase>(out var eb))
-                eb.Init(def, go.transform.position, OnEnemyDied);
+                eb.Init(def, go.transform.position, OnEnemyDied, _statMul);
 
             AliveOnField++;
         }

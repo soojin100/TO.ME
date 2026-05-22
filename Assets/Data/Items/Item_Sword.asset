@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Data.ItemSO
   id: sword
   displayName: "\uAC80"
-  icon: {fileID: -408833206904718572, guid: 5d8f017572cb49c44a4f16272e583e8f, type: 3}
+  icon: {fileID: 21300000, guid: abd0a770f9db4114a98ac9cfdbf414b5, type: 3}
   tier: 1

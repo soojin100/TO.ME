@@ -15,10 +15,10 @@ MonoBehaviour:
   id: king
   displayName: "\uC655"
   corePrefab: {fileID: 8311500395026078127, guid: a7b5ca6f0c3019e4681ca64740aaa8a9, type: 3}
-  icon: {fileID: 8344611326427422913, guid: 09cc343868139f8459419f3ab03e370b, type: 3}
-  bodyTint: {r: 1, g: 0.85, b: 0.3, a: 1}
+  icon: {fileID: 21300000, guid: 6d142f0d8d3d63049bb2fedfa19caed4, type: 3}
+  bodyTint: {r: 1, g: 1, b: 1, a: 1}
   hp: 140
   atk: 14
   atkSpeed: 1.1
-  atkRange: 4
+  atkRange: 8
   attackPattern: {fileID: 11400000, guid: f616be62229438d4cafbc8ca2fe424ae, type: 2}

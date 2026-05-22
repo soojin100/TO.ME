@@ -9,6 +9,8 @@ namespace TOME.Gameplay.Enemy
     /// <summary>풀 재사용 가능. Init/Despawn 호출만으로 재활용. 매 프레임 Transform 캐시 사용.</summary>
     public class EnemyBase : MonoBehaviour
     {
+        [SerializeField] Transform hpFillPivot;   // 왼쪽 정렬 채움 피벗. localScale.x = HP 비율
+
         public EnemySO Def { get; private set; }
         public int Hp { get; private set; }
         public bool IsAlive => _alive;
@@ -19,16 +21,18 @@ namespace TOME.Gameplay.Enemy
         Transform _playerTr;
         float _attackCooldown;
         bool _alive;
+        float _statMul = 1f;     // 난이도 능력치 배수 (HP/공격)
 
         const float ContactDist   = 0.6f;
         const float AttackPeriod  = 1.0f;   // 접촉 후 1초 간격으로 데미지
 
         void Awake() { _tr = transform; }
 
-        public void Init(EnemySO def, Vector3 spawnPos, Action<EnemyBase> deathCb)
+        public void Init(EnemySO def, Vector3 spawnPos, Action<EnemyBase> deathCb, float statMul = 1f)
         {
             Def      = def;
-            Hp       = def.hp;
+            _statMul = Mathf.Max(0.01f, statMul);
+            Hp       = Mathf.Max(1, Mathf.RoundToInt(def.hp * _statMul));
             onDeath  = deathCb;
             _tr.position = spawnPos;
             _attackCooldown = 0f;
@@ -37,8 +41,18 @@ namespace TOME.Gameplay.Enemy
             _player   = FindPlayer();
             _playerTr = _player ? _player.transform : null;
 
+            UpdateHpBar();
             gameObject.SetActive(true);
             EnemyRegistry.Register(this);
+        }
+
+        void UpdateHpBar()
+        {
+            if (!hpFillPivot) return;
+            float max = (Def != null && Def.hp > 0) ? Def.hp * _statMul : 1f;
+            var s = hpFillPivot.localScale;
+            s.x = Mathf.Clamp01(Hp / max);
+            hpFillPivot.localScale = s;
         }
 
         static PlayerShell _cachedPlayer;
@@ -53,6 +67,7 @@ namespace TOME.Gameplay.Enemy
         {
             if (!_alive) return;
             Hp -= dmg;
+            UpdateHpBar();
             if (Hp <= 0) Die();
         }
 
@@ -75,7 +90,7 @@ namespace TOME.Gameplay.Enemy
                 _attackCooldown -= Time.deltaTime;
                 if (_attackCooldown <= 0f)
                 {
-                    if (_player) _player.TakeDamage(Def.atk);
+                    if (_player) _player.TakeDamage(Mathf.Max(1, Mathf.RoundToInt(Def.atk * _statMul)));
                     _attackCooldown = AttackPeriod;
                 }
             }

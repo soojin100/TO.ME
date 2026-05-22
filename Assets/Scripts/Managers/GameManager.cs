@@ -11,8 +11,9 @@ namespace TOME.Managers
     {
         public static GameManager I { get; private set; }
 
-        public NodeSO  CurrentNode  { get; private set; }
-        public StageSO CurrentStage { get; private set; }
+        public NodeSO   CurrentNode    { get; private set; }
+        public StageSO  CurrentStage   { get; private set; }
+        public ChapterSO CurrentChapter { get; private set; }
         public StageResult LastStageResult { get; private set; }
         public string PendingPostDialogueId { get; private set; }
 
@@ -29,6 +30,7 @@ namespace TOME.Managers
             Time.timeScale = 1f;
             CurrentNode  = node;
             CurrentStage = stage;
+            if (stage != null && stage.chapter != null) CurrentChapter = stage.chapter;
             LastStageResult = StageResult.None;
             PendingPostDialogueId = null;
             SceneFader.I.TransitionToScene(SceneKeys.Stage);
@@ -47,7 +49,10 @@ namespace TOME.Managers
         public void ReturnToMap()
         {
             Time.timeScale = 1f;
-            SceneFader.I.TransitionToScene(SceneKeys.Map);
+            // 현재 챕터에 지정된 맵 씬이 있으면 그쪽으로, 없으면 기본 맵
+            string scene = (CurrentChapter != null && !string.IsNullOrEmpty(CurrentChapter.mapSceneName))
+                           ? CurrentChapter.mapSceneName : SceneKeys.Map;
+            SceneFader.I.TransitionToScene(scene);
         }
     }
 }

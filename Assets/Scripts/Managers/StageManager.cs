@@ -19,6 +19,8 @@ namespace TOME.Managers
         [SerializeField] ResultScreenUI   resultScreen;
         [SerializeField] StageSO          debugStage;   // Stage 씬 단독 실행 테스트용 (Map 미경유 시 사용)
 
+        StageSO _stage;
+
         IEnumerator Start()
         {
             Time.timeScale = 1f;
@@ -26,11 +28,12 @@ namespace TOME.Managers
             var stage = GameManager.I != null ? GameManager.I.CurrentStage : null;
             if (!stage) stage = debugStage;
             if (!stage) yield break;
+            _stage = stage;
+            ApplyChapterTheme(stage.chapter);
 
             var node = GameManager.I != null ? GameManager.I.CurrentNode : null;
 
             MergeCraftManager.I?.SetRecipes(recipes);
-            InventoryManager.I?.Clear();
             EnemyRegistry.Clear();
 
             if (player)
@@ -52,6 +55,18 @@ namespace TOME.Managers
                 itemDropManager.Begin(stage.spawns[0].enemy);
         }
 
+        // 챕터 테마 적용: 카메라 배경색 (배경 스프라이트/BGM은 후속 확장)
+        void ApplyChapterTheme(ChapterSO chapter)
+        {
+            if (chapter == null) return;
+            var cam = Camera.main;
+            if (cam)
+            {
+                cam.clearFlags = CameraClearFlags.SolidColor;
+                cam.backgroundColor = chapter.backgroundColor;
+            }
+        }
+
         void OnPlayerDied()
         {
             CombatManager.I?.Finish(false);
@@ -71,7 +86,7 @@ namespace TOME.Managers
             var node = GameManager.I != null ? GameManager.I.CurrentNode : null;
             if (win && node != null) MapManager.I?.MarkNodeCleared(node);
             GameManager.I?.RecordStageResult(win);
-            if (resultScreen) resultScreen.Show(win);
+            if (resultScreen) resultScreen.Show(win, _stage);
         }
 
         void OnDestroy()

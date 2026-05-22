@@ -15,10 +15,10 @@ MonoBehaviour:
   id: angel
   displayName: "\uCC9C\uC0AC"
   corePrefab: {fileID: 4465151876753491282, guid: 62f746c5be07be944995167a16e7d058, type: 3}
-  icon: {fileID: 8344611326427422913, guid: 09cc343868139f8459419f3ab03e370b, type: 3}
-  bodyTint: {r: 0.6, g: 0.85, b: 1, a: 1}
+  icon: {fileID: 21300000, guid: 01043ded72e1ea04b8a9a718b39051ea, type: 3}
+  bodyTint: {r: 1, g: 1, b: 1, a: 1}
   hp: 120
   atk: 16
   atkSpeed: 1.5
-  atkRange: 5
+  atkRange: 9
   attackPattern: {fileID: 11400000, guid: f616be62229438d4cafbc8ca2fe424ae, type: 2}
