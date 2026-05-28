@@ -66,12 +66,8 @@ namespace TOME.UI
             _fullText = e.text ?? "";
             if (_typing != null) StopCoroutine(_typing);
             _typing = StartCoroutine(TypeRoutine(_fullText));
-
-            if (AudioManager.I != null)
-            {
-                bool isOwner = e.speaker != null && e.speaker.Contains("주인");
-                AudioManager.I.PlaySfx(isOwner ? AudioManager.I.humanSfx : AudioManager.I.dogSfx);
-            }
+            // (제거) 과거 To.You의 강아지/인간 모드 BGM(dogSfx/humanSfx)을 대사 줄마다 SFX로 재생 →
+            //        Title BGM 위에 또 다른 BGM이 겹쳐 들리던 원인. 이 프로젝트엔 모드 전환이 없어 재생하지 않는다.
         }
 
         IEnumerator TypeRoutine(string text)

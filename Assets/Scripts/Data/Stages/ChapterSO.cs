@@ -10,8 +10,10 @@ namespace TOME.Data
         public string title;
 
         [Header("Theme")]
-        public Color     backgroundColor = new Color(0.96f, 0.80f, 0.80f, 1f); // 카메라 배경색
-        public Sprite    backgroundSprite;   // (선택) 배경 스프라이트
+        public Color     backgroundColor = new Color(0.96f, 0.80f, 0.80f, 1f); // 카메라 배경색(미사용, 호환용)
+        public Sprite    backgroundSprite;   // (호환용 폴백, 단일 스프라이트만 쓸 때)
+        [Tooltip("이 챕터의 맵 World prefab. Stage 씬에 instantiate되어 반투명 배경으로 표시됨. ScrollSections/Items 자식은 자동 비활성화.")]
+        public GameObject backgroundPrefab;
         public AudioClip bgm;                 // (선택) 챕터 BGM
         public string    mapSceneName;        // 이 챕터의 맵 씬 이름 (비면 기본 맵)
 

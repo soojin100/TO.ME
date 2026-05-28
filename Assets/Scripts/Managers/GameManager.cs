@@ -16,6 +16,17 @@ namespace TOME.Managers
         public ChapterSO CurrentChapter { get; private set; }
         public StageResult LastStageResult { get; private set; }
         public string PendingPostDialogueId { get; private set; }
+        public int       CurrentSectionIndex { get; private set; } = -1;  // -1 = 미지정(중앙 기본)
+        public Texture2D PendingBackgroundTexture { get; private set; }
+
+        public void SetPendingSectionIndex(int idx) { CurrentSectionIndex = idx; }
+
+        public void SetPendingBackgroundTexture(Texture2D tex)
+        {
+            if (PendingBackgroundTexture != null && PendingBackgroundTexture != tex)
+                Destroy(PendingBackgroundTexture);
+            PendingBackgroundTexture = tex;
+        }
 
         void Awake()
         {

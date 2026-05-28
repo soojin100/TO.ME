@@ -1,7 +1,7 @@
 {
     "name": "TOME",
     "rootNamespace": "TOME",
-    "references": ["Unity.TextMeshPro"],
+    "references": ["Unity.TextMeshPro", "Unity.2D.Animation.Runtime"],
     "includePlatforms": [],
     "excludePlatforms": [],
     "autoReferenced": true

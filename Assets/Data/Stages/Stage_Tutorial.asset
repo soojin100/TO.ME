@@ -17,17 +17,18 @@ MonoBehaviour:
   chapter: {fileID: 11400000, guid: 31c2e0719e706a745b37f59fd4e6bc87, type: 2}
   difficulty: 1
   thumbnail: {fileID: 8344611326427422913, guid: 09cc343868139f8459419f3ab03e370b, type: 3}
-  introText: "\uD0DD\uBC30 \uC0C1\uC790\uB97C \uD30C\uAD34 \uC2DC\uCF1C \uC8FC\uC778\uC758
+  introText: "\uD0DD\uBC30 \uC0C1\uC790\uB97C \uD30C\uAD34\uC2DC\uCF1C \uC8FC\uC778\uC758
     \uC815\uC2E0\uC744 \uC3D9 \uBE7C\uB193\uC790"
-  clearedIntroText: "\uD0DD\uBC30 \uC0C1\uC790\uB97C \uD30C\uAD34 \uC2DC\uCF1C \uC8FC\uC778\uC758
+  clearedIntroText: "\uD0DD\uBC30 \uC0C1\uC790\uB97C \uD30C\uAD34\uC2DC\uCF1C \uC8FC\uC778\uC758
     \uC815\uC2E0\uC744 \uC3D9 \uBE7C\uB193\uC790\n>\uC131\uACF5\uD588\uB2E4\uD558\uD558\uD558\uD558"
   startCharacter: {fileID: 11400000, guid: 72c123b18ca981144b8c72ebd23092b8, type: 2}
   timeLimit: 60
+  enemyRoster: []
   spawns:
   - enemy: {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}
-    totalCount: 3
-    simultaneous: 2
-    spawnInterval: 2
+    totalCount: 2
+    simultaneous: 1
+    spawnInterval: 2.2
     startDelay: 0.5
   preDialogueId: intro_stage1_pre
   postDialogueId: intro_stage1_post
