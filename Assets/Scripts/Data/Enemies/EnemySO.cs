@@ -13,6 +13,10 @@ namespace TOME.Data
         public int   hp = 30;
         public float atk = 1f;                  // 접촉(충돌) 데미지. 하트 1칸 = 1.0.
         public float moveSpeed = 1.5f;
+        [Tooltip("적 비주얼 크기 배수. 보스는 2~3 등으로 크게.")]
+        public float visualScale = 1f;
+        [Tooltip("보스 여부(연출/표시용).")]
+        public bool  isBoss;
 
         [Header("Ranged Attack (optional)")]
         public bool       hasRangedAttack;

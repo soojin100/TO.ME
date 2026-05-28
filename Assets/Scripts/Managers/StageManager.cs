@@ -103,7 +103,7 @@ namespace TOME.Managers
             var node = GameManager.I != null ? GameManager.I.CurrentNode : null;
             if (player) player.EquipCharacter(ch, node != null ? node.bonus : null);
             CombatManager.I?.Resume();
-            if (AudioManager.I != null) AudioManager.I.PlaySfx(AudioManager.I.dog2Sfx);
+            // (제거) dog2Sfx는 효과음이 아니라 To.You의 긴 트랙(Dog2.mp3 2.8MB)이라 BGM과 겹쳐서 재생 안 함. 짧은 효과음 생기면 교체.
         }
 
         void OnFinished(bool win)

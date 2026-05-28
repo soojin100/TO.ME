@@ -37,6 +37,9 @@ namespace TOME.Gameplay.Enemy
             Hp       = Mathf.Max(1, Mathf.RoundToInt(def.hp * _statMul));
             onDeath  = deathCb;
             _tr.position = spawnPos;
+            // 비주얼 크기 (보스 등). 풀 재사용 대비 매 스폰마다 설정.
+            float vs = (def != null && def.visualScale > 0f) ? def.visualScale : 1f;
+            _tr.localScale = new Vector3(vs, vs, 1f);
             _attackCooldown = 0f;
             _rangedCooldown = def != null ? def.rangedCooldown * 0.5f : 0f;  // 스폰 직후 즉발 방지
             _alive   = true;

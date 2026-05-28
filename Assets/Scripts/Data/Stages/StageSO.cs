@@ -23,6 +23,10 @@ namespace TOME.Data
         [TextArea] public string introText;          // 스테이지 정보 팝업 소개문
         [TextArea] public string clearedIntroText;   // 클리어 후 표시할 소개문
 
+        [Header("Audio")]
+        [Tooltip("이 스테이지 전용 BGM. 비우면 Stage 씬 기본 BGM(BGM_Stage) 사용. 보스 스테이지는 BGM_Boss 지정.")]
+        public AudioClip bgm;
+
         [Header("Combat")]
         public CharacterSO startCharacter;
         public float timeLimit = 60f;

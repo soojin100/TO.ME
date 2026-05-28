@@ -39,12 +39,21 @@ namespace TOME.Map
             if (targetCamera == null) targetCamera = Camera.main;
         }
 
-        void OnDestroy() { if (Instance == this) Instance = null; }
+        void OnDestroy()
+        {
+            // 씬을 떠날 때(스테이지 진입 등) 현재 섹션을 저장 → 복귀 시 그 섹션으로 복원
+            if (TOME.Managers.GameManager.I != null)
+                TOME.Managers.GameManager.I.SetPendingSectionIndex(_index);
+            if (Instance == this) Instance = null;
+        }
 
         void Start()
         {
+            // 저장된 섹션이 있으면 그곳으로(스테이지에서 복귀), 없으면 startIndex
+            int saved = TOME.Managers.GameManager.I != null ? TOME.Managers.GameManager.I.CurrentSectionIndex : -1;
+            int desired = saved >= 0 ? saved : startIndex;
             _index = (sections != null && sections.Length > 0)
-                ? Mathf.Clamp(startIndex, 0, sections.Length - 1) : 0;
+                ? Mathf.Clamp(desired, 0, sections.Length - 1) : 0;
             SnapToCurrent();
             RefreshArrows();
         }

@@ -26,9 +26,9 @@ MonoBehaviour:
   enemyRoster: []
   spawns:
   - enemy: {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}
-    totalCount: 3
-    simultaneous: 2
-    spawnInterval: 2
+    totalCount: 2
+    simultaneous: 1
+    spawnInterval: 2.2
     startDelay: 0.5
   preDialogueId: intro_stage1_pre
   postDialogueId: intro_stage1_post

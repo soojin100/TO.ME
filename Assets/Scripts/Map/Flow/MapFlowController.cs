@@ -58,8 +58,9 @@ namespace TOME.Map
 
         void ShowPopup()
         {
-            if (stagePopup && _pendingNode && _pendingStage)
-                stagePopup.Show(_pendingNode, _pendingStage);
+            // 진입 UI를 "싸우자" UI로 통일(StageInfoPopup 미사용).
+            if (_pendingNode && _pendingStage && TutorialIntroController.I != null)
+                TutorialIntroController.I.Show(_pendingNode, _pendingStage);
         }
     }
 }
