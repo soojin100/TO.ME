@@ -51,6 +51,8 @@ namespace TOME.Map
 
         void OnMouseDown()
         {
+            // 대화/컷신 중에는 줍기 금지
+            if (DialogueManager.I != null && DialogueManager.I.IsPlaying) return;
             if (_selected) { Pick(); return; }
 
             if (_currentSelected != null && _currentSelected != this)

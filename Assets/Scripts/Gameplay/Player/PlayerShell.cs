@@ -14,17 +14,16 @@ namespace TOME.Gameplay.Player
         [SerializeField] Transform corePivot;
         [SerializeField] AutoAttack autoAttack;
         [SerializeField] float dragYMin = -8f;
-        [SerializeField] float dragYMax = -2f;
-        [SerializeField] float dragLerpSpeed = 25f;
+        [SerializeField] float dragYMax = 2f;
 
         public CharacterSO CurrentChar { get; private set; }
-        public int   Hp        { get; private set; }
-        public int   MaxHp     { get; private set; }
+        public float Hp        { get; private set; }    // 하트 단위. 1.0 = 한 칸, 0.5 = 반 칸.
+        public float MaxHp     { get; private set; }
         public float CurAtk    { get; private set; }
         public float CurAtkSpd { get; private set; }
         public float CurRange  { get; private set; }
 
-        public event Action<int,int> OnHpChanged;
+        public event Action<float,float> OnHpChanged;
         public event Action OnDied;
 
         readonly Dictionary<CharacterSO, CharacterCore> _coreCache = new(16);
@@ -62,7 +61,7 @@ namespace TOME.Gameplay.Player
             float hpM = 1f + (bonus?.hpMul       ?? 0f);
             float aM  = 1f + (bonus?.atkMul      ?? 0f);
             float sM  = 1f + (bonus?.atkSpeedMul ?? 0f);
-            MaxHp     = Mathf.RoundToInt(def.hp * hpM);
+            MaxHp     = def.hp * hpM;
             Hp        = MaxHp;
             CurAtk    = def.atk * aM;
             CurAtkSpd = def.atkSpeed * sM;
@@ -72,12 +71,12 @@ namespace TOME.Gameplay.Player
             OnHpChanged?.Invoke(Hp, MaxHp);
         }
 
-        public void TakeDamage(int dmg)
+        public void TakeDamage(float dmg)
         {
-            if (Hp <= 0) return;
-            Hp = Mathf.Max(0, Hp - dmg);
+            if (Hp <= 0f) return;
+            Hp = Mathf.Max(0f, Hp - dmg);
             OnHpChanged?.Invoke(Hp, MaxHp);
-            if (Hp == 0) OnDied?.Invoke();
+            if (Hp <= 0f) OnDied?.Invoke();
         }
 
         void Update()
@@ -96,7 +95,7 @@ namespace TOME.Gameplay.Player
             Vector3 wp = _cam.ScreenToWorldPoint(new Vector3(sp.x, sp.y, -_cam.transform.position.z));
             wp.y = Mathf.Clamp(wp.y, dragYMin, dragYMax);
             wp.z = 0f;
-            _tr.position = Vector3.Lerp(_tr.position, wp, dragLerpSpeed * Time.deltaTime);
+            _tr.position = wp;
         }
     }
 }

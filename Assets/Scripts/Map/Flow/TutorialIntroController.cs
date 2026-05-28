@@ -50,6 +50,15 @@ namespace TOME.Map
         void OnFightClicked()
         {
             if (fightUi) fightUi.SetActive(false);
+
+            // 튜토리얼은 MapStageGate를 거치지 않으므로 여기서 직접 현재 맵 화면을 캡처해 Stage 배경으로 사용
+            var cam = Camera.main;
+            if (cam != null && GameManager.I != null)
+            {
+                var tex = StageBackgroundCapture.Capture(cam);
+                GameManager.I.SetPendingBackgroundTexture(tex);
+            }
+
             if (tutorialNode != null && tutorialStage != null)
                 GameManager.I?.EnterStage(tutorialNode, tutorialStage);
         }

@@ -23,6 +23,15 @@ namespace TOME.Map
         Coroutine _moveCo;
 
         public int CurrentIndex => _index;
+        public int SectionCount => sections != null ? sections.Length : 0;
+
+        /// <summary>지정 섹션 앵커의 월드 위치. 잘못된 인덱스면 현재 카메라 위치 반환.</summary>
+        public Vector3 GetSectionPosition(int index)
+        {
+            if (sections != null && index >= 0 && index < sections.Length && sections[index] != null)
+                return sections[index].position;
+            return targetCamera != null ? targetCamera.transform.position : Vector3.zero;
+        }
 
         void Awake()
         {
@@ -45,6 +54,8 @@ namespace TOME.Map
 
         public void TryMove(Direction dir)
         {
+            // 대화/컷신 중에는 카메라 이동 금지
+            if (TOME.Managers.DialogueManager.I != null && TOME.Managers.DialogueManager.I.IsPlaying) return;
             if (_isMoving || sections == null || sections.Length == 0) return;
             int next = _index + (dir == Direction.Left ? -1 : 1);
             if (next < 0 || next >= sections.Length) return;

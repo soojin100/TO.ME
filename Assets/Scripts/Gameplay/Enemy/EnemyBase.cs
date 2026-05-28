@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using TOME.Core;
 using TOME.Data;
+using TOME.Gameplay.Combat;
 using TOME.Gameplay.Player;
 
 namespace TOME.Gameplay.Enemy
@@ -20,6 +21,7 @@ namespace TOME.Gameplay.Enemy
         PlayerShell _player;
         Transform _playerTr;
         float _attackCooldown;
+        float _rangedCooldown;
         bool _alive;
         float _statMul = 1f;     // 난이도 능력치 배수 (HP/공격)
 
@@ -36,6 +38,7 @@ namespace TOME.Gameplay.Enemy
             onDeath  = deathCb;
             _tr.position = spawnPos;
             _attackCooldown = 0f;
+            _rangedCooldown = def != null ? def.rangedCooldown * 0.5f : 0f;  // 스폰 직후 즉발 방지
             _alive   = true;
 
             _player   = FindPlayer();
@@ -78,6 +81,17 @@ namespace TOME.Gameplay.Enemy
             Vector3 to = _playerTr.position - _tr.position;
             float distSq = to.x * to.x + to.y * to.y;
 
+            // 원거리: 사거리 안이면 쿨다운마다 발사. 추적/접촉과 동시에 가능.
+            if (Def != null && Def.hasRangedAttack && Def.bulletPrefab != null)
+            {
+                _rangedCooldown -= Time.deltaTime;
+                if (_rangedCooldown <= 0f && distSq <= Def.rangedRange * Def.rangedRange)
+                {
+                    FireBullet(to);
+                    _rangedCooldown = Mathf.Max(0.1f, Def.rangedCooldown);
+                }
+            }
+
             if (distSq > ContactDist * ContactDist)
             {
                 // 추적: moveSpeed 단위 이동
@@ -90,10 +104,17 @@ namespace TOME.Gameplay.Enemy
                 _attackCooldown -= Time.deltaTime;
                 if (_attackCooldown <= 0f)
                 {
-                    if (_player) _player.TakeDamage(Mathf.Max(1, Mathf.RoundToInt(Def.atk * _statMul)));
+                    if (_player) _player.TakeDamage(Mathf.Max(0.01f, Def.atk * _statMul));
                     _attackCooldown = AttackPeriod;
                 }
             }
+        }
+
+        void FireBullet(Vector3 toPlayer)
+        {
+            var go = UnityEngine.Object.Instantiate(Def.bulletPrefab, _tr.position, Quaternion.identity);
+            if (go.TryGetComponent<EnemyBullet>(out var b))
+                b.Launch(new Vector2(toPlayer.x, toPlayer.y), Def.bulletSpeed, Mathf.Max(0.01f, Def.rangedDamage));
         }
 
         void Die()

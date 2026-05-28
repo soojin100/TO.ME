@@ -4,8 +4,10 @@ namespace TOME.Data
     public enum DialogueTrigger
     {
         None = 0,
-        NameInput,   // 이름 입력 팝업을 띄우고 입력 완료까지 대기
-        StartBattle  // 튜토리얼 전투 시작 (대사 종료)
+        NameInput,        // 이름 입력 팝업을 띄우고 입력 완료까지 대기
+        StartBattle,      // 튜토리얼 전투 시작 (대사 종료)
+        InspectWall,      // 벽 장신구 클릭 컷신 대기 (바를 정자 낙서 표시)
+        InspectHolyWater  // 침대 아래 성수병 클릭 컷신 대기 (유령 움찔)
     }
 
     /// CSV 한 줄 매핑. 헤더 기반 파싱이라 컬럼 순서/추가에 유연하다.

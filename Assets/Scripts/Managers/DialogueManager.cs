@@ -23,6 +23,8 @@ namespace TOME.Managers
         public event Action OnNameInputRequested;
         /// <summary>전투 시작 트리거 발생. 대사 종료 후 튜토리얼 전투로 진입.</summary>
         public event Action OnBattleStartRequested;
+        /// <summary>인터랙티브 컷신 트리거 발생. 맵의 클릭 오브젝트 연출 후 ResumeFromInteraction으로 재개.</summary>
+        public event Action<DialogueTrigger> OnInteractionRequested;
 
         public bool IsPlaying { get; private set; }
 
@@ -31,8 +33,8 @@ namespace TOME.Managers
         public IReadOnlyList<DialogueEntry> History => _history;
 
         bool _advance;
-        bool _skip;
-        bool _resume;   // 트리거 대기 해제
+        bool _fastForward;   // 넘어가기: 대화 줄만 빠르게 진행. 트리거(컷신/전투)는 정상 실행.
+        bool _resume;        // 트리거 대기 해제
 
         void Awake()
         {
@@ -56,12 +58,12 @@ namespace TOME.Managers
         /// <summary>UI 클릭/탭 시 호출.</summary>
         public void Advance() { _advance = true; }
 
-        /// <summary>스킵 버튼: 현재 대사 시퀀스를 즉시 종료.</summary>
+        /// <summary>넘어가기 버튼: 대화 줄을 빠르게 진행한다. 컷신/전투 등 트리거 지점에서는
+        /// 멈추고 트리거를 정상 실행한다(다음 컷신·스테이지 이동 등은 그대로 보임).</summary>
         public void SkipAll()
         {
             if (!IsPlaying) return;
-            _skip = true;
-            _resume = true; // 트리거 대기 중이어도 풀어준다
+            _fastForward = true;
         }
 
         /// <summary>이름 입력 팝업 확정 시 호출. 저장 후 대사 재개.</summary>
@@ -71,15 +73,18 @@ namespace TOME.Managers
             _resume = true;
         }
 
+        /// <summary>인터랙티브 컷신 연출 완료 시 호출. 대사 재개.</summary>
+        public void ResumeFromInteraction() { _resume = true; }
+
         IEnumerator Run(string startId)
         {
             IsPlaying = true;
-            _skip = false;
+            _fastForward = false;
             _history.Clear();
             string cur = startId;
             string chapter = null;
 
-            while (!_skip && !string.IsNullOrEmpty(cur) && table.TryGetValue(cur, out var raw))
+            while (!string.IsNullOrEmpty(cur) && table.TryGetValue(cur, out var raw))
             {
                 // 챕터가 바뀌면 다시보기 히스토리 초기화
                 if (chapter != null && raw.chapter != chapter) _history.Clear();
@@ -92,10 +97,15 @@ namespace TOME.Managers
 
                 OnLine?.Invoke(e);
                 _advance = false;
-                while (!_advance && !_skip) yield return null;
+                // 일반: 탭 대기. 빨리감기: 입력 없이 즉시 다음 줄.
+                if (!_fastForward)
+                    while (!_advance && !_fastForward) yield return null;
+                else
+                    yield return null;
 
-                if (!_skip && e.trigger != DialogueTrigger.None)
+                if (e.trigger != DialogueTrigger.None)
                 {
+                    _fastForward = false;   // 컷신/이름입력/전투 트리거는 빨리감기 해제하고 정상 실행
                     yield return HandleTrigger(e.trigger);
                     if (e.trigger == DialogueTrigger.StartBattle) break;
                 }
@@ -104,7 +114,7 @@ namespace TOME.Managers
             }
 
             IsPlaying = false;
-            _skip = false;
+            _fastForward = false;
             SaveSystemManager.I?.MarkDialogueSeen(startId);
             OnEnd?.Invoke();
         }
@@ -116,11 +126,18 @@ namespace TOME.Managers
                 case DialogueTrigger.NameInput:
                     _resume = false;
                     OnNameInputRequested?.Invoke();
-                    while (!_resume && !_skip) yield return null;
+                    while (!_resume) yield return null;
                     _resume = false;
                     break;
                 case DialogueTrigger.StartBattle:
                     OnBattleStartRequested?.Invoke();
+                    break;
+                case DialogueTrigger.InspectWall:
+                case DialogueTrigger.InspectHolyWater:
+                    _resume = false;
+                    OnInteractionRequested?.Invoke(trigger);
+                    while (!_resume) yield return null;
+                    _resume = false;
                     break;
             }
         }

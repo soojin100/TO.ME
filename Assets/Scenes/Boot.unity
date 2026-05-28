@@ -287,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Core.AudioManager
   bgmSource: {fileID: 1232103704}
   sfxSource: {fileID: 1717402000}
+  stopRogueLoopAudio: 1
   dogSfx: {fileID: 8300000, guid: a4a64d885d8ae70469c93e85e3bfa15d, type: 3}
   dog2Sfx: {fileID: 8300000, guid: 0928b7b8942aadd4381d115db29942da, type: 3}
   enemySfx: {fileID: 8300000, guid: 144a18f1fdfb6eb428f5b6d733ec7e32, type: 3}
@@ -1004,7 +1005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a995ef6d21e9d61419a0d3fb7264acfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TOME::TOME.Core.BootstrapEntry
-  firstScene: Map
+  firstScene: Room_Hallway
   waitForTouch: 1
   touchToStartHint: {fileID: 121563278}
 --- !u!4 &1737457756
