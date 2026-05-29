@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using TMPro;
 using TOME.Core;
 using TOME.Data;
@@ -21,6 +22,14 @@ namespace TOME.UI
         [Header("Typing")]
         [SerializeField, Range(0.005f, 0.2f)] float typingSpeed = 0.04f;
 
+        [Header("Moving Portrait (optional)")]
+        // 움직이는 초상화: 대화가 시작되면 재생·루프하고 끝나면 멈춘다. 줄마다 재시작하지 않아
+        // 대화 길이만큼 끊김 없이 이어진다(루프). portraitVideo 미할당 시 아무 동작 없음.
+        // VideoPlayer는 APIOnly 모드로 두고, 디코드된 프레임 텍스처를 portraitImage(RawImage)에 연결한다.
+        [SerializeField] GameObject  portraitRoot;
+        [SerializeField] VideoPlayer portraitVideo;
+        [SerializeField] RawImage    portraitImage;
+
         [Header("Name Input (optional)")]
         [SerializeField] GameObject     nameInputPanel;   // 없으면 기본 이름으로 자동 진행
         [SerializeField] TMP_InputField nameInputField;
@@ -33,6 +42,13 @@ namespace TOME.UI
         void Awake()
         {
             if (root) root.SetActive(false);
+            if (portraitRoot) portraitRoot.SetActive(false);
+            if (portraitVideo)
+            {
+                portraitVideo.isLooping  = true;
+                portraitVideo.playOnAwake = false;
+                portraitVideo.renderMode  = VideoRenderMode.APIOnly;
+            }
             if (nameInputPanel) nameInputPanel.SetActive(false);
             if (skipButton) skipButton.onClick.AddListener(OnSkip);
             if (nameConfirmButton) nameConfirmButton.onClick.AddListener(OnConfirmName);
@@ -61,6 +77,7 @@ namespace TOME.UI
         void OnLine(DialogueEntry e)
         {
             if (root) root.SetActive(true);
+            ShowPortrait();
             if (speakerLabel) speakerLabel.text = e.speaker;
 
             _fullText = e.text ?? "";
@@ -102,6 +119,28 @@ namespace TOME.UI
             if (_typing != null) { StopCoroutine(_typing); _typing = null; }
             _isTyping = false;
             if (root) root.SetActive(false);
+            HidePortrait();
+        }
+
+        void ShowPortrait()
+        {
+            if (!portraitVideo) return;
+            if (portraitRoot && !portraitRoot.activeSelf) portraitRoot.SetActive(true);
+            if (!portraitVideo.isPlaying) portraitVideo.Play();   // 줄마다 재시작 안 함 → 끊김 없이 루프
+        }
+
+        void Update()
+        {
+            // APIOnly VideoPlayer의 디코드 텍스처가 준비되면 RawImage에 연결(첫 프레임 이후 가용).
+            if (portraitImage && portraitVideo && portraitVideo.isPlaying &&
+                portraitVideo.texture != null && portraitImage.texture != portraitVideo.texture)
+                portraitImage.texture = portraitVideo.texture;
+        }
+
+        void HidePortrait()
+        {
+            if (portraitVideo && portraitVideo.isPlaying) portraitVideo.Stop();
+            if (portraitRoot) portraitRoot.SetActive(false);
         }
 
         void OnSkip() => DialogueManager.I?.SkipAll();

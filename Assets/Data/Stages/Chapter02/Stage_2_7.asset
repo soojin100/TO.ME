@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70ed7ad6f513974199bcdeb7fca63e2, type: 3}
+  m_Name: Stage_2_7
+  m_EditorClassIdentifier: TOME::TOME.Data.StageSO
+  id: 2-7
+  title: "\uCE68\uC2E4 \uBCF4\uC2A4"
+  chapter: {fileID: 11400000, guid: 6f2d6c146be65224793991b9759e3667, type: 2}
+  difficulty: 5
+  thumbnail: {fileID: 0}
+  introText: "\uBCF5\uB3C4\uB97C \uC9C0\uD0A4\uB294 \uBCF4\uC2A4"
+  clearedIntroText: "\uBCF5\uB3C4 \uC815\uBCF5!"
+  bgm: {fileID: 8300000, guid: 144a18f1fdfb6eb428f5b6d733ec7e32, type: 3}
+  startCharacter: {fileID: 11400000, guid: 72c123b18ca981144b8c72ebd23092b8, type: 2}
+  timeLimit: 95
+  enemyRoster: []
+  spawns:
+  - enemy: {fileID: 11400000, guid: ebc4b62975349d64580e797fff6b1d47, type: 2}
+    totalCount: 1
+    simultaneous: 1
+    spawnInterval: 1
+    startDelay: 1
+  preDialogueId: 
+  postDialogueId: 
+  rewards:
+  - {fileID: 11400000, guid: 415a62ec1a23d474e8bdc87841d0e43e, type: 2}
