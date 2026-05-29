@@ -26,6 +26,7 @@ namespace TOME.Managers
         [SerializeField] int              backgroundSortingOrder = -1000;
 
         StageSO _stage;
+        Sprite  _bgSprite;   // 런타임 생성 배경 sprite (OnDestroy에서 해제)
 
         IEnumerator Start()
         {
@@ -85,6 +86,7 @@ namespace TOME.Managers
             var sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height),
                                        new Vector2(0.5f, 0.5f), pixelsPerUnit);
             sprite.name = "StageBackground_Sprite";
+            _bgSprite = sprite;
 
             backgroundSpriteRenderer.sprite = sprite;
             if (backgroundBlurMaterial != null) backgroundSpriteRenderer.sharedMaterial = backgroundBlurMaterial;
@@ -120,6 +122,10 @@ namespace TOME.Managers
             if (CombatManager.I != null)     CombatManager.I.OnFinished        -= OnFinished;
             if (MergeCraftManager.I != null) MergeCraftManager.I.OnCraftSucceeded -= OnCrafted;
             if (player != null) player.OnDied -= OnPlayerDied;
+
+            // 배경으로 쓴 런타임 sprite + 캡처 텍스처 해제(맵 복귀 시 메모리 반환).
+            if (_bgSprite != null) { Destroy(_bgSprite); _bgSprite = null; }
+            GameManager.I?.ClearPendingBackgroundTexture();
         }
     }
 }

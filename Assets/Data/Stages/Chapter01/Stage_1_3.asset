@@ -19,6 +19,7 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   introText: "\uC810\uC810 \uAC70\uC138\uC9C4\uB2E4"
   clearedIntroText: 
+  bgm: {fileID: 8300000, guid: 0d6270f4a0f9b8d4da4210aa9e2894fa, type: 3}
   startCharacter: {fileID: 11400000, guid: 72c123b18ca981144b8c72ebd23092b8, type: 2}
   timeLimit: 60
   enemyRoster: []

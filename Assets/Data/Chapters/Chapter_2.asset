@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Data.ChapterSO
   id: chapter2
   title: "\uCC55\uD130 2"
-  backgroundColor: {r: 0.85, g: 0.88, b: 0.96, a: 1}
+  backgroundColor: {r: 1, g: 1, b: 1, a: 1}
   backgroundSprite: {fileID: 0}
-  backgroundPrefab: {fileID: 6362604541978799249, guid: ef0e12dbd740d6a40be646e919a37e65, type: 3}
-  bgm: {fileID: 0}
+  backgroundPrefab: {fileID: 0}
+  bgm: {fileID: 8300000, guid: 081ec8076e0d22544bda53bb74c82da8, type: 3}
   mapSceneName: Room_Bedroom
   enemyRoster:
   - {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}

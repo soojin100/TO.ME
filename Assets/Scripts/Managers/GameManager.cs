@@ -28,6 +28,14 @@ namespace TOME.Managers
             PendingBackgroundTexture = tex;
         }
 
+        /// 스테이지 종료(씬 이탈) 시 호출 — 배경으로 쓴 캡처 텍스처를 즉시 해제해 메모리 누수 방지.
+        /// 다음 스테이지 진입 시 맵에서 새로 캡처하므로 보관할 필요 없음.
+        public void ClearPendingBackgroundTexture()
+        {
+            if (PendingBackgroundTexture != null) Destroy(PendingBackgroundTexture);
+            PendingBackgroundTexture = null;
+        }
+
         void Awake()
         {
             if (I != null && I != this) { Destroy(gameObject); return; }

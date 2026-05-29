@@ -21,6 +21,7 @@ MonoBehaviour:
     \uC815\uC2E0\uC744 \uC3D9 \uBE7C\uB193\uC790"
   clearedIntroText: "\uD0DD\uBC30 \uC0C1\uC790\uB97C \uD30C\uAD34\uC2DC\uCF1C \uC8FC\uC778\uC758
     \uC815\uC2E0\uC744 \uC3D9 \uBE7C\uB193\uC790\n>\uC131\uACF5\uD588\uB2E4\uD558\uD558\uD558\uD558"
+  bgm: {fileID: 8300000, guid: 0d6270f4a0f9b8d4da4210aa9e2894fa, type: 3}
   startCharacter: {fileID: 11400000, guid: 72c123b18ca981144b8c72ebd23092b8, type: 2}
   timeLimit: 60
   enemyRoster: []
