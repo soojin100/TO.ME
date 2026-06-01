@@ -17,7 +17,8 @@ namespace TOME.Core
         void Awake()
         {
             if (I != null && I != this) { Destroy(gameObject); return; }
-            I = this; DontDestroyOnLoad(gameObject);
+            I = this;
+            if (transform.parent == null) DontDestroyOnLoad(gameObject);  // 루트일 때만(번들 자식이면 루트가 영속 담당)
             if (group) { group.alpha = 0f; group.blocksRaycasts = false; }
         }
 

@@ -13,10 +13,10 @@ namespace TOME.Core
         {
             if (GameManager.I != null) return;   // 이미 매니저 존재(Boot 경유 등)
 
-            var prefab = Resources.Load<GameObject>("PersistentManagers");
+            var prefab = Resources.Load<GameObject>("Bootstrap/PersistentManagers");
             if (prefab == null)
             {
-                Debug.LogWarning("[Bootstrapper] Resources/PersistentManagers.prefab 를 찾을 수 없습니다.");
+                Debug.LogWarning("[Bootstrapper] Resources/Bootstrap/PersistentManagers.prefab 를 찾을 수 없습니다.");
                 return;
             }
             var go = Object.Instantiate(prefab);
