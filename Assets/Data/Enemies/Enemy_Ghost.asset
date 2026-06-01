@@ -16,8 +16,14 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: b06ca0dfe55b63a4db896070fc1d7a0f, type: 3}
   anim: {fileID: 0}
   hp: 30
-  atk: 5
+  atk: 1
   moveSpeed: 1.5
+  hasRangedAttack: 1
+  bulletPrefab: {fileID: 4168582366951829461, guid: 228829e268450614693a486cb9ab2ead, type: 3}
+  rangedDamage: 0.5
+  rangedRange: 12
+  rangedCooldown: 3
+  bulletSpeed: 3.5
   dropTable:
   - {fileID: 11400000, guid: 84be7e789040d9046aa0ed8d8e75db3b, type: 2}
   - {fileID: 11400000, guid: 6b3b970e09ee06c4c90c87c3adae65e8, type: 2}

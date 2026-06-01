@@ -17,7 +17,12 @@ MonoBehaviour:
   corePrefab: {fileID: 2992235185679065721, guid: 67d3a34e62f2dfc4198d381b75ecb612, type: 3}
   icon: {fileID: 21300000, guid: 70d09c0ffee0b00b1e5feed012345678, type: 3}
   bodyTint: {r: 0.6, g: 0.42, b: 0.26, a: 1}
-  hp: 85
+  animatorController: {fileID: 0}
+  visualScale: 0
+  visualRootName: 
+  idleStateName: Idle
+  walkStateName: walk
+  hp: 2
   atk: 8
   atkSpeed: 0.9
   atkRange: 7

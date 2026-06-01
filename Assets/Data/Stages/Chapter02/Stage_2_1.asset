@@ -13,17 +13,21 @@ MonoBehaviour:
   m_Name: Stage_2_1
   m_EditorClassIdentifier: TOME::TOME.Data.StageSO
   id: 2-1
-  title: "\uACE8\uBAA9 \uC9C4\uC785 1"
+  title: "\uCE68\uC2E4 \uC9C4\uC785"
+  chapter: {fileID: 11400000, guid: 6f2d6c146be65224793991b9759e3667, type: 2}
+  difficulty: 1
   thumbnail: {fileID: 0}
-  introText: "\uC0C8\uB85C\uC6B4 \uAD6C\uC5ED \uACE8\uBAA9\uC774\uB2E4"
+  introText: "\uCE68\uC2E4\uC774\uB2E4"
   clearedIntroText: 
+  bgm: {fileID: 8300000, guid: 0d6270f4a0f9b8d4da4210aa9e2894fa, type: 3}
   startCharacter: {fileID: 11400000, guid: 72c123b18ca981144b8c72ebd23092b8, type: 2}
   timeLimit: 60
+  enemyRoster: []
   spawns:
   - enemy: {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}
-    totalCount: 4
+    totalCount: 5
     simultaneous: 2
-    spawnInterval: 1.8
+    spawnInterval: 1.7
     startDelay: 0.5
   preDialogueId: 
   postDialogueId: 

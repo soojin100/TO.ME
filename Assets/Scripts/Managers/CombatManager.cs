@@ -122,7 +122,7 @@ namespace TOME.Managers
             AliveOnField    = Mathf.Max(0, AliveOnField - 1);
             RemainingToKill = Mathf.Max(0, RemainingToKill - 1);
             OnCountChanged?.Invoke(RemainingToKill, TotalEnemies);
-            if (AudioManager.I != null) AudioManager.I.PlaySfx(AudioManager.I.enemySfx);
+            // (제거) enemySfx는 효과음이 아니라 To.You의 긴 트랙(Enemy.mp3 3.7MB)이라 BGM과 겹쳐서 재생 안 함. 짧은 효과음 생기면 교체.
 
             var go = e.gameObject;
             if (instToDef.TryGetValue(go, out var def))

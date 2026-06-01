@@ -19,14 +19,15 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   introText: "\uBCF5\uB3C4\uB85C \uBAB0\uB798 \uB098\uAC00\uBCF4\uC790"
   clearedIntroText: "\uAE54\uB054\uD558\uAC8C \uD074\uB9AC\uC5B4!"
+  bgm: {fileID: 8300000, guid: 0d6270f4a0f9b8d4da4210aa9e2894fa, type: 3}
   startCharacter: {fileID: 11400000, guid: 72c123b18ca981144b8c72ebd23092b8, type: 2}
   timeLimit: 60
   enemyRoster: []
   spawns:
   - enemy: {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}
-    totalCount: 3
+    totalCount: 4
     simultaneous: 2
-    spawnInterval: 2
+    spawnInterval: 1.9
     startDelay: 0.5
   preDialogueId: intro_stage1_pre
   postDialogueId: intro_stage1_post

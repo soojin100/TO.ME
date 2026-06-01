@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Node_1_5
   m_EditorClassIdentifier: TOME::TOME.Data.NodeSO
   id: stage_1_5
-  nodeName: "복도 1-5"
+  nodeName: "\uD604\uAD00 1-5"
   mapPosition: {x: 0, y: 0}
   iconOnMap: {fileID: 8692975658937942140, guid: 9f30b8396d97b91459c8a004f4e6107b, type: 3}
   stages:
-  - {fileID: 11400000, guid: 4ce46a17c3566e2409c8467e38951a6e, type: 2}
+  - {fileID: 11400000, guid: 852aac0c5c3e59c408acec9029a54aa8, type: 2}
   bonus:
     atkMul: 0
     atkSpeedMul: 0

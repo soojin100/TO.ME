@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Chapter_1
   m_EditorClassIdentifier: TOME::TOME.Data.ChapterSO
   id: chapter1
-  title: "챕터 1"
-  backgroundColor: {r: 0.96, g: 0.8, b: 0.8, a: 1}
+  title: "\uCC55\uD130 1"
+  backgroundColor: {r: 1, g: 1, b: 1, a: 1}
   backgroundSprite: {fileID: 0}
-  bgm: {fileID: 0}
+  backgroundPrefab: {fileID: 6362604541978799249, guid: ef0e12dbd740d6a40be646e919a37e65, type: 3}
+  bgm: {fileID: 8300000, guid: a4a64d885d8ae70469c93e85e3bfa15d, type: 3}
   mapSceneName: Room_Hallway
   enemyRoster:
   - {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}
