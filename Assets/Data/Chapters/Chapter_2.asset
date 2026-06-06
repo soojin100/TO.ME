@@ -17,7 +17,7 @@ MonoBehaviour:
   backgroundColor: {r: 1, g: 1, b: 1, a: 1}
   backgroundSprite: {fileID: 0}
   backgroundPrefab: {fileID: 0}
-  bgm: {fileID: 8300000, guid: 081ec8076e0d22544bda53bb74c82da8, type: 3}
-  mapSceneName: Room_Bedroom
+  bgm: {fileID: 8300000, guid: 0928b7b8942aadd4381d115db29942da, type: 3}
+  mapSceneName: Room_Kitchen
   enemyRoster:
   - {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}

@@ -38,9 +38,10 @@ namespace TOME.Managers
 
         void Awake()
         {
-            if (I != null && I != this) { Destroy(gameObject); return; }
+            if (I != null && I != this) { Destroy(this); return; }
             I = this;
-            if (transform.parent == null) DontDestroyOnLoad(gameObject);  // 루트일 때만(번들 자식이면 루트가 영속 담당)
+            if (transform.parent != null) transform.SetParent(null, true);
+            DontDestroyOnLoad(gameObject);
         }
 
         void OnDestroy() { if (I == this) I = null; }
