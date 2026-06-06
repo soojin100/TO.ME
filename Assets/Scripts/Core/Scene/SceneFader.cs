@@ -16,8 +16,10 @@ namespace TOME.Core
 
         void Awake()
         {
-            if (I != null && I != this) { Destroy(gameObject); return; }
-            I = this; DontDestroyOnLoad(gameObject);
+            if (I != null && I != this) { Destroy(this); return; }
+            I = this;
+            if (transform.parent != null) transform.SetParent(null, true);
+            DontDestroyOnLoad(gameObject);
             if (group) { group.alpha = 0f; group.blocksRaycasts = false; }
         }
 

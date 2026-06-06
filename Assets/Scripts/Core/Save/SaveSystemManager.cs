@@ -30,8 +30,10 @@ namespace TOME.Core
 
         void Awake()
         {
-            if (I != null && I != this) { Destroy(gameObject); return; }
-            I = this; DontDestroyOnLoad(gameObject);
+            if (I != null && I != this) { Destroy(this); return; }
+            I = this;
+            if (transform.parent != null) transform.SetParent(null, true);
+            DontDestroyOnLoad(gameObject);
             Load();
         }
 
@@ -86,12 +88,36 @@ namespace TOME.Core
             if (!Data.seenDialogues.Contains(id)) { Data.seenDialogues.Add(id); Save(); }
         }
 
-        public string PlayerName =>
-            string.IsNullOrWhiteSpace(Data.playerName) ? "제임스" : Data.playerName;
+        public string PlayerName
+        {
+            get
+            {
+                var n = SanitizeName(Data.playerName);
+                return string.IsNullOrWhiteSpace(n) ? "제임스" : n;
+            }
+        }
         public void SetPlayerName(string name)
         {
+            name = SanitizeName(name);
             Data.playerName = string.IsNullOrWhiteSpace(name) ? "제임스" : name.Trim();
             Save();
+        }
+
+        // 완성형 한글/영문/숫자/공백만 남기고 불완전 한글 자모(ㄱ, ㅇ 등)·제어문자 제거.
+        // Cafe24Ssurround 폰트에 자모 단독 글리프(U+3147 'ㅇ' 등)가 없어 □/공백으로 깨지는 것 방지.
+        static string SanitizeName(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return s;
+            var sb = new System.Text.StringBuilder(s.Length);
+            foreach (char c in s)
+            {
+                // 한글 초/중/종성 자모(U+1100~11FF), 한글 호환 자모(U+3130~318F) = 불완전 글자 → 제거
+                if ((c >= 'ᄀ' && c <= 'ᇿ') || (c >= '㄰' && c <= '㆏'))
+                    continue;
+                if (char.IsControl(c)) continue;
+                sb.Append(c);
+            }
+            return sb.ToString();
         }
 
         public bool SeenIntro => Data.seenIntro;

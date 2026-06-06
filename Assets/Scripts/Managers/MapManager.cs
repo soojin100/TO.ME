@@ -15,8 +15,10 @@ namespace TOME.Managers
 
         void Awake()
         {
-            if (I != null && I != this) { Destroy(gameObject); return; }
-            I = this; DontDestroyOnLoad(gameObject);
+            if (I != null && I != this) { Destroy(this); return; }
+            I = this;
+            if (transform.parent != null) transform.SetParent(null, true);
+            DontDestroyOnLoad(gameObject);
             RebuildUnlockSet();
         }
 
