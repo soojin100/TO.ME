@@ -61,6 +61,21 @@ namespace TOME.Map
         public void MoveLeft()  => TryMove(Direction.Left);
         public void MoveRight() => TryMove(Direction.Right);
 
+        /// <summary>지정 섹션으로 부드럽게 이동. 컷신 등 외부 시스템이 호출. 이미 같은 섹션이면 null 반환.
+        /// 반환 Coroutine을 yield하면 이동 완료까지 대기 가능.</summary>
+        public Coroutine MoveToSection(int idx)
+        {
+            if (sections == null || idx < 0 || idx >= sections.Length) return null;
+            if (idx == _index) return null;
+            var target = sections[idx];
+            if (target == null) return null;
+            _index = idx;
+            if (_moveCo != null) StopCoroutine(_moveCo);
+            _moveCo = StartCoroutine(SmoothMove(target.position));
+            RefreshArrows();
+            return _moveCo;
+        }
+
         public void TryMove(Direction dir)
         {
             // 대화/컷신 중에는 카메라 이동 금지

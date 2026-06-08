@@ -31,7 +31,7 @@ MonoBehaviour:
     simultaneous: 1
     spawnInterval: 2.2
     startDelay: 0.5
-  preDialogueId: intro_stage1_pre
+  preDialogueId:
   postDialogueId: intro_stage1_post
   rewards:
   - {fileID: 11400000, guid: 415a62ec1a23d474e8bdc87841d0e43e, type: 2}
