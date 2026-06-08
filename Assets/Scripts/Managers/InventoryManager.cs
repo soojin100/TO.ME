@@ -17,7 +17,7 @@ namespace TOME.Managers
 
         void Awake()
         {
-            if (I != null && I != this) { Destroy(gameObject); return; }
+            if (I != null && I != this) { Destroy(this); return; }
             I = this;
         }
 

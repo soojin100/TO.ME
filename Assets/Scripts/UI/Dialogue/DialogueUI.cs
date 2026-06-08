@@ -138,6 +138,7 @@ namespace TOME.UI
             DialogueManager.I.OnLine += OnLine;
             DialogueManager.I.OnEnd  += OnEnd;
             DialogueManager.I.OnNameInputRequested += OnNameInputRequested;
+            DialogueManager.I.OnInteractionRequested += OnInteractionRequested;
             _subscribed = true;
         }
 
@@ -149,8 +150,18 @@ namespace TOME.UI
                 DialogueManager.I.OnLine -= OnLine;
                 DialogueManager.I.OnEnd  -= OnEnd;
                 DialogueManager.I.OnNameInputRequested -= OnNameInputRequested;
+                DialogueManager.I.OnInteractionRequested -= OnInteractionRequested;
             }
             _subscribed = false;
+        }
+
+        // 인터랙티브 컷신(벽 보기/성수 등) 트리거 시 대사 UI 숨김. 다음 줄 OnLine에서 자동 재표시.
+        void OnInteractionRequested(DialogueTrigger trigger)
+        {
+            if (_typing != null) { StopCoroutine(_typing); _typing = null; }
+            _isTyping = false;
+            if (root) root.SetActive(false);
+            HidePortrait();
         }
 
         void OnLine(DialogueEntry e)

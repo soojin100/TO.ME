@@ -31,6 +31,10 @@ namespace TOME.Map
 
         void OnInteraction(DialogueTrigger trigger)
         {
+            // 영속 매니저 GO와 함께 DDOL 씬에 살아남은 stale 인스턴스는 무시. 활성 씬의 인스턴스가 처리한다.
+            // (이전 씬의 director 참조가 destroyed라 즉시 ResumeFromInteraction을 호출해 컷신을 끊는 버그 차단)
+            if (gameObject.scene != UnityEngine.SceneManagement.SceneManager.GetActiveScene()) return;
+
             var e = FindEntry(trigger);
             if (e == null || e.director == null)
             {
