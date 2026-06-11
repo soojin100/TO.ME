@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uC801\uD1A0\uACAC"
   corePrefab: {fileID: 700989221633529322, guid: 96efe8a781fbd69498f15e888ea2f9a8, type: 3}
   icon: {fileID: -8835349928235364070, guid: 38010eed50451574da9900bd92031a0a, type: 3}
-  bodyTint: {r: 1, g: 1, b: 1, a: 1}
+  bodyTint: {r: 0.4339623, g: 0.34307584, b: 0.34307584, a: 1}
   animatorController: {fileID: 0}
   visualScale: 0
   visualRootName: 

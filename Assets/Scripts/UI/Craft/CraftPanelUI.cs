@@ -96,24 +96,30 @@ namespace TOME.UI
             for (int i = 0; i < craftSlots.Length; i++)
                 craftSlots[i].Bind(MergeCraftManager.I.GetSlot(i));
 
-            // 실제 레시피 결과는 미리 보여주지 않는다("?"). 단 레시피 미일치 폴백(똥강아지)은 보여준다.
+            // 조합 결과 미리보기 가져오기
             var result = MergeCraftManager.I.Preview();
-            bool canCraft  = result != null;
-            bool isFallback = MergeCraftManager.I.LastPreviewWasFallback;
-            if (isFallback && result != null)
+            bool canCraft = result != null;
+
+            if (canCraft)
             {
+                // 재료가 올바르게 올라와서 조합 결과(적토견, 폴백 등)가 존재할 때
                 if (resultIcon)
                 {
-                    resultIcon.enabled = result.icon != null;
-                    if (result.icon) resultIcon.sprite = result.icon;
+                    resultIcon.sprite = result.icon;       // 캐릭터의 아이콘 연결 [cite: 25, 93]
+                    resultIcon.enabled = result.icon != null; // 아이콘 이미지가 있으면 켜기 [cite: 25]
                 }
-                if (resultLabel) resultLabel.text = result.displayName;
+                if (resultLabel)
+                {
+                    resultLabel.text = result.displayName; // 캐릭터 이름 출력 (예: 적토견) [cite: 53]
+                }
             }
             else
             {
-                if (resultIcon)  resultIcon.enabled = false;
-                if (resultLabel) resultLabel.text = canCraft ? "?" : "";
+                // 슬롯이 비어있거나 조합할 수 없는 상태일 때 완전히 비우기
+                if (resultIcon) resultIcon.enabled = false;
+                if (resultLabel) resultLabel.text = "";
             }
+
             if (resultButton) resultButton.interactable = canCraft;
         }
 

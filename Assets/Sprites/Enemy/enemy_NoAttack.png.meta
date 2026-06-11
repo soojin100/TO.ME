@@ -1,0 +1,487 @@
+fileFormatVersion: 2
+guid: fd7edb1aa2491a9449476fc7a08018c6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1762441867058637005
+    second: enemy_NoAttack_0
+  - first:
+      213: 2698452120217455961
+    second: enemy_NoAttack_1
+  - first:
+      213: 6082885801940381362
+    second: enemy_NoAttack_2
+  - first:
+      213: -2661684159436060631
+    second: enemy_NoAttack_3
+  - first:
+      213: 3517337851301018013
+    second: enemy_NoAttack_4
+  - first:
+      213: -3001519275273600298
+    second: enemy_NoAttack_5
+  - first:
+      213: -3009278771595737250
+    second: enemy_NoAttack_6
+  - first:
+      213: 6442447189932607231
+    second: enemy_NoAttack_7
+  - first:
+      213: -7892534360482392984
+    second: enemy_NoAttack_8
+  - first:
+      213: 4073419151027587260
+    second: enemy_NoAttack_9
+  - first:
+      213: -2968428356220762281
+    second: enemy_NoAttack_10
+  - first:
+      213: -8657139440806482437
+    second: enemy_NoAttack_11
+  - first:
+      213: 1951672567520363104
+    second: enemy_NoAttack_12
+  - first:
+      213: 1182639031890440234
+    second: enemy_NoAttack_13
+  - first:
+      213: 1257885782742889680
+    second: enemy_NoAttack_14
+  - first:
+      213: -1866233315857955647
+    second: enemy_NoAttack_15
+  - first:
+      213: -3001134828851318134
+    second: enemy_NoAttack_16
+  - first:
+      213: -6654948832052729287
+    second: enemy_NoAttack_17
+  - first:
+      213: -3012887798152996285
+    second: enemy_NoAttack_18
+  - first:
+      213: 3874477428989333327
+    second: enemy_NoAttack_19
+  - first:
+      213: 8928015467633238941
+    second: enemy_NoAttack_20
+  - first:
+      213: 2083371112190770723
+    second: enemy_NoAttack_21
+  - first:
+      213: 1416064078597504448
+    second: enemy_NoAttack_22
+  - first:
+      213: 5100848639079677064
+    second: enemy_NoAttack_23
+  - first:
+      213: 828761196944607516
+    second: enemy_NoAttack_24
+  - first:
+      213: -1433334580537811690
+    second: enemy_NoAttack_25
+  - first:
+      213: -8796258591538945164
+    second: enemy_NoAttack_26
+  - first:
+      213: -714975439947466451
+    second: enemy_NoAttack_27
+  - first:
+      213: -3467041573526192767
+    second: enemy_NoAttack_28
+  - first:
+      213: 139235316273166803
+    second: enemy_NoAttack_29
+  - first:
+      213: -1732999711023698201
+    second: enemy_NoAttack_30
+  - first:
+      213: 408571964415982849
+    second: enemy_NoAttack_31
+  - first:
+      213: -540276926859364508
+    second: enemy_NoAttack_32
+  - first:
+      213: 2458943832275571573
+    second: enemy_NoAttack_33
+  - first:
+      213: 4641087601710151206
+    second: enemy_NoAttack_34
+  - first:
+      213: -3456415546982097002
+    second: enemy_NoAttack_35
+  - first:
+      213: 4545538173986678850
+    second: enemy_NoAttack_36
+  - first:
+      213: -6401811724082453997
+    second: enemy_NoAttack_37
+  - first:
+      213: -6230528308378595653
+    second: enemy_NoAttack_38
+  - first:
+      213: 2785920467974777542
+    second: enemy_NoAttack_39
+  - first:
+      213: -2829110154195976403
+    second: enemy_NoAttack_40
+  - first:
+      213: -5872437882985107158
+    second: enemy_NoAttack_41
+  - first:
+      213: -1988536117546488368
+    second: enemy_NoAttack_42
+  - first:
+      213: -6447120612058237415
+    second: enemy_NoAttack_43
+  - first:
+      213: -8775239418075080350
+    second: enemy_NoAttack_44
+  - first:
+      213: -6922762586553937592
+    second: enemy_NoAttack_45
+  - first:
+      213: 8098747350534621764
+    second: enemy_NoAttack_46
+  - first:
+      213: -861545745489645774
+    second: enemy_NoAttack_47
+  - first:
+      213: 5068460761611310219
+    second: enemy_NoAttack_48
+  - first:
+      213: 5866113682803209083
+    second: enemy_NoAttack_49
+  - first:
+      213: -8905909515651506146
+    second: enemy_NoAttack_50
+  - first:
+      213: 1552948210614450433
+    second: enemy_NoAttack_51
+  - first:
+      213: -6181413323264699802
+    second: enemy_NoAttack_52
+  - first:
+      213: -3914411216042340152
+    second: enemy_NoAttack_53
+  - first:
+      213: -7029814496924804369
+    second: enemy_NoAttack_54
+  - first:
+      213: -8453816391456342792
+    second: enemy_NoAttack_55
+  - first:
+      213: 588855372833868386
+    second: enemy_NoAttack_56
+  - first:
+      213: -2977204160752447108
+    second: enemy_NoAttack_57
+  - first:
+      213: -8912618738938290458
+    second: enemy_NoAttack_58
+  - first:
+      213: -480602249715262326
+    second: enemy_NoAttack_59
+  - first:
+      213: -8926855952338686138
+    second: enemy_NoAttack_60
+  - first:
+      213: 6891799362048738486
+    second: enemy_NoAttack_61
+  - first:
+      213: -1116136788281026515
+    second: enemy_NoAttack_62
+  - first:
+      213: -3703469831886158155
+    second: enemy_NoAttack_63
+  - first:
+      213: -8616316631456251572
+    second: enemy_NoAttack_64
+  - first:
+      213: 2959234954100400500
+    second: enemy_NoAttack_65
+  - first:
+      213: 490290275840476405
+    second: enemy_NoAttack_66
+  - first:
+      213: 8763437761989153227
+    second: enemy_NoAttack_67
+  - first:
+      213: 5994205820615244591
+    second: enemy_NoAttack_68
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: enemy_NoAttack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33791b0b57c8a87e0800000000000000
+      internalID: -1762441867058637005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_NoAttack_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 207432f15a054534aa9194ae6e262a1e
+      internalID: 2698452120217455961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_NoAttack_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe6893fe937916d499b38d9ad269df5a
+      internalID: 6082885801940381362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_NoAttack_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 246f5466b10cc5542bd55ad8c6b6183b
+      internalID: -2661684159436060631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_NoAttack_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 784b47582ae0f0f48bb9684d3eeba7a4
+      internalID: 3517337851301018013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_NoAttack_5
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c787a53006746c4ead8c2200c1c3c41
+      internalID: -3001519275273600298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_NoAttack_6
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 983687469ea83a74dace909cad9814a2
+      internalID: -3009278771595737250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 466ccf1b56c862d4fbabd998d5560805
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":1.0},"gridSpriteSize":{"x":300.0,"y":300.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      enemy_NoAttack_0: -1762441867058637005
+      enemy_NoAttack_1: 2698452120217455961
+      enemy_NoAttack_2: 6082885801940381362
+      enemy_NoAttack_3: -2661684159436060631
+      enemy_NoAttack_4: 3517337851301018013
+      enemy_NoAttack_5: -3001519275273600298
+      enemy_NoAttack_6: -3009278771595737250
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
