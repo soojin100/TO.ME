@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b80267ee634e3e42b5dce098f4e5753, type: 3}
-  m_Name: Item_Star
+  m_Name: Item_MismatchedSocks
   m_EditorClassIdentifier: TOME::TOME.Data.ItemSO
-  id: star
-  displayName: "\uBCC4"
-  icon: {fileID: 54731512165653094, guid: cf7e64cd634269a43b1dc24e8dfa466e, type: 3}
+  id: mismatchedSocks
+  displayName: "\uC9DD\uC9DD\uC774\uC591\uB9D0"
+  icon: {fileID: -4049030314517175897, guid: 9080b5ae212aa4141abea50799af1c4f, type: 3}
   tier: 0
