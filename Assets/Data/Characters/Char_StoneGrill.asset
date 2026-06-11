@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931cb2f2101aa874eba4b24bd7902765, type: 3}
+  m_Name: Char_StoneGrill
+  m_EditorClassIdentifier: TOME::TOME.Data.CharacterSO
+  id: StoneGrill
+  displayName: "\uB3CC\uAD6C\uC774"
+  ability: "\uB2EC\uAD88\uC9C4 \uB3CC \uD22C\uCC99 3\uBC1C, \uB9DE\uC740 \uC790\uB9AC\uC5D0
+    \uD654\uC0C1 \uC7A5\uD310"
+  corePrefab: {fileID: 0}
+  icon: {fileID: 0}
+  bodyTint: {r: 1, g: 1, b: 1, a: 1}
+  animatorController: {fileID: 0}
+  visualScale: 0
+  visualRootName: 
+  idleStateName: Idle
+  walkStateName: walk
+  hp: 100
+  atk: 10
+  atkSpeed: 1
+  atkRange: 4
+  attackPattern: {fileID: 0}

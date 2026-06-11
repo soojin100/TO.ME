@@ -22,7 +22,7 @@ namespace TOME.EditorTools
 
         class Row
         {
-            public string id, resultName, ability, notes, key, name;
+            public string id, resultName, resultEn, ability, notes, key, name;
             public List<ItemSO> ings;
         }
 
@@ -78,7 +78,7 @@ namespace TOME.EditorTools
                 string en = Get("resulten");
                 rows.Add(new Row
                 {
-                    id = Get("id"), resultName = resultName,
+                    id = Get("id"), resultName = resultName, resultEn = en,
                     ability = Get("ability"), notes = Get("notes"),
                     ings = ings,
                     key = string.Join(",", ings.Where(i => i).Select(i => i.id).OrderBy(s => s)),
@@ -149,7 +149,15 @@ namespace TOME.EditorTools
                 so.resultName  = row.resultName;
                 so.ability     = row.ability;
                 so.notes       = row.notes;
-                // result(CharacterSO)는 건드리지 않음
+
+                // 결과물 캐릭터(Char_{resultEn}) 연결 — 있으면 세팅, 없으면 기존 값 유지.
+                if (!string.IsNullOrEmpty(row.resultEn))
+                {
+                    var charPath = $"Assets/Data/Characters/Char_{Sanitize(row.resultEn)}.asset";
+                    var ch = AssetDatabase.LoadAssetAtPath<CharacterSO>(charPath);
+                    if (ch != null) so.result = ch;
+                    else { log.AppendLine($"  [{row.resultName}] 캐릭터 '{charPath}' 없음 — result 미연결"); warned++; }
+                }
 
                 EditorUtility.SetDirty(so);
                 if (isNew) created++; else updated++;

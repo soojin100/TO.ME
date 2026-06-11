@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931cb2f2101aa874eba4b24bd7902765, type: 3}
+  m_Name: Char_LockBreaker
+  m_EditorClassIdentifier: TOME::TOME.Data.CharacterSO
+  id: LockBreaker
+  displayName: "\uC790\uBB3C\uC1E0\uAE68\uAE30"
+  ability: "\uBCF4\uC2A4 \uBC29\uC5B4\uB9C9 \uBB34\uC2DC\uD558\uACE0 \uC9C1\uC811
+    \uD0C0\uACA9 \uAC00\uB2A5 (10\uCD08)"
+  corePrefab: {fileID: 0}
+  icon: {fileID: 0}
+  bodyTint: {r: 1, g: 1, b: 1, a: 1}
+  animatorController: {fileID: 0}
+  visualScale: 0
+  visualRootName: 
+  idleStateName: Idle
+  walkStateName: walk
+  hp: 100
+  atk: 10
+  atkSpeed: 1
+  atkRange: 4
+  attackPattern: {fileID: 0}

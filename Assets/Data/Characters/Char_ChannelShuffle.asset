@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931cb2f2101aa874eba4b24bd7902765, type: 3}
+  m_Name: Char_ChannelShuffle
+  m_EditorClassIdentifier: TOME::TOME.Data.CharacterSO
+  id: ChannelShuffle
+  displayName: "\uCC44\uB110\uB3CC\uB9AC\uAC1C"
+  ability: "\uC801\uB4E4\uC758 \uC704\uCE58\uB97C \uB79C\uB364\uC73C\uB85C \uC11E\uC5B4\uBC84\uB9BC"
+  corePrefab: {fileID: 0}
+  icon: {fileID: 0}
+  bodyTint: {r: 1, g: 1, b: 1, a: 1}
+  animatorController: {fileID: 0}
+  visualScale: 0
+  visualRootName: 
+  idleStateName: Idle
+  walkStateName: walk
+  hp: 100
+  atk: 10
+  atkSpeed: 1
+  atkRange: 4
+  attackPattern: {fileID: 0}

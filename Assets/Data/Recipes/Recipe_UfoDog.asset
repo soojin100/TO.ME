@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d0a05001e8c861b42b3f78cd83eb9c49, type: 2}
   - {fileID: 11400000, guid: aeacd1702f3fb2d47b9c0ddb4997e20f, type: 2}
   - {fileID: 11400000, guid: 52f5a4b542fc40f4bb0cf2b6b8b323a7, type: 2}
-  result: {fileID: 0}
+  result: {fileID: 11400000, guid: 96feb9e49ee77c343882052d82385ad3, type: 2}
   resultId: 46
   resultName: "UFO\uACAC"
   ability: "\uCFE0\uD0B9\uD638\uC77C UFO \uC624\uB77C, 5\uCD08\uAC04 \uC801 \uACF5\uACA9

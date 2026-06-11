@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 931cb2f2101aa874eba4b24bd7902765, type: 3}
+  m_Name: Char_TrashStorm
+  m_EditorClassIdentifier: TOME::TOME.Data.CharacterSO
+  id: TrashStorm
+  displayName: "\uC4F0\uB808\uAE30\uD3ED\uD48D"
+  ability: "\uC7A1\uB3D9\uC0AC\uB2C8 \uD1A0\uB124\uC774\uB3C4, \uC801 \uB04C\uC5B4\uBAA8\uC544
+    12\uCD08\uAC04 \uC9C0\uC18D \uB370\uBBF8\uC9C0"
+  corePrefab: {fileID: 0}
+  icon: {fileID: 0}
+  bodyTint: {r: 1, g: 1, b: 1, a: 1}
+  animatorController: {fileID: 0}
+  visualScale: 0
+  visualRootName: 
+  idleStateName: Idle
+  walkStateName: walk
+  hp: 100
+  atk: 10
+  atkSpeed: 1
+  atkRange: 4
+  attackPattern: {fileID: 0}

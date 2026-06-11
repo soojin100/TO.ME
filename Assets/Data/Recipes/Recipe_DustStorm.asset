@@ -15,7 +15,7 @@ MonoBehaviour:
   ingredients:
   - {fileID: 11400000, guid: 8cfe02437d9928a45abdad96e2cac5a2, type: 2}
   - {fileID: 11400000, guid: cf19a0fb3e5f61c42b854d60fad35983, type: 2}
-  result: {fileID: 0}
+  result: {fileID: 11400000, guid: b17d72b754ac0074da633c8d23e6913f, type: 2}
   resultId: 66
   resultName: "\uBA3C\uC9C0\uD3ED\uD48D"
   ability: "\uD1A0\uB124\uC774\uB3C4 \uC18C\uD658, \uC801\uC744 \uBE68\uC544\uB4E4\uC5EC

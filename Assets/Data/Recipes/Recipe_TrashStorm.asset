@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cf19a0fb3e5f61c42b854d60fad35983, type: 2}
   - {fileID: 11400000, guid: d862d1713d2c3cb45843e92e87e31ead, type: 2}
   - {fileID: 11400000, guid: 39ca79b309ba8c74b929352aebda4f70, type: 2}
-  result: {fileID: 0}
+  result: {fileID: 11400000, guid: b224f0b4e8f01124ea6dde1597cbf148, type: 2}
   resultId: 79
   resultName: "\uC4F0\uB808\uAE30\uD3ED\uD48D"
   ability: "\uC7A1\uB3D9\uC0AC\uB2C8 \uD1A0\uB124\uC774\uB3C4, \uC801 \uB04C\uC5B4\uBAA8\uC544

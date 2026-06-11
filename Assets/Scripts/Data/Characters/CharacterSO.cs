@@ -7,6 +7,7 @@ namespace TOME.Data
     {
         public string id;
         public string displayName;
+        [TextArea] public string ability;   // 조합 결과 고유 능력 설명 (조합표)
         public GameObject corePrefab;       // 비주얼 프리팹. CharacterCore(단일 sprite) 또는 PSB 본 리그(.psb) 직접 가능.
         public Sprite icon;
         public Color  bodyTint = Color.white;   // 플레이스홀더 캐릭터 시각 구분용

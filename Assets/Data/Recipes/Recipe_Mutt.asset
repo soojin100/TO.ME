@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Recipe_Mutt
   m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
   ingredients: []
-  result: {fileID: 0}
+  result: {fileID: 11400000, guid: dca12fe5e2ad62c4dba6f166060ce06e, type: 2}
   resultId: 00
   resultName: "\uB625\uAC1C"
   ability: "\uC131\uB2A5 \uAD6C\uB9BC (\uC870\uD569 \uC2E4\uD328 \uC2DC \uBB34\uC870\uAC74

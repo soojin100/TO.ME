@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
   ingredients:
   - {fileID: 11400000, guid: 268a0b1bf17eccf42acde8eeed8b4ff2, type: 2}
-  result: {fileID: 0}
+  result: {fileID: 11400000, guid: ab94a82cde85be14280831b3fce60921, type: 2}
   resultId: 62
   resultName: "\uCFE0\uC158\uBC94\uD37C"
   ability: "\uC801\uACFC \uCDA9\uB3CC \uC2DC \uC790\uB3D9 \uB109\uBC31 + \uCDA9\uACA9\uD30C
