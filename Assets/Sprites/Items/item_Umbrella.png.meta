@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: cf7e64cd634269a43b1dc24e8dfa466e
+guid: e8c488a516427894aa2a5744504e0679
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2653834860644419659
-    second: item_Star_0
-  - first:
-      213: 54731512165653094
-    second: item_Star_1
-  - first:
-      213: -3575787328429289556
-    second: item_Star_2
+      213: 7167829070219299765
+    second: item_Umbrella_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 350
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: item_Star_0
+      name: item_Umbrella_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 137
-        width: 6
-        height: 12
+        y: 3
+        width: 236
+        height: 247
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b484241ceb054d420800000000000000
-      internalID: 2653834860644419659
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: item_Star_1
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 9
-        width: 243
-        height: 243
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 66a57a4350272c000800000000000000
-      internalID: 54731512165653094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: item_Star_2
-      rect:
-        serializedVersion: 2
-        x: 249
-        y: 139
-        width: 6
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: caf01a0ce50406ec0800000000000000
-      internalID: -3575787328429289556
+      spriteID: 5bbc325009e397360800000000000000
+      internalID: 7167829070219299765
       vertices: []
       indices: 
       edges: []
@@ -185,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      item_Star_0: 2653834860644419659
-      item_Star_1: 54731512165653094
-      item_Star_2: -3575787328429289556
+      item_Umbrella_0: 7167829070219299765
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
