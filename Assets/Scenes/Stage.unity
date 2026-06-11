@@ -1127,6 +1127,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e8cd473ccd078c4c81473e73abc2ad3, type: 2}
   - {fileID: 11400000, guid: 67cb158b3c22d5a44ac26d6f9a8c866c, type: 2}
   - {fileID: 11400000, guid: 424080af3003c4342a0a4d37c8765345, type: 2}
+  - {fileID: 11400000, guid: 428fb4339a7a7164f922a1031f409a62, type: 2}
   itemDropManager: {fileID: 1201343081}
   resultScreen: {fileID: 1861365730}
   debugStage: {fileID: 11400000, guid: 4ce46a17c3566e2409c8467e38951a6e, type: 2}

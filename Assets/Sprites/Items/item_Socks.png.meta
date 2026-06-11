@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 5b954acb06b349d43adb5af46c154fc3
+guid: 2b4d23f8fb46fad4498168b1f5bc3fb3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4815476061570213978
-    second: star_0
+      213: -3196446834784270295
+    second: item_Socks_0
   - first:
-      213: 3999761062471549324
-    second: star_1
-  - first:
-      213: -3497892727927865473
-    second: star_2
+      213: -4088816795217210145
+    second: item_Socks_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 350
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: star_0
+      name: item_Socks_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 137
-        width: 6
-        height: 12
+        x: 11
+        y: 153
+        width: 68
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a582a4ae6f104d240800000000000000
-      internalID: 4815476061570213978
+      spriteID: 928034d0a80f3a3d0800000000000000
+      internalID: -3196446834784270295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: star_1
+      name: item_Socks_1
       rect:
         serializedVersion: 2
-        x: 6
-        y: 9
-        width: 243
-        height: 243
+        x: 13
+        y: 8
+        width: 235
+        height: 239
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,30 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c814e03ae71028730800000000000000
-      internalID: 3999761062471549324
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: star_2
-      rect:
-        serializedVersion: 2
-        x: 249
-        y: 139
-        width: 6
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f7fff69b81df47fc0800000000000000
-      internalID: -3497892727927865473
+      spriteID: fd45d69c9ca9147c0800000000000000
+      internalID: -4088816795217210145
       vertices: []
       indices: 
       edges: []
@@ -185,9 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      star_0: 4815476061570213978
-      star_1: 3999761062471549324
-      star_2: -3497892727927865473
+      item_Socks_0: -3196446834784270295
+      item_Socks_1: -4088816795217210145
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

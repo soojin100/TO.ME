@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c1665c01f4445541bb27f3c3e4f265b, type: 3}
-  m_Name: Enemy_Ghost
+  m_Name: Enemy_HybridAttack
   m_EditorClassIdentifier: TOME::TOME.Data.EnemySO
-  id: ghost
-  sprite: {fileID: 21300000, guid: b06ca0dfe55b63a4db896070fc1d7a0f, type: 3}
-  anim: {fileID: 0}
+  id: hybridAttack
+  sprite: {fileID: 3760741701893142506, guid: 1a22b15b973e1ae4fbeba2a3261e8fd9, type: 3}
+  anim: {fileID: 9100000, guid: bb339d0c95fbf3844bf12e19792c2690, type: 2}
   hp: 30
   atk: 1
   moveSpeed: 1.5
@@ -27,17 +27,11 @@ MonoBehaviour:
   rangedCooldown: 3
   bulletSpeed: 3.5
   dropTable:
-  - {fileID: 11400000, guid: 84be7e789040d9046aa0ed8d8e75db3b, type: 2}
-  - {fileID: 11400000, guid: 6b3b970e09ee06c4c90c87c3adae65e8, type: 2}
-  - {fileID: 11400000, guid: fe918c4e77d20914095c0d3d2af38a7b, type: 2}
-  - {fileID: 11400000, guid: 59e45453142779345bd2b5a287902f37, type: 2}
   - {fileID: 11400000, guid: d558456f766f453429de2f0659afaa23, type: 2}
   - {fileID: 11400000, guid: 3f1126d1edd38e141bbbbf5393f64d23, type: 2}
+  - {fileID: 11400000, guid: 84be7e789040d9046aa0ed8d8e75db3b, type: 2}
   dropWeights:
   - 1
   - 1
   - 1
-  - 1
-  - 1
-  - 1
-  dropChance: 0.6
+  dropChance: 0.5
