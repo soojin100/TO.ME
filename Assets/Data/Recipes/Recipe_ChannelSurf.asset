@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_ChannelSurf
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 52f5a4b542fc40f4bb0cf2b6b8b323a7, type: 2}
+  - {fileID: 11400000, guid: aeacd1702f3fb2d47b9c0ddb4997e20f, type: 2}
+  result: {fileID: 0}
+  resultId: 53
+  resultName: "\uCC44\uB110\uC11C\uD551"
+  ability: "5\uCD08\uB9C8\uB2E4 \uB79C\uB364 \uBC84\uD504 1\uAC1C \uBD80\uC5EC (20\uCD08\uAC04)"
+  notes: 

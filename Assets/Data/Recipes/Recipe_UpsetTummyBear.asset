@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_UpsetTummyBear
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: a6219440a81752f43a3457956e5162b8, type: 2}
+  - {fileID: 11400000, guid: ded92db8f55182741a301d4c526645d0, type: 2}
+  result: {fileID: 0}
+  resultId: 39
+  resultName: "\uBC30\uD0C8\uACF0"
+  ability: "\uC790\uD3ED\uD615 \uACF0\uC778\uD615 \uC18C\uD658, \uC801\uC5D0\uAC8C
+    \uAC78\uC5B4\uAC00\uC11C \uD3ED\uBC1C"
+  notes: 

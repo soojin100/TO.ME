@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_ThreeKingdomsShow
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 52f5a4b542fc40f4bb0cf2b6b8b323a7, type: 2}
+  - {fileID: 11400000, guid: 3f1126d1edd38e141bbbbf5393f64d23, type: 2}
+  - {fileID: 11400000, guid: aeacd1702f3fb2d47b9c0ddb4997e20f, type: 2}
+  - {fileID: 11400000, guid: a6219440a81752f43a3457956e5162b8, type: 2}
+  result: {fileID: 0}
+  resultId: 60
+  resultName: "\uC0BC\uAD6D\uC9C0\uADF9\uC7A5"
+  ability: "\uAD00\uC6B0\xB7\uC7A5\uBE44\xB7\uC870\uC870 \uACF0\uC778\uD615 3\uB9C8\uB9AC
+    \uC18C\uD658, 15\uCD08\uAC04 \uC804\uD22C"
+  notes: "\uD55C \uBC88 \uC0AC\uC6A9 \uC2DC 15\uCD08\uAC00 \uB05D\uB098\uBA74 \uC77C\uBC18
+    \uAC1C\uB85C \uBCC0\uACBD"

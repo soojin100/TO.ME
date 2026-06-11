@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_FoilArmor
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: d0a05001e8c861b42b3f78cd83eb9c49, type: 2}
+  result: {fileID: 0}
+  resultId: 24
+  resultName: "\uC740\uBC15\uAC11\uC637"
+  ability: "5\uCD08\uAC04 \uBC1B\uB294 \uB370\uBBF8\uC9C0 50% \uAC10\uC18C"
+  notes: 

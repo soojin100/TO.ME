@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_EnergizerDog
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 948cd01b13271fa4cbaadb3a9930fab9, type: 2}
+  result: {fileID: 0}
+  resultId: 65
+  resultName: "\uC5D0\uB108\uC790\uC774\uAC1C"
+  ability: "10\uCD08\uAC04 \uBAA8\uB4E0 \uCFE8\uD0C0\uC784 50% \uAC10\uC18C"
+  notes: 

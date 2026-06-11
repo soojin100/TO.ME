@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_RomanticDog
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 39ca79b309ba8c74b929352aebda4f70, type: 2}
+  - {fileID: 11400000, guid: b3b9111af9b5b474f8d02327c239211b, type: 2}
+  result: {fileID: 0}
+  resultId: 08
+  resultName: "\uB0AD\uB9CC\uACAC"
+  ability: "\uC801\uACFC \uCDA9\uB3CC \uC2DC 2\uBC88 \uC644\uC804 \uBC29\uC5B4\uB41C\uB2E4"
+  notes: 

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_TunnelDog
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: c11193837a884c249bb686ebd4a029fc, type: 2}
+  result: {fileID: 0}
+  resultId: 83
+  resultName: "\uB545\uAD74\uAC1C"
+  ability: "\uC9C0\uD558 \uC7A0\uC785, 3\uCD08 \uD6C4 \uC9C0\uC815 \uC704\uCE58\uC5D0\uC11C
+    \uC19F\uC544\uC62C\uB77C \uBC94\uC704 \uACF5\uACA9"
+  notes: 

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_SpicyRabbit
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: d558456f766f453429de2f0659afaa23, type: 2}
+  - {fileID: 11400000, guid: 78dd85b011351ac4d8aeee18590679ef, type: 2}
+  result: {fileID: 0}
+  resultId: 38
+  resultName: "\uB9E4\uC6B4\uD1A0\uB07C"
+  ability: "\uB2F9\uADFC \uC720\uB3C4\uD0C4 3\uBC1C \uBC1C\uC0AC, \uB9DE\uC740 \uC801
+    \uACBD\uC9C1 + \uC9C0\uC18D \uB370\uBBF8\uC9C0"
+  notes: 

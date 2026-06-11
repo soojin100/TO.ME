@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_StargazerDog
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 3443c408dc12d25438badeffcbc1710e, type: 2}
+  - {fileID: 11400000, guid: 6b3b970e09ee06c4c90c87c3adae65e8, type: 2}
+  result: {fileID: 0}
+  resultId: 12
+  resultName: "\uBCC4\uC744 \uD5E4\uB9E4\uB294 \uACAC"
+  ability: "\uD558\uB298\uC5D0\uC11C \uBCC4\uC778\uD615\uC774 \uB5A8\uC5B4\uC9C4\uB2E4.
+    \uCDA9\uB3CC \uC2DC \uC801 \uC989\uC0AC"
+  notes: 

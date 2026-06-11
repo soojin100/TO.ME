@@ -1,0 +1,33 @@
+id,displayName,tier,map,location
+star,별,Basic,공통,각 맵에 랜덤으로 등장
+holyWater,성수병,Basic,방,주인의 방 (침대 아래)
+heart,하트,Basic,방,각 맵에 랜덤으로 등장
+mismatchedSocks,짝짝이 양말,Basic,방,바닥
+smellySocks,냄새나는 양말,Basic,방,침대 아래
+matchingSocks,짝짝이 잘 맞는 양말,Basic,방,바닥
+rustyKey,녹슨 열쇠,Basic,현관,현관 선반 위
+tornUmbrella,찢어진 우산,Basic,현관,우산꽂이
+parcelBox,택배상자,Basic,현관,현관 바닥
+fryingPan,프라이팬,Basic,주방,싱크대 걸이
+expiredMilk,유통기한 지난 우유,Basic,주방,냉장고 안쪽
+wasabi,고추냉이,Basic,주방,냉장고 구석
+ladle,국자,Basic,주방,서랍 안
+foil,쿠킹호일,Basic,주방,조리대 위
+carrot,당근인형,Basic,주인의 방,침대 앞
+threeKingdoms,삼국지 책,Basic,주인의 방,책상 위
+teddyBear,곰인형,Basic,주인의 방,침대 위
+remote,리모컨,Basic,주인의 방,이불 속
+brokenMirror,깨진 거울,Basic,주인의 방,화장대 밑
+needleThread,실과 바늘,Basic,주인의 방,서랍 안
+sunglasses,썬글라스,Basic,주인의 방,책상 위
+witheredFlower,시든꽃,Basic,주인의 방,창가
+broom,빗자루,Basic,거실,구석
+cushion,쿠션,Basic,거실,소파 밑
+dustBunny,먼지뭉치,Basic,거실,TV 뒤
+chargerCable,충전기 줄,Basic,거실,소파 틈
+battery,건전지,Basic,거실,서랍 안
+bamboo,대나무,Basic,마당,울타리 옆
+stone,돌멩이,Basic,마당,화단 옆
+dandelion,민들레,Basic,마당,잔디밭
+earthworm,지렁이,Basic,마당,흙 속
+hose,호스,Basic,마당,수도꼭지 연결

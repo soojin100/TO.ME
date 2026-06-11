@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_MilkHater
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: ded92db8f55182741a301d4c526645d0, type: 2}
+  result: {fileID: 0}
+  resultId: 21
+  resultName: "\uC774\uB7F0\uC6B0\uC720\uB294\uC2EB\uC5B4\uC694"
+  ability: "\uB79C\uB364\uC73C\uB85C \uC6B0\uC720 \uD3ED\uD0C4 \uBC1C\uC0AC, \uC801
+    \uC774\uB3D9\uC18D\uB3C4 15% \uAC10\uC18C"
+  notes: 

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Item_MismatchedSocks
   m_EditorClassIdentifier: TOME::TOME.Data.ItemSO
   id: mismatchedSocks
-  displayName: "\uC9DD\uC9DD\uC774\uC591\uB9D0"
+  displayName: "\uC9DD\uC9DD\uC774 \uC591\uB9D0"
   icon: {fileID: -4049030314517175897, guid: 9080b5ae212aa4141abea50799af1c4f, type: 3}
   tier: 0

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_WaterCannon
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 942b00b93f6068b4e98431436739a9ea, type: 2}
+  - {fileID: 11400000, guid: ad717bccc1507bc4e9b843a0013ca0be, type: 2}
+  result: {fileID: 0}
+  resultId: 90
+  resultName: "\uBB3C\uB300\uD3EC"
+  ability: "\uB300\uB098\uBB34 \uD1B5\uC5D0 \uBB3C \uC555\uCD95, \uC804\uBC29 \uCD08\uAC15\uB825
+    \uC77C\uC9C1\uC120 \uACF5\uACA9"
+  notes: 

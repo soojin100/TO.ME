@@ -15,4 +15,4 @@ MonoBehaviour:
   id: holyWater
   displayName: "\uC131\uC218\uBCD1"
   icon: {fileID: -3935700254116180666, guid: 5846c6d6ca83b8048ac182cbd5ef4270, type: 3}
-  tier: 1
+  tier: 0

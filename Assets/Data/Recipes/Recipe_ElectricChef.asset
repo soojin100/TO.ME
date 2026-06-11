@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_ElectricChef
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 6d0ea358d2e8c4f47b217bc5764683fd, type: 2}
+  - {fileID: 11400000, guid: 5241d471bcb5ebb4c9830d39f90eaf59, type: 2}
+  - {fileID: 11400000, guid: df397ae09898ca748a0ad3f344bad7b8, type: 2}
+  result: {fileID: 0}
+  resultId: 78
+  resultName: "\uC804\uAE30\uC694\uB9AC\uC0AC"
+  ability: "\uAC10\uC804 \uD504\uB77C\uC774\uD32C 3\uC5F0\uD0C0 + \uB9C8\uC9C0\uB9C9
+    \uD0C0\uACA9 \uBC94\uC704 \uD3ED\uBC1C"
+  notes: 

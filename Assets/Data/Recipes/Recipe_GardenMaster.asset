@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_GardenMaster
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 942b00b93f6068b4e98431436739a9ea, type: 2}
+  - {fileID: 11400000, guid: 471e7a57e390fb24b97857d4bbc16eb5, type: 2}
+  - {fileID: 11400000, guid: 868ff5826a38fd846b899403cc3d3363, type: 2}
+  - {fileID: 11400000, guid: c11193837a884c249bb686ebd4a029fc, type: 2}
+  result: {fileID: 0}
+  resultId: 106
+  resultName: "\uC815\uC6D0\uC758\uC8FC\uC778"
+  ability: "\uB9C8\uB2F9 \uC804\uCCB4 \uC544\uAD70 \uC601\uC5ED, \uC801 \uC790\uB3D9
+    \uB370\uBBF8\uC9C0 + \uC544\uAD70 \uD68C\uBCF5 20\uCD08"
+  notes: 

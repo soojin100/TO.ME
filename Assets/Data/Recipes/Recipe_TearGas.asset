@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_TearGas
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: ad717bccc1507bc4e9b843a0013ca0be, type: 2}
+  - {fileID: 11400000, guid: 78dd85b011351ac4d8aeee18590679ef, type: 2}
+  - {fileID: 11400000, guid: 868ff5826a38fd846b899403cc3d3363, type: 2}
+  result: {fileID: 0}
+  resultId: 102
+  resultName: "\uCD5C\uB8E8\uAC00\uC2A4"
+  ability: "\uB9F5 \uC804\uCCB4 \uC548\uAC1C, \uC801 \uBA85\uC911\uB960 0%\uC5D0
+    \uAC00\uAE4C\uC6C0 3\uCD08"
+  notes: 

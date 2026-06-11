@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_DustStorm
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 8cfe02437d9928a45abdad96e2cac5a2, type: 2}
+  - {fileID: 11400000, guid: cf19a0fb3e5f61c42b854d60fad35983, type: 2}
+  result: {fileID: 0}
+  resultId: 66
+  resultName: "\uBA3C\uC9C0\uD3ED\uD48D"
+  ability: "\uD1A0\uB124\uC774\uB3C4 \uC18C\uD658, \uC801\uC744 \uBE68\uC544\uB4E4\uC5EC
+    \uD55C\uACF3\uC5D0 \uBAA8\uC740 \uB4A4 \uD3ED\uBC1C"
+  notes: 

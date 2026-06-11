@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_WallBuild
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 471e7a57e390fb24b97857d4bbc16eb5, type: 2}
+  - {fileID: 11400000, guid: 471e7a57e390fb24b97857d4bbc16eb5, type: 2}
+  - {fileID: 11400000, guid: 942b00b93f6068b4e98431436739a9ea, type: 2}
+  - {fileID: 11400000, guid: ad717bccc1507bc4e9b843a0013ca0be, type: 2}
+  result: {fileID: 0}
+  resultId: 105
+  resultName: "\uC131\uBCBD\uAC74\uC124"
+  ability: "\uB9F5\uC5D0 \uB3CC\uBCBD 3\uAC1C \uC0DD\uC131, \uC801 \uBD80\uB52A\uD788\uBA74
+    \uB370\uBBF8\uC9C0"
+  notes: 

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_UltimateRemote
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 948cd01b13271fa4cbaadb3a9930fab9, type: 2}
+  - {fileID: 11400000, guid: 52f5a4b542fc40f4bb0cf2b6b8b323a7, type: 2}
+  result: {fileID: 0}
+  resultId: 72
+  resultName: "\uC644\uC804\uCCB4\uB9AC\uBAA8\uCEE8"
+  ability: "\uC801 1\uB9C8\uB9AC \uC9C0\uC815, \uAC00\uC7A5 \uAC00\uAE4C\uC774\uC5D0
+    \uC788\uB294 \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD558\uC5EC \uB3D9\uADC0\uC5B4\uC9C4"
+  notes: 

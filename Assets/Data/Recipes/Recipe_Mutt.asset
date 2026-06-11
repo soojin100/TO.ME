@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_Mutt
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients: []
+  result: {fileID: 0}
+  resultId: 00
+  resultName: "\uB625\uAC1C"
+  ability: "\uC131\uB2A5 \uAD6C\uB9BC (\uC870\uD569 \uC2E4\uD328 \uC2DC \uBB34\uC870\uAC74
+    \uB4F1\uC7A5), \uACF5\uACA9\uB825 -10%, \uC18D\uB3C4 -10%"
+  notes: "\uC870\uD569 \uC2E4\uD328 \uC2DC fallback / \uC801 \uC544\uC774\uD15C\uC544\uC774\uD15C
+    \uB4DC\uB78D\uB960 +15%, \uACF5\uACA9 \uC218\uB3D9"

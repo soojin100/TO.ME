@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_LupinDog
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 3443c408dc12d25438badeffcbc1710e, type: 2}
+  result: {fileID: 0}
+  resultId: 07
+  resultName: "\uB8E8\uAD11\uACAC"
+  ability: "\uC801 \uCC98\uCE58 \uC2DC \uC544\uC774\uD15C \uB4DC\uB86D \uD655\uB960
+    \uC0C1\uC2B9"
+  notes: 

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Item_ThreeKingdoms
   m_EditorClassIdentifier: TOME::TOME.Data.ItemSO
   id: threeKingdoms
-  displayName: "\uC0BC\uAD6D\uC9C0\uCC45"
+  displayName: "\uC0BC\uAD6D\uC9C0 \uCC45"
   icon: {fileID: -1990816942386396879, guid: dab9de79054e01c47af0cc1328df03b9, type: 3}
   tier: 0

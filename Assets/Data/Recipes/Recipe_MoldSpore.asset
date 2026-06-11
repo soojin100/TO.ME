@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_MoldSpore
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: cf19a0fb3e5f61c42b854d60fad35983, type: 2}
+  - {fileID: 11400000, guid: ded92db8f55182741a301d4c526645d0, type: 2}
+  result: {fileID: 0}
+  resultId: 74
+  resultName: "\uACF0\uD321\uC774\uD3EC\uC790"
+  ability: "\uB9F5\uC5D0 \uACF0\uD321\uC774 \uC9C0\uB300 \uC0DD\uC131, \uC801 \uC9C0\uC18D
+    \uB370\uBBF8\uC9C0 + \uB454\uD654"
+  notes: 

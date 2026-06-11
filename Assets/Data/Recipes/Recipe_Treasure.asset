@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_Treasure
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 6ef99c00ebb5637468c6620df8270879, type: 2}
+  - {fileID: 11400000, guid: 3443c408dc12d25438badeffcbc1710e, type: 2}
+  - {fileID: 11400000, guid: d862d1713d2c3cb45843e92e87e31ead, type: 2}
+  result: {fileID: 0}
+  resultId: 17
+  resultName: "\uBCF4\uBB3C"
+  ability: "\uBCF4\uBB3C\uC744 \uC9C0\uD0A4\uAE30 \uC704\uD574 \uACF5\uACA9\uB825\uC774
+    5% \uC99D\uAC00\uD55C\uB2E4"
+  notes: 

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_Mailman
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 39ca79b309ba8c74b929352aebda4f70, type: 2}
+  - {fileID: 11400000, guid: d862d1713d2c3cb45843e92e87e31ead, type: 2}
+  - {fileID: 11400000, guid: 3443c408dc12d25438badeffcbc1710e, type: 2}
+  result: {fileID: 0}
+  resultId: 18
+  resultName: "\uC6B0\uD3B8\uBC30\uB2EC\uBD80"
+  ability: "\uC9C0\uC815\uD55C \uC801\uC5D0\uAC8C \uD3ED\uBC1C \uD0DD\uBC30\uB97C
+    \uC815\uD655\uD788 \uBC30\uB2EC, -50% \uB370\uBBF8\uC9C0"
+  notes: "1\uD68C \uC0AC\uC6A9 \uD6C4 \uC77C\uBC18 \uAC15\uC544\uC9C0\uB85C"

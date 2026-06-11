@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_GreatWallDog
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 6ef99c00ebb5637468c6620df8270879, type: 2}
+  - {fileID: 11400000, guid: 3443c408dc12d25438badeffcbc1710e, type: 2}
+  - {fileID: 11400000, guid: 39ca79b309ba8c74b929352aebda4f70, type: 2}
+  - {fileID: 11400000, guid: d862d1713d2c3cb45843e92e87e31ead, type: 2}
+  result: {fileID: 0}
+  resultId: 19
+  resultName: "\uB9CC\uB9AC\uC7A5\uC131\uACAC"
+  ability: "5\uCD08\uAC04 \uBC14\uB9AC\uCF00\uC774\uB4DC \uC0DD\uC131, \uC801 \uCDA9\uB3CC
+    \uC2DC \uB370\uBBF8\uC9C0 30% \uAC10\uC18C"
+  notes: "1\uD68C \uC0AC\uC6A9 \uD6C4 \uC77C\uBC18 \uAC15\uC544\uC9C0\uB85C"

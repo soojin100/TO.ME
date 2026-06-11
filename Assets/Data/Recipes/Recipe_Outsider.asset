@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_Outsider
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: c11193837a884c249bb686ebd4a029fc, type: 2}
+  - {fileID: 11400000, guid: cf19a0fb3e5f61c42b854d60fad35983, type: 2}
+  - {fileID: 11400000, guid: 6ef99c00ebb5637468c6620df8270879, type: 2}
+  result: {fileID: 0}
+  resultId: 98
+  resultName: "\uC544\uC6C3\uC0AC\uC774\uB354"
+  ability: "\uB108\uBB34 \uC5ED\uACA8\uC6CC\uC11C \uC801 \uC804\uC6D0 \uB3C4\uB9DD
+    8\uCD08"
+  notes: 

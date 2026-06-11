@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d990ecbf0d2c0b4f98e3c107a8deb35, type: 3}
+  m_Name: Recipe_CrossbowDog
+  m_EditorClassIdentifier: TOME::TOME.Data.RecipeSO
+  ingredients:
+  - {fileID: 11400000, guid: 942b00b93f6068b4e98431436739a9ea, type: 2}
+  - {fileID: 11400000, guid: 471e7a57e390fb24b97857d4bbc16eb5, type: 2}
+  result: {fileID: 0}
+  resultId: 85
+  resultName: "\uC11D\uAD81\uACAC"
+  ability: "\uB3CC\uBA69\uC774\uB97C \uB300\uB098\uBB34\uB85C \uBC1C\uC0AC, \uAD00\uD1B5\uD615
+    \uC6D0\uAC70\uB9AC \uACF5\uACA9"
+  notes: 
