@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -51,9 +51,12 @@ namespace TOME.Managers
 
         public bool TryPlay(string startId)
         {
-            if (IsPlaying) return false;
-            if (string.IsNullOrEmpty(startId) || table == null) return false;
-            if (SaveSystemManager.I != null && SaveSystemManager.I.HasSeenDialogue(startId)) return false;
+            Debug.Log($"[Dialogue] TryPlay 호출: {startId}, IsPlaying={IsPlaying}, table={table?.Count}");
+
+            if (IsPlaying) { Debug.Log("[Dialogue] 이미 재생 중"); return false; }
+            if (string.IsNullOrEmpty(startId) || table == null) { Debug.Log("[Dialogue] startId 비었거나 table null"); return false; }
+            if (SaveSystemManager.I != null && SaveSystemManager.I.HasSeenDialogue(startId)) { Debug.Log("[Dialogue] 이미 본 대화"); return false; }
+
             StartCoroutine(Run(startId));
             return true;
         }
@@ -109,7 +112,7 @@ namespace TOME.Managers
                 if (e.trigger != DialogueTrigger.None)
                 {
                     _fastForward = false;   // 컷신/이름입력/전투 트리거는 빨리감기 해제하고 정상 실행
-                    yield return HandleTrigger(e.trigger);
+                    yield return HandleTrigger(e);
                     if (e.trigger == DialogueTrigger.StartBattle) break;
                 }
 
@@ -122,9 +125,9 @@ namespace TOME.Managers
             OnEnd?.Invoke();
         }
 
-        IEnumerator HandleTrigger(DialogueTrigger trigger)
+        IEnumerator HandleTrigger(DialogueEntry e)
         {
-            switch (trigger)
+            switch (e.trigger)
             {
                 case DialogueTrigger.NameInput:
                     _resume = false;
@@ -138,7 +141,19 @@ namespace TOME.Managers
                 case DialogueTrigger.InspectWall:
                 case DialogueTrigger.InspectHolyWater:
                     _resume = false;
-                    OnInteractionRequested?.Invoke(trigger);
+                    OnInteractionRequested?.Invoke(e.trigger);
+                    while (!_resume) yield return null;
+                    _resume = false;
+                    break;
+                case DialogueTrigger.PlayCutscene:
+                    Debug.Log($"[Cutscene] HandleTrigger: cutsceneId={e.cutsceneId}, Manager={CutsceneManager.I}");
+                    _resume = false;
+                    if (CutsceneManager.I != null)
+                    {
+                        CutsceneManager.I.OnFinished += () => _resume = true;
+                        CutsceneManager.I.TryPlay(e.cutsceneId);
+                    }
+                    else _resume = true;
                     while (!_resume) yield return null;
                     _resume = false;
                     break;

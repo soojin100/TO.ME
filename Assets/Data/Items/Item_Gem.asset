@@ -16,3 +16,4 @@ MonoBehaviour:
   displayName: "\uBCF4\uC11D"
   icon: {fileID: 21300000, guid: a764e0440ce81f04193e6c07dde24c59, type: 3}
   tier: 1
+  onFirstPickupDialogueId: gem

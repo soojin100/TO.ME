@@ -16,3 +16,4 @@ MonoBehaviour:
   displayName: "\uD558\uD2B8"
   icon: {fileID: 4667522187580858688, guid: daf28599a8de89f48a3c116d18091080, type: 3}
   tier: 0
+  onFirstPickupDialogueId: heart

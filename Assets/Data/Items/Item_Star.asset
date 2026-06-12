@@ -16,3 +16,4 @@ MonoBehaviour:
   displayName: "\uBCC4"
   icon: {fileID: 54731512165653094, guid: cf7e64cd634269a43b1dc24e8dfa466e, type: 3}
   tier: 0
+  onFirstPickupDialogueId: star

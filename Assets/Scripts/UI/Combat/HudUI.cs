@@ -133,8 +133,6 @@ namespace TOME.UI.Combat
             _currentTime = t;
             if (_maxTime <= 0f) _maxTime = t;
 
-            Debug.Log($"[Timer] t={t}, maxTime={_maxTime}, fill={Mathf.Clamp01(t / _maxTime)}");
-
             if (timerBarFill && _maxTime > 0f)
                 timerBarFill.fillAmount = Mathf.Clamp01(t / _maxTime);
         }

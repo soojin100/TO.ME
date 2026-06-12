@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TOME.Data
 {
@@ -11,5 +11,8 @@ namespace TOME.Data
         public string displayName;
         public Sprite icon;
         public ItemTier tier = ItemTier.Basic;
+
+        [Header("Tutorial")]
+        public string onFirstPickupDialogueId;  // 처음 획득 시 재생할 대화 ID
     }
 }

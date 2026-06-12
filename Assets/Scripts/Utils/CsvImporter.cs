@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using TOME.Data;
 
@@ -26,6 +26,8 @@ namespace TOME.Utils
             }
             int iId = Col("id"), iSpeaker = Col("speaker"), iText = Col("text"), iNext = Col("next");
             int iChapter = Col("chapter"), iSprite = Col("speakerSprite"), iTrigger = Col("trigger");
+            int iCutscene = Col("cutsceneId");
+
 
             for (int i = 1; i < lines.Length; i++)
             {
@@ -42,7 +44,8 @@ namespace TOME.Utils
                     next          = Get(iNext),
                     chapter       = Get(iChapter),
                     speakerSprite = Get(iSprite),
-                    trigger       = ParseTrigger(Get(iTrigger))
+                    trigger       = ParseTrigger(Get(iTrigger)),
+                    cutsceneId = Get(iCutscene)
                 };
                 if (!string.IsNullOrEmpty(e.id)) dict[e.id] = e;
             }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TOME.Data;
@@ -34,7 +34,21 @@ namespace TOME.Managers
             if (!item) return false;
             items.Add(item);
             OnChanged?.Invoke();
+
+            // CSV 대화 없이 바로 컷신 재생
+            if (!string.IsNullOrEmpty(item.onFirstPickupDialogueId))
+            {
+                CutsceneManager.I?.TryPlay(item.onFirstPickupDialogueId);
+            }
+
             return true;
+        }
+
+        void OnDialogueEnd()
+        {
+            CombatManager.I?.Resume();
+            if (DialogueManager.I != null)
+                DialogueManager.I.OnEnd -= OnDialogueEnd;
         }
 
         public bool Remove(ItemSO item)
