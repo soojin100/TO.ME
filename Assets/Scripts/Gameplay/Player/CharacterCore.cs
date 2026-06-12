@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.U2D.Animation;
 using TOME.Data;
 
@@ -64,6 +64,12 @@ namespace TOME.Gameplay.Player
             for (int i = 0; i < pool.Length; i++)
                 if (pool[i] != null && pool[i].name == name) return pool[i];
             return null;
+        }
+
+        public void RebindOnly()
+        {
+            _skinsRebound = false;  
+            RebindSpriteSkins();
         }
 
         public void Bind(CharacterSO def)
