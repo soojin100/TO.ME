@@ -164,7 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6775252259768471966, guid: 452524ee6737f2d4e99dc75c35755396, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -146
+      value: -165
       objectReference: {fileID: 0}
     - target: {fileID: 6775252259768471966, guid: 452524ee6737f2d4e99dc75c35755396, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -289,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 550767459119083170, guid: 67b1d59a47a414049a7a821fc4e000fb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -21
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 550767459119083170, guid: 67b1d59a47a414049a7a821fc4e000fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -303,6 +303,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3992942201563672973, guid: 67b1d59a47a414049a7a821fc4e000fb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7641238459069398271, guid: 67b1d59a47a414049a7a821fc4e000fb, type: 3}
       propertyPath: m_Name
       value: CraftCloseButton
@@ -312,6 +316,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67b1d59a47a414049a7a821fc4e000fb, type: 3}
+--- !u!114 &4800530692633709594 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3992942201563672973, guid: 67b1d59a47a414049a7a821fc4e000fb, type: 3}
+  m_PrefabInstance: {fileID: 8500314489455164823}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &8238094083037827893 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 550767459119083170, guid: 67b1d59a47a414049a7a821fc4e000fb, type: 3}
@@ -347,11 +362,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1879047740045974110, guid: de11502d94570f14f95d3a01950291dc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 255
+      value: 285
       objectReference: {fileID: 0}
     - target: {fileID: 1879047740045974110, guid: de11502d94570f14f95d3a01950291dc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -125
+      value: -160
       objectReference: {fileID: 0}
     - target: {fileID: 2139166258859124686, guid: de11502d94570f14f95d3a01950291dc, type: 3}
       propertyPath: m_IsActive
@@ -364,6 +379,10 @@ PrefabInstance:
     - target: {fileID: 2349012204307420265, guid: de11502d94570f14f95d3a01950291dc, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349012204307420265, guid: de11502d94570f14f95d3a01950291dc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 3661536058044247431, guid: de11502d94570f14f95d3a01950291dc, type: 3}
       propertyPath: m_SizeDelta.x
@@ -415,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4620280818492870263, guid: de11502d94570f14f95d3a01950291dc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.9444504
+      value: -0.944458
       objectReference: {fileID: 0}
     - target: {fileID: 4738160914664396531, guid: de11502d94570f14f95d3a01950291dc, type: 3}
       propertyPath: root
@@ -424,7 +443,7 @@ PrefabInstance:
     - target: {fileID: 4738160914664396531, guid: de11502d94570f14f95d3a01950291dc, type: 3}
       propertyPath: closeButton
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4800530692633709594}
     - target: {fileID: 4738160914664396531, guid: de11502d94570f14f95d3a01950291dc, type: 3}
       propertyPath: inventoryBar
       value: 
@@ -459,7 +478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5849708833072014812, guid: de11502d94570f14f95d3a01950291dc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -4.1020737
+      value: -4.1020813
       objectReference: {fileID: 0}
     - target: {fileID: 6711539070037089622, guid: de11502d94570f14f95d3a01950291dc, type: 3}
       propertyPath: m_Pivot.x
@@ -607,11 +626,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9094322688390103863, guid: de11502d94570f14f95d3a01950291dc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 255
+      value: 285
       objectReference: {fileID: 0}
     - target: {fileID: 9094322688390103863, guid: de11502d94570f14f95d3a01950291dc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -385
+      value: -410
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

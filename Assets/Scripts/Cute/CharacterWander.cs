@@ -79,7 +79,11 @@ namespace TOME.Gameplay
                     _isDragging = true;
                     _dragOffset = transform.position - worldPos;
                     StopAllCoroutines();
-                    PlayAnimation(dragAnimationId);
+                    SetWalk(false);
+                    // 드래그 동안 유지되는 Bool은 PlayAnimRoutine(1회 재생 후 해제)이 아니라
+                    // mouse-up의 SetBool(false)와 짝으로 직접 켠다.
+                    if (_animTable.TryGetValue(dragAnimationId, out var dragAnim))
+                        animator.SetBool(dragAnim.animatorParamName, true);
                 }
                 else _clickRequested = true;
             }
@@ -89,32 +93,18 @@ namespace TOME.Gameplay
                 var worldPos = _cam.ScreenToWorldPoint(Input.mousePosition);
                 worldPos.z = 0f;
                 transform.position = worldPos + _dragOffset;
-
-                float dir = (worldPos + _dragOffset).x - transform.position.x;
-                if (Mathf.Abs(dir) > 0.01f)
-                {
-                    float sign = -Mathf.Sign(dir);
-                    transform.localScale = new Vector3(
-                        Mathf.Abs(_originalScale.x) * sign,
-                        _originalScale.y,
-                        _originalScale.z);
-                }
             }
 
             if (Input.GetMouseButtonUp(0) && _isDragging)
             {
                 _isDragging = false;
-                if (_animTable.TryGetValue(dragAnimationId, out var anim))
-                    animator.SetBool(anim.animatorParamName, false);
-
                 StartCoroutine(DropToOriginalY());
-                StartCoroutine(WanderRoutine());
             }
         }
 
         IEnumerator DropToOriginalY()
         {
-            // [SerializeField] float dropSpeed = 3f; ← 이 줄 삭제
+            // 내려놓는 동안 climbing 유지 → 착지 후 해제하고 배회 재개
             while (Mathf.Abs(transform.position.y - _originalY) > 0.01f)
             {
                 var pos = transform.position;
@@ -125,6 +115,10 @@ namespace TOME.Gameplay
             var finalPos = transform.position;
             finalPos.y = _originalY;
             transform.position = finalPos;
+
+            if (_animTable.TryGetValue(dragAnimationId, out var anim))
+                animator.SetBool(anim.animatorParamName, false);
+            StartCoroutine(WanderRoutine());
         }
 
         IEnumerator WanderRoutine()

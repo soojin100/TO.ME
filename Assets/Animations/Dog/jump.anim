@@ -101,7 +101,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Leg_1_L
+    path: Body_1/Leg_1_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -189,7 +189,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1
+    path: Body_1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -268,7 +268,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2
+    path: Body_1/Body_2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -356,7 +356,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Leg_1_L/Leg_2_L
+    path: Body_1/Leg_1_L/Leg_2_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -453,7 +453,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Leg_1_R/Leg_2_R
+    path: Body_1/Leg_1_R/Leg_2_R
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -550,7 +550,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Leg_1_R
+    path: Body_1/Leg_1_R
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -638,7 +638,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L
+    path: Body_1/Body_2/Arm_1_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -726,7 +726,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R
+    path: Body_1/Body_2/Arm_2_R
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -778,7 +778,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L/Arm_2_L
+    path: Body_1/Body_2/Arm_1_L/Arm_2_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -839,7 +839,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1
+    path: Body_1/Body_2/Head_1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -882,7 +882,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R/bone_9
+    path: Body_1/Body_2/Arm_2_R/bone_9
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -970,7 +970,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1040,7 +1040,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
+    path: Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1110,7 +1110,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1
+    path: Body_1/Body_2/Head_1/Ear_R_1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1180,7 +1180,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1
+    path: Body_1/Body_2/Head_1/Ear_L_1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1223,7 +1223,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1284,7 +1284,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1
+    path: Body_1/Body_2/Head_1/Hair_L_1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1345,7 +1345,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1406,7 +1406,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1
+    path: Body_1/Body_2/Head_1/Hair_R_1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1467,7 +1467,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1
+    path: Body_1/Body_2/Head_1/Hair_F_1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1510,7 +1510,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1571,7 +1571,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1614,7 +1614,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
+    path: Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1648,7 +1648,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -1782,7 +1782,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1
+    path: Body_1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1870,7 +1870,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Leg_1_R
+    path: Body_1/Leg_1_R
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -1958,7 +1958,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Leg_1_R/Leg_2_R
+    path: Body_1/Leg_1_R/Leg_2_R
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2037,7 +2037,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Leg_1_L
+    path: Body_1/Leg_1_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2116,7 +2116,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Leg_1_L/Leg_2_L
+    path: Body_1/Leg_1_L/Leg_2_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2195,7 +2195,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2
+    path: Body_1/Body_2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2274,7 +2274,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Head_1
+    path: Body_1/Body_2/Head_1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2326,7 +2326,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L
+    path: Body_1/Body_2/Arm_1_L
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -2405,7 +2405,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R
+    path: Body_1/Body_2/Arm_2_R
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -2417,231 +2417,231 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2238945387
+      path: 1806276722
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 509845505
+      path: 1507249398
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1669488004
+      path: 2062442713
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3832323426
+      path: 2748969365
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 4254071044
+      path: 3840132185
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 4220169799
+      path: 4230555305
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3195164400
+      path: 3042885872
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3234670382
+      path: 3234204600
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 948216852
+      path: 948930690
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3832323426
+      path: 2748969365
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2238945387
+      path: 1806276722
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 4220169799
+      path: 4230555305
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 4254071044
+      path: 3840132185
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1669488004
+      path: 2062442713
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 509845505
+      path: 1507249398
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3234670382
+      path: 3234204600
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 948216852
+      path: 948930690
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3557637765
+      path: 1597513944
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3195164400
+      path: 3042885872
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1843508631
+      path: 3863413453
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3024720135
+      path: 2618195031
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1584525488
+      path: 1983258080
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3576032494
+      path: 1585666996
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3281871508
+      path: 1211880910
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 4119482401
+      path: 557267489
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 411732677
+      path: 2478806168
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3420706379
+      path: 2950905245
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 238159039
+      path: 2231835362
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 354225939
+      path: 2653425998
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3755084644
+      path: 3151159474
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1883853919
+      path: 1519065239
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 742636540
+      path: 1212370986
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1030070055
+      path: 396874735
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -2802,7 +2802,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Dog_halfside/Body_1
+    path: Body_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2938,7 +2938,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Dog_halfside/Body_1
+    path: Body_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3074,7 +3074,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Dog_halfside/Body_1
+    path: Body_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3165,7 +3165,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Leg_1_L
+    path: Body_1/Leg_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3256,7 +3256,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Leg_1_L
+    path: Body_1/Leg_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3347,7 +3347,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Leg_1_L
+    path: Body_1/Leg_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3438,7 +3438,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1
+    path: Body_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3529,7 +3529,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1
+    path: Body_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3620,7 +3620,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1
+    path: Body_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3702,7 +3702,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2
+    path: Body_1/Body_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3784,7 +3784,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2
+    path: Body_1/Body_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3866,7 +3866,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2
+    path: Body_1/Body_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3957,7 +3957,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Leg_1_L/Leg_2_L
+    path: Body_1/Leg_1_L/Leg_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4048,7 +4048,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Leg_1_L/Leg_2_L
+    path: Body_1/Leg_1_L/Leg_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4139,7 +4139,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Leg_1_L/Leg_2_L
+    path: Body_1/Leg_1_L/Leg_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4239,7 +4239,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Leg_1_R/Leg_2_R
+    path: Body_1/Leg_1_R/Leg_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4339,7 +4339,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Leg_1_R/Leg_2_R
+    path: Body_1/Leg_1_R/Leg_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4439,7 +4439,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Leg_1_R/Leg_2_R
+    path: Body_1/Leg_1_R/Leg_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4539,7 +4539,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Leg_1_R
+    path: Body_1/Leg_1_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4639,7 +4639,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Leg_1_R
+    path: Body_1/Leg_1_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4739,7 +4739,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Leg_1_R
+    path: Body_1/Leg_1_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4830,7 +4830,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Dog_halfside/Body_1/Leg_1_R
+    path: Body_1/Leg_1_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4921,7 +4921,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Dog_halfside/Body_1/Leg_1_R
+    path: Body_1/Leg_1_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5012,7 +5012,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Dog_halfside/Body_1/Leg_1_R
+    path: Body_1/Leg_1_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5103,7 +5103,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Dog_halfside/Body_1/Leg_1_R/Leg_2_R
+    path: Body_1/Leg_1_R/Leg_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5194,7 +5194,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Dog_halfside/Body_1/Leg_1_R/Leg_2_R
+    path: Body_1/Leg_1_R/Leg_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5285,7 +5285,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Dog_halfside/Body_1/Leg_1_R/Leg_2_R
+    path: Body_1/Leg_1_R/Leg_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5367,7 +5367,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Dog_halfside/Body_1/Leg_1_L
+    path: Body_1/Leg_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5449,7 +5449,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Dog_halfside/Body_1/Leg_1_L
+    path: Body_1/Leg_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5531,7 +5531,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Dog_halfside/Body_1/Leg_1_L
+    path: Body_1/Leg_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5613,7 +5613,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Dog_halfside/Body_1/Leg_1_L/Leg_2_L
+    path: Body_1/Leg_1_L/Leg_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5695,7 +5695,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Dog_halfside/Body_1/Leg_1_L/Leg_2_L
+    path: Body_1/Leg_1_L/Leg_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5777,7 +5777,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Dog_halfside/Body_1/Leg_1_L/Leg_2_L
+    path: Body_1/Leg_1_L/Leg_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5859,7 +5859,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Dog_halfside/Body_1/Body_2
+    path: Body_1/Body_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5941,7 +5941,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Dog_halfside/Body_1/Body_2
+    path: Body_1/Body_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6023,7 +6023,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Dog_halfside/Body_1/Body_2
+    path: Body_1/Body_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6114,7 +6114,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L
+    path: Body_1/Body_2/Arm_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6205,7 +6205,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L
+    path: Body_1/Body_2/Arm_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6296,7 +6296,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L
+    path: Body_1/Body_2/Arm_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6387,7 +6387,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R
+    path: Body_1/Body_2/Arm_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6478,7 +6478,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R
+    path: Body_1/Body_2/Arm_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6569,7 +6569,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R
+    path: Body_1/Body_2/Arm_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6624,7 +6624,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L/Arm_2_L
+    path: Body_1/Body_2/Arm_1_L/Arm_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6679,7 +6679,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L/Arm_2_L
+    path: Body_1/Body_2/Arm_1_L/Arm_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6734,7 +6734,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L/Arm_2_L
+    path: Body_1/Body_2/Arm_1_L/Arm_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6816,7 +6816,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Dog_halfside/Body_1/Body_2/Head_1
+    path: Body_1/Body_2/Head_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6898,7 +6898,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Dog_halfside/Body_1/Body_2/Head_1
+    path: Body_1/Body_2/Head_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6980,7 +6980,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Dog_halfside/Body_1/Body_2/Head_1
+    path: Body_1/Body_2/Head_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7035,7 +7035,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L
+    path: Body_1/Body_2/Arm_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7090,7 +7090,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L
+    path: Body_1/Body_2/Arm_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7145,7 +7145,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L
+    path: Body_1/Body_2/Arm_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7227,7 +7227,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R
+    path: Body_1/Body_2/Arm_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7309,7 +7309,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R
+    path: Body_1/Body_2/Arm_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7391,7 +7391,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R
+    path: Body_1/Body_2/Arm_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7455,7 +7455,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1
+    path: Body_1/Body_2/Head_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7519,7 +7519,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1
+    path: Body_1/Body_2/Head_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7583,7 +7583,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1
+    path: Body_1/Body_2/Head_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7629,7 +7629,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R/bone_9
+    path: Body_1/Body_2/Arm_2_R/bone_9
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7675,7 +7675,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R/bone_9
+    path: Body_1/Body_2/Arm_2_R/bone_9
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7721,7 +7721,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R/bone_9
+    path: Body_1/Body_2/Arm_2_R/bone_9
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7812,7 +7812,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7903,7 +7903,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -7994,7 +7994,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8067,7 +8067,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
+    path: Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8140,7 +8140,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
+    path: Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8213,7 +8213,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
+    path: Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8286,7 +8286,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1
+    path: Body_1/Body_2/Head_1/Ear_R_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8359,7 +8359,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1
+    path: Body_1/Body_2/Head_1/Ear_R_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8432,7 +8432,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1
+    path: Body_1/Body_2/Head_1/Ear_R_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8505,7 +8505,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1
+    path: Body_1/Body_2/Head_1/Ear_L_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8578,7 +8578,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1
+    path: Body_1/Body_2/Head_1/Ear_L_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8651,7 +8651,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1
+    path: Body_1/Body_2/Head_1/Ear_L_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8697,7 +8697,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8743,7 +8743,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8789,7 +8789,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8853,7 +8853,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1
+    path: Body_1/Body_2/Head_1/Hair_L_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8917,7 +8917,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1
+    path: Body_1/Body_2/Head_1/Hair_L_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -8981,7 +8981,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1
+    path: Body_1/Body_2/Head_1/Hair_L_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9045,7 +9045,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9109,7 +9109,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9173,7 +9173,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9237,7 +9237,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1
+    path: Body_1/Body_2/Head_1/Hair_R_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9301,7 +9301,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1
+    path: Body_1/Body_2/Head_1/Hair_R_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9365,7 +9365,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1
+    path: Body_1/Body_2/Head_1/Hair_R_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9429,7 +9429,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1
+    path: Body_1/Body_2/Head_1/Hair_F_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9493,7 +9493,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1
+    path: Body_1/Body_2/Head_1/Hair_F_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9557,7 +9557,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1
+    path: Body_1/Body_2/Head_1/Hair_F_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9603,7 +9603,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9649,7 +9649,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9695,7 +9695,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9759,7 +9759,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9823,7 +9823,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9887,7 +9887,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9933,7 +9933,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
+    path: Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9979,7 +9979,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
+    path: Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10025,7 +10025,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
+    path: Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10062,7 +10062,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10099,7 +10099,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10136,7 +10136,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -10147,7 +10147,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1
+    path: Body_1/Body_2/Head_1/Hair_L_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10157,7 +10157,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1
+    path: Body_1/Body_2/Head_1/Hair_L_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10167,7 +10167,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1
+    path: Body_1/Body_2/Head_1/Hair_L_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10177,7 +10177,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
+    path: Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10187,7 +10187,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
+    path: Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10197,7 +10197,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
+    path: Body_1/Body_2/Head_1/Ear_R_1/Ear_R_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10207,7 +10207,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Leg_1_L
+    path: Body_1/Leg_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10217,7 +10217,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Leg_1_L
+    path: Body_1/Leg_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10227,7 +10227,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Leg_1_L
+    path: Body_1/Leg_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10237,7 +10237,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L
+    path: Body_1/Body_2/Arm_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10247,7 +10247,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L
+    path: Body_1/Body_2/Arm_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10257,7 +10257,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L
+    path: Body_1/Body_2/Arm_1_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10267,7 +10267,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R/bone_9
+    path: Body_1/Body_2/Arm_2_R/bone_9
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10277,7 +10277,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R/bone_9
+    path: Body_1/Body_2/Arm_2_R/bone_9
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10287,7 +10287,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R/bone_9
+    path: Body_1/Body_2/Arm_2_R/bone_9
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10297,7 +10297,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1
+    path: Body_1/Body_2/Head_1/Hair_F_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10307,7 +10307,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1
+    path: Body_1/Body_2/Head_1/Hair_F_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10317,7 +10317,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1
+    path: Body_1/Body_2/Head_1/Hair_F_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10327,7 +10327,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Leg_1_L/Leg_2_L
+    path: Body_1/Leg_1_L/Leg_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10337,7 +10337,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Leg_1_L/Leg_2_L
+    path: Body_1/Leg_1_L/Leg_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10347,7 +10347,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Leg_1_L/Leg_2_L
+    path: Body_1/Leg_1_L/Leg_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10357,7 +10357,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1
+    path: Body_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10367,7 +10367,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1
+    path: Body_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10377,7 +10377,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1
+    path: Body_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10387,7 +10387,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2
+    path: Body_1/Body_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10397,7 +10397,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2
+    path: Body_1/Body_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10407,7 +10407,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2
+    path: Body_1/Body_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10417,7 +10417,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Leg_1_R
+    path: Body_1/Leg_1_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10427,7 +10427,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Leg_1_R
+    path: Body_1/Leg_1_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10437,7 +10437,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Leg_1_R
+    path: Body_1/Leg_1_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10447,7 +10447,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10457,7 +10457,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10467,7 +10467,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2/Hair_F_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10477,7 +10477,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1
+    path: Body_1/Body_2/Head_1/Ear_L_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10487,7 +10487,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1
+    path: Body_1/Body_2/Head_1/Ear_L_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10497,7 +10497,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1
+    path: Body_1/Body_2/Head_1/Ear_L_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10507,7 +10507,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R
+    path: Body_1/Body_2/Arm_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10517,7 +10517,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R
+    path: Body_1/Body_2/Arm_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10527,7 +10527,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Arm_2_R
+    path: Body_1/Body_2/Arm_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10537,7 +10537,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1
+    path: Body_1/Body_2/Head_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10547,7 +10547,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1
+    path: Body_1/Body_2/Head_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10557,7 +10557,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1
+    path: Body_1/Body_2/Head_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10567,7 +10567,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1
+    path: Body_1/Body_2/Head_1/Hair_R_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10577,7 +10577,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1
+    path: Body_1/Body_2/Head_1/Hair_R_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10587,7 +10587,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1
+    path: Body_1/Body_2/Head_1/Hair_R_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10597,7 +10597,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L/Arm_2_L
+    path: Body_1/Body_2/Arm_1_L/Arm_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10607,7 +10607,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L/Arm_2_L
+    path: Body_1/Body_2/Arm_1_L/Arm_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10617,7 +10617,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Arm_1_L/Arm_2_L
+    path: Body_1/Body_2/Arm_1_L/Arm_2_L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10627,7 +10627,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1
+    path: Body_1/Body_2/Head_1/Ear_R_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10637,7 +10637,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1
+    path: Body_1/Body_2/Head_1/Ear_R_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10647,7 +10647,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_R_1
+    path: Body_1/Body_2/Head_1/Ear_R_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10657,7 +10657,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10667,7 +10667,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10677,7 +10677,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2/Ear_L_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10687,7 +10687,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Leg_1_R/Leg_2_R
+    path: Body_1/Leg_1_R/Leg_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10697,7 +10697,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Leg_1_R/Leg_2_R
+    path: Body_1/Leg_1_R/Leg_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10707,7 +10707,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Leg_1_R/Leg_2_R
+    path: Body_1/Leg_1_R/Leg_2_R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10717,7 +10717,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10727,7 +10727,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10737,7 +10737,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2/Hair_R_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10747,7 +10747,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10757,7 +10757,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10767,7 +10767,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
+    path: Body_1/Body_2/Head_1/Hair_R_1/Hair_R_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10777,7 +10777,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
+    path: Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10787,7 +10787,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
+    path: Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10797,7 +10797,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
+    path: Body_1/Body_2/Head_1/Hair_L_1/Hair_L_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10807,7 +10807,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10817,7 +10817,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10827,7 +10827,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
+    path: Body_1/Body_2/Head_1/Hair_F_1/Hair_F_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10837,7 +10837,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10847,7 +10847,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10857,7 +10857,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Dog_halfside/Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
+    path: Body_1/Body_2/Head_1/Ear_L_1/Ear_L_2
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

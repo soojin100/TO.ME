@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Data.CharacterAnimationSO
   animationId: climbing
   animatorParamName: climbing
-  paramType: 0
+  paramType: 1
   blockWander: 1
   waitForEnd: 1
