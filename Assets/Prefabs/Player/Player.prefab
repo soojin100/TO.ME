@@ -52,6 +52,8 @@ MonoBehaviour:
   autoAttack: {fileID: 4728880936215118723}
   dragYMin: -8
   dragYMax: 2
+  locomotionBlend: 0.15
+  moveStopDelay: 0.12
 --- !u!114 &4728880936215118723
 MonoBehaviour:
   m_ObjectHideFlags: 0

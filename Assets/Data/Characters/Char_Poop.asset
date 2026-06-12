@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Data.CharacterSO
   id: poop
   displayName: "\uB625\uAC15\uC544\uC9C0"
-  corePrefab: {fileID: 2992235185679065721, guid: 67d3a34e62f2dfc4198d381b75ecb612, type: 3}
-  icon: {fileID: 21300000, guid: 70d09c0ffee0b00b1e5feed012345678, type: 3}
+  ability: 
+  corePrefab: {fileID: 2711375801110353532, guid: 3a77f033fd6652a4ea8cb03c5f2f957b, type: 3}
+  icon: {fileID: -983045304166030074, guid: 7239644f2a3231841a3bd32f16c5c10c, type: 3}
   bodyTint: {r: 0.6, g: 0.42, b: 0.26, a: 1}
   animatorController: {fileID: 0}
   visualScale: 0
@@ -26,4 +27,4 @@ MonoBehaviour:
   atk: 8
   atkSpeed: 0.9
   atkRange: 7
-  attackPattern: {fileID: 11400000, guid: f616be62229438d4cafbc8ca2fe424ae, type: 2}
+  attackPattern: {fileID: 11400000, guid: 49999591ecfa24d459ea3d951f9de2b4, type: 2}

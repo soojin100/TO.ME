@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -29,6 +29,9 @@ namespace TOME.UI
         [SerializeField] float       moveDuration = 0.5f;
         [SerializeField] float       showDelay    = 2f;
 
+        [SerializeField] float swayAmount = 15f;   // 좌우 흔들림 각도
+        [SerializeField] float swaySpeed = 2f;    // 흔들림 속도
+
         void Awake()
         {
             if (root) root.SetActive(false);
@@ -50,6 +53,9 @@ namespace TOME.UI
         {
             _stage = stage != null ? stage : (GameManager.I != null ? GameManager.I.CurrentStage : null);
             StartCoroutine(ShowRoutine(win));
+
+            if (characterImage && characterImage.enabled)
+                StartCoroutine(SwayCharacter());
         }
 
         IEnumerator ShowRoutine(bool win)
@@ -109,6 +115,25 @@ namespace TOME.UI
                 if (label) label.text = string.Empty;   // "+50" 식 수량 대신 이미지로만
             }
         }
+
+        // 흔들흔들
+        IEnumerator SwayCharacter()
+        {
+            var tr = characterImage.rectTransform;
+            float elapsed = 0f;
+
+            while (characterImage && characterImage.enabled)
+            {
+                elapsed += Time.unscaledDeltaTime * swaySpeed;
+                float angle = Mathf.Sin(elapsed) * swayAmount;
+                tr.localRotation = Quaternion.Euler(0f, 0f, angle);
+                yield return null;
+            }
+
+            // 종료 시 원위치
+            if (tr) tr.localRotation = Quaternion.identity;
+        }
+
 
         void OnReturn()
         {

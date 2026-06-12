@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using TOME.Core;
 using TOME.Data;
@@ -20,6 +20,28 @@ namespace TOME.Managers
         public Texture2D PendingBackgroundTexture { get; private set; }
 
         public void SetPendingSectionIndex(int idx) { CurrentSectionIndex = idx; }
+
+        // 예시용 초반 아이템 지급용 코드 추후 변경시 삭제바람 
+        [Header("Tutorial Starter Items")]
+        [SerializeField] ItemSO[] starterItems;
+        bool _starterGiven;
+
+        public void TryGiveStarterItems()
+        {
+            if (_starterGiven || starterItems == null || starterItems.Length == 0) return;
+            _starterGiven = true;
+
+            if (InventoryManager.I != null)
+            {
+                InventoryManager.I.Clear();   // 혹시 남은 거 있으면 초기화 후 지급
+                foreach (var item in starterItems)
+                    if (item != null) InventoryManager.I.Add(item);
+            }
+        }
+
+        // 게임 재시작 / 챕터 리셋 시 호출
+        public void ResetStarterFlag() => _starterGiven = false;
+        //여기까지
 
         public void SetPendingBackgroundTexture(Texture2D tex)
         {

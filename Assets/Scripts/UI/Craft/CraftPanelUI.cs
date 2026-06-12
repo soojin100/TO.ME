@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using TOME.Data;
@@ -34,6 +34,11 @@ namespace TOME.UI
             // 인벤토리 바는 항상 활성 상태이므로 Awake에서 한 번만 구독.
             // 패널이 닫혀 있어도 슬롯 클릭으로 자동 열림.
             if (inventoryBar) inventoryBar.OnItemClicked += OnInventoryItemClicked;
+
+            // 비활성화. 
+            if (resultIcon) resultIcon.enabled = false;
+            if (resultLabel) resultLabel.text = "";
+            if (resultButton) resultButton.interactable = false;
         }
 
         void OnEnable()

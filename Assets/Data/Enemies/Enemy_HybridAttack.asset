@@ -35,3 +35,7 @@ MonoBehaviour:
   - 1
   - 1
   dropChance: 0.5
+  hasDashAttack: 1
+  dashInterval: 3
+  dashSpeed: 8
+  dashDuration: 0.3

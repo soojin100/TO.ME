@@ -24,12 +24,12 @@ MonoBehaviour:
   timeLimit: 60
   enemyRoster: []
   spawns:
-  - enemy: {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}
-    totalCount: 4
+  - enemy: {fileID: 11400000, guid: c08153f042a7ea04f9e4670a860eb4bb, type: 2}
+    totalCount: 3
     simultaneous: 2
     spawnInterval: 1.9
     startDelay: 0.5
   preDialogueId: intro_stage1_pre
-  postDialogueId:
+  postDialogueId: 
   rewards:
   - {fileID: 11400000, guid: 415a62ec1a23d474e8bdc87841d0e43e, type: 2}

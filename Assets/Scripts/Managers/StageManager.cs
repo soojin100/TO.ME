@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TOME.Core;
@@ -30,12 +30,13 @@ namespace TOME.Managers
 
         IEnumerator Start()
         {
+            // 초반 드랍 아이템 지정 코드
             Time.timeScale = 1f;
-            // Map 경유면 GameManager.CurrentStage, 단독 실행이면 debugStage로 폴백
             var stage = GameManager.I != null ? GameManager.I.CurrentStage : null;
             if (!stage) stage = debugStage;
             if (!stage) yield break;
             _stage = stage;
+
 
             var node = GameManager.I != null ? GameManager.I.CurrentNode : null;
             ApplyStageBackground(stage);
@@ -49,6 +50,9 @@ namespace TOME.Managers
                 if (stage.startCharacter)
                     player.EquipCharacter(stage.startCharacter, node != null ? node.bonus : null);
             }
+
+            // 초반 아이템 드랍 고정 코드
+            GameManager.I?.TryGiveStarterItems();
 
             yield return null;
 

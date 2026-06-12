@@ -28,4 +28,4 @@ MonoBehaviour:
   atk: 10
   atkSpeed: 1
   atkRange: 4
-  attackPattern: {fileID: 0}
+  attackPattern: {fileID: 11400000, guid: 44360672ac1ff7242b5c3d5a61d985d5, type: 2}

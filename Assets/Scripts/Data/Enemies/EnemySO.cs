@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TOME.Data
 {
@@ -30,5 +30,11 @@ namespace TOME.Data
         public ItemSO[] dropTable;
         public float[]  dropWeights;
         [Range(0,1)] public float dropChance = 0.5f;
+
+        [Header("Dash Attack (optional)")]
+        public bool hasDashAttack;
+        public float dashInterval = 3f;   // 몇 초마다 돌진
+        public float dashSpeed = 8f;   // 돌진 속도
+        public float dashDuration = 0.3f; // 돌진 지속 시간(초)
     }
 }

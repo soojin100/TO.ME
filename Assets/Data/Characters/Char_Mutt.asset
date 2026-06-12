@@ -16,8 +16,8 @@ MonoBehaviour:
   displayName: "\uB625\uAC1C"
   ability: "\uC131\uB2A5 \uAD6C\uB9BC (\uC870\uD569 \uC2E4\uD328 \uC2DC \uBB34\uC870\uAC74
     \uB4F1\uC7A5), \uACF5\uACA9\uB825 -10%, \uC18D\uB3C4 -10%"
-  corePrefab: {fileID: 0}
-  icon: {fileID: 0}
+  corePrefab: {fileID: 2711375801110353532, guid: 3a77f033fd6652a4ea8cb03c5f2f957b, type: 3}
+  icon: {fileID: -983045304166030074, guid: 7239644f2a3231841a3bd32f16c5c10c, type: 3}
   bodyTint: {r: 1, g: 1, b: 1, a: 1}
   animatorController: {fileID: 0}
   visualScale: 0
@@ -28,4 +28,4 @@ MonoBehaviour:
   atk: 10
   atkSpeed: 1
   atkRange: 4
-  attackPattern: {fileID: 0}
+  attackPattern: {fileID: 11400000, guid: 49999591ecfa24d459ea3d951f9de2b4, type: 2}

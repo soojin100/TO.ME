@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using TOME.Core;
 using TOME.Data;
@@ -25,6 +25,12 @@ namespace TOME.Gameplay.Enemy
         bool _alive;
         float _statMul = 1f;     // 난이도 능력치 배수 (HP/공격)
 
+        // 두려워 말고 전진
+        bool _isDashing;
+        float _dashCooldown;
+        float _dashElapsed;
+        Vector3 _dashDir;
+
         const float ContactDist   = 0.6f;
         const float AttackPeriod  = 1.0f;   // 접촉 후 1초 간격으로 데미지
 
@@ -41,6 +47,8 @@ namespace TOME.Gameplay.Enemy
             float vs = (def != null && def.visualScale > 0f) ? def.visualScale : 1f;
             _tr.localScale = new Vector3(vs, vs, 1f);
             _attackCooldown = 0f;
+            _isDashing = false;
+            _dashCooldown = Def.hasDashAttack ? Def.dashInterval * 0.5f : 0f;
             _rangedCooldown = def != null ? def.rangedCooldown * 0.5f : 0f;  // 스폰 직후 즉발 방지
             _alive   = true;
 
@@ -95,20 +103,55 @@ namespace TOME.Gameplay.Enemy
                 }
             }
 
-            if (distSq > ContactDist * ContactDist)
+            if (Def.hasDashAttack && !_isDashing)
             {
-                // 추적: moveSpeed 단위 이동
-                float inv = 1f / Mathf.Sqrt(distSq);
-                _tr.position += new Vector3(to.x * inv, to.y * inv, 0f) * Def.moveSpeed * Time.deltaTime;
+                _dashCooldown -= Time.deltaTime;
+                if (_dashCooldown <= 0f)
+                {
+                    // 돌진 시작: 방향을 플레이어 쪽으로 고정
+                    _isDashing = true;
+                    _dashElapsed = 0f;
+                    _dashCooldown = Mathf.Max(0.1f, Def.dashInterval);
+                    _dashDir = (to / Mathf.Sqrt(distSq));   // 정규화된 방향
+                }
+            }
+
+            if (_isDashing)
+            {
+                // 돌진 이동
+                _dashElapsed += Time.deltaTime;
+                _tr.position += _dashDir * Def.dashSpeed * Time.deltaTime;
+
+                // 접촉 데미지는 돌진 중에도 그대로 적용
+                if (distSq <= ContactDist * ContactDist)
+                {
+                    _attackCooldown -= Time.deltaTime;
+                    if (_attackCooldown <= 0f)
+                    {
+                        if (_player) _player.TakeDamage(Mathf.Max(0.01f, Def.atk * _statMul));
+                        _attackCooldown = AttackPeriod;
+                    }
+                }
+
+                if (_dashElapsed >= Def.dashDuration) _isDashing = false;
             }
             else
             {
-                // 접촉 데미지
-                _attackCooldown -= Time.deltaTime;
-                if (_attackCooldown <= 0f)
+                if (distSq > ContactDist * ContactDist)
                 {
-                    if (_player) _player.TakeDamage(Mathf.Max(0.01f, Def.atk * _statMul));
-                    _attackCooldown = AttackPeriod;
+                    // 일반 추적
+                    float inv = 1f / Mathf.Sqrt(distSq);
+                    _tr.position += new Vector3(to.x * inv, to.y * inv, 0f) * Def.moveSpeed * Time.deltaTime;
+                }
+                else
+                {
+                    // 접촉 데미지
+                    _attackCooldown -= Time.deltaTime;
+                    if (_attackCooldown <= 0f)
+                    {
+                        if (_player) _player.TakeDamage(Mathf.Max(0.01f, Def.atk * _statMul));
+                        _attackCooldown = AttackPeriod;
+                    }
                 }
             }
         }
