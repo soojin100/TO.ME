@@ -47,6 +47,7 @@ namespace TOME.Gameplay
         float _originalY;        // ← 추가
 
         readonly Dictionary<string, CharacterAnimationSO> _animTable = new();
+        bool _started;   // Start 1회 초기화 완료 여부 (재활성화 시 배회 재개 판단)
 
         void Awake()
         {
@@ -63,7 +64,15 @@ namespace TOME.Gameplay
             var core = GetComponent<CharacterCore>();
             if (core) core.RebindOnly();
 
+            _started = true;
             StartCoroutine(WanderRoutine());
+        }
+
+        // 대화/컷신 동안 MapBusyVisibility가 SetActive(false)로 숨겼다가 다시 켜면 Start가 재호출되지 않으므로
+        // 여기서 배회를 재개한다. (비활성화 시 코루틴은 Unity가 자동 정지)
+        void OnEnable()
+        {
+            if (_started) StartCoroutine(WanderRoutine());
         }
 
         void Update()

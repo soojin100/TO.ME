@@ -42,10 +42,9 @@ namespace TOME.UI
         [SerializeField] Material   grayscaleMaterial;
 
         [Header("Portrait Animation")]
-        [Tooltip("입 벌림 최소 유지 시간(초). 타이핑이 빨라도 입은 이 간격으로만 변경 → 차분한 말하기 속도. " +
-                 "글자 수 기반이 아니라 시간 기반이라 1글자 대사도 첫 음절에 입이 열리고, 대사 길이만큼 꿈벅. " +
-                 "클수록 입이 천천히, 작을수록 빠르게.")]
-        [SerializeField, Range(0.05f, 0.4f)] float mouthMinInterval = 0.16f;
+        [Tooltip("한 번 뻐끔(벌림→닫힘)에 걸리는 시간(초). ★입 속도 단일 조절값★ — typingSpeed와 완전 무관. " +
+                 "클수록 입이 천천히, 작을수록 빠르게. 입은 타이핑 동안만 움직이고 끝나면 닫힘(입 시간=글자 출력 시간).")]
+        [SerializeField, Range(0.1f, 0.9f)] float mouthMinInterval = 0.5f;
         [Tooltip("말하기 프레임 cps(초당 컷). Angry 등 일부에서만 사용.")]
         [SerializeField, Range(2f, 20f)] float talkingFps = 6f;
         [Tooltip("화남 프레임 cps")]
@@ -189,47 +188,39 @@ namespace TOME.UI
 
         IEnumerator TypeRoutine(string text)
         {
-            // 입 애니 = 대사 출력에 동기화(글자 진행에 맞춤) → 대사 길이만큼 입이 정확히 움직임.
-            //  - mouthEveryChars 글자마다 입 벌림 프레임 교체(02↔03 번갈아 = 벌림 크기 변화)
-            //  - 공백·문장부호 = 입 닫힘(Talking/01) → 쉼/숨
-            //  - 짧은 대사도 첫 음절에 입 열림, 대사 끝나면 닫힘.
+            // 입 = 글자 타이핑 동안만 움직임(입 시간 = 글자 출력 시간 = 대화 길이), 끝나면 닫힘.
+            // ★입 속도는 typingSpeed와 완전 분리★ — 일정한 '말하기 박자'(mouthMinInterval)로만 벌림↔닫힘.
+            //   → 타이핑이 아무리 빨라도 입은 차분(과거 글자 step 방식은 빠른 typingSpeed에 입이 버즈처럼 떨림).
             _isTyping = true;
             if (textLabel) textLabel.text = "";
             var wait = new WaitForSecondsRealtime(typingSpeed);
 
-            bool hasFrames = portraitImage != null && _framesTalking != null && _framesTalking.Length >= 3;
+            bool hasFrames = portraitImage != null && _framesTalking != null && _framesTalking.Length >= 3 && !_npcSpeaking;
             if (hasFrames) portraitImage.texture = _framesTalking[0];   // 시작: 입 닫힘
-            bool mouthOpen = false;        // 벌림↔닫힘 교대 상태
-            int openVariant = 2;          // 벌림일 때 02↔03 번갈아 (벌림 크기 변화)
-            float lastMouthTime = float.NegativeInfinity;
-            // 입 한 칸 변경 간격 = 한 번 꿈뻑(벌림→닫힘)의 절반. minInterval은 "꿈뻑 한 번"의 시간.
-            float halfInterval = Mathf.Max(0.02f, mouthMinInterval * 0.5f);
+            bool mouthOpen = false;
+            int openVariant = 2;                                        // 벌림일 때 02↔03 번갈아(벌림 크기 변화)
+            float lastMouth = float.NegativeInfinity;
+            float half = Mathf.Max(0.06f, mouthMinInterval * 0.5f);     // 입 한 상태(벌림 또는 닫힘) 유지 시간
 
             for (int i = 0; i < text.Length; i++)
             {
                 if (textLabel) textLabel.text += text[i];
 
-                // NPC(유령)가 화자면 플레이어 입은 움직이지 않음(닫힘 고정 + 회색). 입 애니는 플레이어가 화자일 때만.
-                if (hasFrames && !_npcSpeaking && Time.unscaledTime - lastMouthTime >= halfInterval)
+                // 일정 박자로만 입 상태 전환(글자 수·typingSpeed 무관) → 차분한 뻐끔.
+                if (hasFrames && Time.unscaledTime - lastMouth >= half)
                 {
-                    // 말하는 동안 입을 벌림↔닫힘 교대 = 진짜 꿈뻑. (벌림 크기만 바꾸던 게 "한 번만 깜빡" 원인)
                     mouthOpen = !mouthOpen;
-                    if (mouthOpen)
-                    {
-                        openVariant = (openVariant == 1) ? 2 : 1;   // 02↔03 (작은벌림↔큰벌림)
-                        portraitImage.texture = _framesTalking[openVariant];
-                    }
-                    else
-                    {
-                        portraitImage.texture = _framesTalking[0];  // 입 닫힘
-                    }
-                    lastMouthTime = Time.unscaledTime;
+                    portraitImage.texture = mouthOpen
+                        ? _framesTalking[openVariant = (openVariant == 1) ? 2 : 1]
+                        : _framesTalking[0];
+                    lastMouth = Time.unscaledTime;
                 }
                 yield return wait;
             }
             _isTyping = false;
-            // 대사 끝 → 입 닫힘 고정 (이후 BlinkLoop가 눈만 깜빡)
-            if (hasFrames) portraitImage.texture = _framesTalking[0];
+            // 타이핑 끝 → 입 닫힘 보장 (이후 BlinkLoop가 눈만 깜빡).
+            if (portraitImage != null && _framesTalking != null && _framesTalking.Length > 0)
+                portraitImage.texture = _framesTalking[0];
         }
 
         /// <summary>대사창 탭 시 호출(DialogueAdvanceArea). 타이핑 중이면 즉시 완성, 아니면 다음 줄.</summary>
@@ -241,6 +232,9 @@ namespace TOME.UI
                 if (_typing != null) StopCoroutine(_typing);
                 _isTyping = false;
                 if (textLabel) textLabel.text = _fullText;
+                // 즉시 완성(스킵) 시에도 입 닫힘 보장 — 토글 도중 멈춰 입이 열린 채 남지 않게.
+                if (!_npcSpeaking && portraitImage != null && _framesTalking != null && _framesTalking.Length > 0)
+                    portraitImage.texture = _framesTalking[0];
                 return;
             }
             DialogueManager.I?.Advance();
@@ -261,7 +255,12 @@ namespace TOME.UI
             _npcAppeared = false;
             _npcSpeaking = false;
             if (npcPortraitRoot) npcPortraitRoot.SetActive(false);
-            if (portraitImage) portraitImage.material = null;       // 색 원복
+            if (portraitImage)
+            {
+                portraitImage.material = null;                      // 색 원복
+                if (_framesTalking != null && _framesTalking.Length > 0)
+                    portraitImage.texture = _framesTalking[0];      // 대화 끝 → 입 닫힘 보장
+            }
             if (root) root.SetActive(false);
             HidePortrait();
         }
@@ -288,15 +287,14 @@ namespace TOME.UI
                 return;
             }
 
-            // 기본 2채널: 입 = TypeRoutine(대사 출력에 동기), 눈 = BlinkLoop(대기 중 깜빡).
+            // 기본 2채널: 입 = TypeRoutine(글자 타이핑에 동기, 끝나면 닫힘), 눈 = BlinkLoop(대기 중 깜빡).
             if (_framesTalking == null || _framesTalking.Length == 0) return;
             // idle 기준 = Talking/01(입닫힘+눈뜸). 말하기(talk)도 Talking 시퀀스라 idle↔talk가 같은 베이스 →
-            // 전환 시 다른 이미지로 톡 튀지 않고 매끄러움. (이전엔 idle=Blink/02라 전환이 어색했음)
+            // 전환 시 다른 이미지로 톡 튀지 않고 매끄러움.
             _idleFrame = _framesTalking[0];
-            // 입은 항상 닫힘(Talking/01)으로 시작 → 곧 TypeRoutine이 첫 음절부터 자연스럽게 벌림.
-            // (intro 리드인은 입 채널과 충돌해 어색하므로 사용 안 함)
+            // 입은 닫힘(Talking/01)으로 시작 → TypeRoutine이 첫 음절부터 벌림. (NPC 화자면 TypeRoutine이 입 안 건드림)
             if (portraitImage != null) portraitImage.texture = _framesTalking[0];
-            // 눈 깜빡임 (대기 상태에서만, 말하는 중엔 BlinkLoop가 스스로 스킵)
+            // 눈 깜빡임: 말하는 중엔 BlinkLoop가 스스로 스킵(입 우선), 대기 중에만 깜빡.
             if (_framesBlink != null && _framesBlink.Length > 0 && blinkIntervalAvg > 0f)
                 _blinkCo = StartCoroutine(BlinkLoop());
         }

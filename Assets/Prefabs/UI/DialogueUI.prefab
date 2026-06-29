@@ -841,14 +841,14 @@ MonoBehaviour:
   speakerLabel: {fileID: 8846317881459309514}
   textLabel: {fileID: 1638550606392654888}
   skipButton: {fileID: 8404005627788160334}
-  typingSpeed: 0.04
+  typingSpeed: 0.06
   portraitRoot: {fileID: 3363600045631202540}
   portraitVideo: {fileID: 0}
   portraitImage: {fileID: 1311281615847594356}
   npcPortraitRoot: {fileID: 3568332923658205538}
   npcPortraitImage: {fileID: 7073194228781383394}
   grayscaleMaterial: {fileID: 2100000, guid: 2c60dbcc1b7cf4344bc0a8342be2ab01, type: 2}
-  mouthMinInterval: 0.2
+  mouthMinInterval: 0.3
   talkingFps: 7
   angryFps: 10
   introFps: 6

@@ -119,10 +119,13 @@ namespace TOME.Map
             _isMoving = false;
         }
 
-        void RefreshArrows()
+        /// <summary>좌우 화살표 표시 갱신. 대화/컷신(DialogueManager.IsPlaying) 중에는 둘 다 숨김.
+        /// MapBusyVisibility가 대화 시작/종료 시 호출해 즉시 반영한다.</summary>
+        public void RefreshArrows()
         {
-            if (arrowLeft)  arrowLeft.SetActive(_index > 0);
-            if (arrowRight) arrowRight.SetActive(sections != null && _index < sections.Length - 1);
+            bool busy = TOME.Managers.DialogueManager.I != null && TOME.Managers.DialogueManager.I.IsPlaying;
+            if (arrowLeft)  arrowLeft.SetActive(!busy && _index > 0);
+            if (arrowRight) arrowRight.SetActive(!busy && sections != null && _index < sections.Length - 1);
         }
     }
 }
