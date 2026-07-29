@@ -49,7 +49,7 @@ namespace TOME.EditorTools
 
                 so.id          = id;
                 so.displayName = Get("displayname");
-                so.ability     = Get("ability");
+                so.abilityDescription = Get("ability");
                 // 프리팹·아이콘·스탯·애니 등은 보존(건드리지 않음)
 
                 EditorUtility.SetDirty(so);

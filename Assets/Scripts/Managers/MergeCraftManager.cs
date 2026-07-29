@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using TOME.Core;
 using TOME.Data;
 using TOME.Gameplay.Merge;
 
@@ -75,6 +76,10 @@ namespace TOME.Managers
         {
             var ch = Preview();
             if (!ch) return false;
+
+            if (!LastPreviewWasFallback && !string.IsNullOrEmpty(ch.id))
+                SaveSystemManager.I?.UnlockChar(ch.id);
+
             for (int i = 0; i < SlotCount; i++) slots[i] = null;
             OnSlotsChanged?.Invoke();
             OnCraftSucceeded?.Invoke(ch);
