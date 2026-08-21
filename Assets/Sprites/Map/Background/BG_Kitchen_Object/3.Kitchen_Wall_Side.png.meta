@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -320935322237489230
     second: 3.Kitchen_Wall_Side_0
+  - first:
+      213: -847402284261033161
+    second: 3.Kitchen_Wall_Side_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,7 +121,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 3840
+        width: 736
         height: 1097
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -130,6 +133,28 @@ TextureImporter:
       bones: []
       spriteID: 2bfa82a560fcb8bf0800000000000000
       internalID: -320935322237489230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3.Kitchen_Wall_Side_1
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 0
+        width: 3104
+        height: 1097
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73b34c8bc1c6d34f0800000000000000
+      internalID: -847402284261033161
       vertices: []
       indices: 
       edges: []
@@ -149,6 +174,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       3.Kitchen_Wall_Side_0: -320935322237489230
+      3.Kitchen_Wall_Side_1: -847402284261033161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

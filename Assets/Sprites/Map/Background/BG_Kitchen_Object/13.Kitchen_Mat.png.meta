@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -2075624786902596789
     second: 13.Kitchen_Mat_0
+  - first:
+      213: 2571027378471472492
+    second: 13.Kitchen_Mat_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,7 +121,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 444
+        width: 433
         height: 332
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -130,6 +133,28 @@ TextureImporter:
       bones: []
       spriteID: b43cca1e046e133e0800000000000000
       internalID: -2075624786902596789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 13.Kitchen_Mat_1
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 312
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6d889167cf1ea320800000000000000
+      internalID: 2571027378471472492
       vertices: []
       indices: 
       edges: []
@@ -149,6 +174,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       13.Kitchen_Mat_0: -2075624786902596789
+      13.Kitchen_Mat_1: 2571027378471472492
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
