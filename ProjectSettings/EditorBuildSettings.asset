@@ -20,5 +20,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage.unity
     guid: 9b6dd315105905b45b1153dfa9c3fa57
+  - enabled: 1
+    path: Assets/Scenes/Maps/Map_Kitchen.unity
+    guid: 1212c4aeb83c62c42bd547cf684499c8
+  - enabled: 1
+    path: Assets/Scenes/Maps/Map_Porch.unity
+    guid: 06e197ea689b74344bc27c945b9ad59f
+  - enabled: 1
+    path: Assets/Scenes/Maps/Map_Room.unity
+    guid: 2fc0525c15e2939468190a20d28402b5
+  - enabled: 1
+    path: Assets/Scenes/Maps/Map_Yard.unity
+    guid: 82671b5204f0035469b1847b658786fc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
