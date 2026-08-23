@@ -1,8 +1,13 @@
 {
     "name": "TOME.Editor",
     "rootNamespace": "TOME.EditorTools",
-    "references": ["TOME"],
-    "includePlatforms": ["Editor"],
+    "references": [
+        "TOME",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "autoReferenced": true
 }

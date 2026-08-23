@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d734dd8d236b29d41bfa9a82b96e7fac
+guid: 7d914ee209c568b42a05a4731591068d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6948593507094023593
-    second: 18.oom_Socks_L_0
+      213: 2609525360675968502
+    second: 16.Kitchen_Chair_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 18.oom_Socks_L_0
+      name: 16.Kitchen_Chair_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 170
-        height: 94
+        width: 300
+        height: 481
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 75233114503a19f90800000000000000
-      internalID: -6948593507094023593
+      spriteID: 6f5d67b5d75e63420800000000000000
+      internalID: 2609525360675968502
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      18.oom_Socks_L_0: -6948593507094023593
+      16.Kitchen_Chair_0: 2609525360675968502
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

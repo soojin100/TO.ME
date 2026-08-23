@@ -9,7 +9,7 @@ namespace TOME.Core
     /// waitForTouch=false면 종전처럼 즉시 전환(테스트용).</summary>
     public class BootstrapEntry : MonoBehaviour
     {
-        [SerializeField] string firstScene = "Room_Bedroom";
+        [SerializeField] string firstScene = "Map_Room";
         [SerializeField] bool   waitForTouch = true;
         [SerializeField] GameObject touchToStartHint;
 

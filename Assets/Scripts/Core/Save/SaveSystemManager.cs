@@ -17,6 +17,7 @@ namespace TOME.Core
         public long         savedAtUnix;
         public string       playerName = "제임스";   // 인트로 이름 입력값 (기본값)
         public bool         seenIntro;               // 첫 실행 튜토리얼 시청 여부
+        public string       currentChapterId;        // 진행 중인 챕터 (보스 클리어 시 다음 챕터로 갱신)
     }
 
     public class SaveSystemManager : MonoBehaviour
@@ -55,6 +56,13 @@ namespace TOME.Core
         {
             if (!Data.clearedNodes.Contains(id)) { Data.clearedNodes.Add(id); Save(); }
         }
+        public void SetCurrentChapter(string id)
+        {
+            if (Data.currentChapterId == id) return;
+            Data.currentChapterId = id;
+            Save();
+        }
+
         public bool IsCharUnlocked(string id) => Data.unlockedChars.Contains(id);
         public void UnlockChar(string id)
         {

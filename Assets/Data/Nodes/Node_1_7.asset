@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Node_1_7
   m_EditorClassIdentifier: TOME::TOME.Data.NodeSO
   id: stage_1_7
-  nodeName: "\uD604\uAD00 1-7"
+  nodeName: "\uCE68\uC2E4 \uBCF4\uC2A4"
   mapPosition: {x: 0, y: 0}
   iconOnMap: {fileID: 8692975658937942140, guid: 9f30b8396d97b91459c8a004f4e6107b, type: 3}
   stages:
@@ -24,4 +24,4 @@ MonoBehaviour:
     hpMul: 0
     moveSpeedMul: 0
   unlocksOnClear: []
-  unlockedByDefault: 1
+  unlockedByDefault: 0

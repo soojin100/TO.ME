@@ -656,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a995ef6d21e9d61419a0d3fb7264acfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TOME::TOME.Core.BootstrapEntry
-  firstScene: Room_Bedroom
+  firstScene: Map_Room
   waitForTouch: 1
   touchToStartHint: {fileID: 121563278}
   introCamera: {fileID: 2057073070}

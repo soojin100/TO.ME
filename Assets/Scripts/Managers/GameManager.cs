@@ -89,6 +89,30 @@ namespace TOME.Managers
 
         public void ClearPendingPostDialogue() => PendingPostDialogueId = null;
 
+        /// <summary>챕터 보스를 깨면 다음 챕터로 넘긴다. ReturnToMap이 그 챕터의 맵으로 데려간다.
+        /// 마지막 챕터이거나 보스가 아니면 아무 일도 하지 않는다.</summary>
+        public bool TryAdvanceChapter(NodeSO clearedNode)
+        {
+            if (clearedNode == null || CurrentChapter == null) return false;
+            if (CurrentChapter.finalNode != clearedNode) return false;
+            if (CurrentChapter.nextChapter == null) return false;
+
+            CurrentChapter = CurrentChapter.nextChapter;
+            CurrentSectionIndex = -1;                     // 새 맵에서는 시작 구역부터
+            SaveSystemManager.I?.SetCurrentChapter(CurrentChapter.id);
+            Debug.Log($"[GameManager] 챕터 전환 → {CurrentChapter.id} ({CurrentChapter.mapSceneName})");
+            return true;
+        }
+
+        /// <summary>저장된 진행 챕터를 복원한다. 세이브에 없으면 건드리지 않는다.</summary>
+        public void RestoreChapter(ChapterSO[] all)
+        {
+            string id = SaveSystemManager.I?.Data.currentChapterId;
+            if (string.IsNullOrEmpty(id) || all == null) return;
+            foreach (ChapterSO c in all)
+                if (c != null && c.id == id) { CurrentChapter = c; return; }
+        }
+
         public void ReturnToMap()
         {
             Time.timeScale = 1f;

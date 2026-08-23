@@ -116,7 +116,11 @@ namespace TOME.Managers
         {
             if (itemDropManager != null) itemDropManager.Stop();
             var node = GameManager.I != null ? GameManager.I.CurrentNode : null;
-            if (win && node != null) MapManager.I?.MarkNodeCleared(node);
+            if (win && node != null)
+            {
+                MapManager.I?.MarkNodeCleared(node);
+                GameManager.I?.TryAdvanceChapter(node);   // 보스였다면 다음 챕터로
+            }
             GameManager.I?.RecordStageResult(win);
             if (resultScreen) resultScreen.Show(win, _stage);
         }

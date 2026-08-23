@@ -15,6 +15,14 @@ namespace TOME.Map
         [SerializeField] Button         stageButton;   // 해제 대상 스테이지 버튼
         [Tooltip("이 노드가 속한 ScrollSections 인덱스. Stage 배경 위치 결정에 사용. Section_0_FarLeft=0, ..., Section_6_FarRight=6, Section_3_Center=3.")]
         [SerializeField] int            sectionIndex = 3;
+        [Tooltip("설정하면 이 트랜스폼의 월드 X로 구역 인덱스를 역산한다(기기 종횡비 대응). 비우면 위 sectionIndex를 그대로 쓴다.")]
+        [SerializeField] Transform      sectionAnchor;
+
+        /// <summary>실제로 사용할 구역 인덱스. sectionAnchor가 있으면 월드 위치에서 역산한다.</summary>
+        int SectionIndex =>
+            sectionAnchor != null && ScreenNavigator.Instance != null
+                ? ScreenNavigator.Instance.SectionIndexAtWorldX(sectionAnchor.position.x)
+                : sectionIndex;
 
         void Start()
         {
@@ -38,7 +46,7 @@ namespace TOME.Map
         {
             // 대화/컷신 중에는 스테이지 진입 금지
             if (DialogueManager.I != null && DialogueManager.I.IsPlaying) return;
-            GameManager.I?.SetPendingSectionIndex(sectionIndex);
+            GameManager.I?.SetPendingSectionIndex(SectionIndex);
             CaptureSectionBackground();
         }
 
@@ -53,7 +61,7 @@ namespace TOME.Map
             var nav = ScreenNavigator.Instance;
             if (nav != null)
             {
-                Vector3 secPos = nav.GetSectionPosition(sectionIndex);
+                Vector3 secPos = nav.GetSectionPosition(SectionIndex);
                 cam.transform.position = new Vector3(secPos.x, secPos.y, originalPos.z);
             }
 

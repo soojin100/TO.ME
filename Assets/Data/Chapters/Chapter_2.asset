@@ -18,6 +18,8 @@ MonoBehaviour:
   backgroundSprite: {fileID: 0}
   backgroundPrefab: {fileID: 0}
   bgm: {fileID: 8300000, guid: 0928b7b8942aadd4381d115db29942da, type: 3}
-  mapSceneName: Room_Kitchen
+  mapSceneName: Map_Kitchen
+  finalNode: {fileID: 11400000, guid: c9f4d34926d2cce42913b118fbb21b80, type: 2}
+  nextChapter: {fileID: 11400000, guid: 206d570e0bb378d4db1891933d4c92bc, type: 2}
   enemyRoster:
   - {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}

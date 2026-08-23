@@ -17,6 +17,12 @@ namespace TOME.Data
         public AudioClip bgm;                 // (선택) 챕터 BGM
         public string    mapSceneName;        // 이 챕터의 맵 씬 이름 (비면 기본 맵)
 
+        [Header("Progression")]
+        [Tooltip("이 챕터의 마지막 스테이지(보스) 노드. 이걸 클리어하면 nextChapter로 넘어간다.")]
+        public NodeSO    finalNode;
+        [Tooltip("보스 클리어 후 이동할 다음 챕터. 비어 있으면 마지막 챕터.")]
+        public ChapterSO nextChapter;
+
         [Header("Enemies")]
         [Tooltip("이 챕터 스테이지의 자동 스폰 적 풀. StageSO.spawns가 비면 difficulty와 함께 사용.")]
         public EnemySO[] enemyRoster;

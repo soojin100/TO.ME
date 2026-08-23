@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bb16ced23be79d346bbebfd86baa298b
+guid: ffd0a8ef86fe06f4ab1d31ab97040c86
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9131213355898661425
-    second: 25.Room_Chiar_0
+      213: -236296447040152300
+    second: 7.Kitchen_Elements_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 25.Room_Chiar_0
+      name: 7.Kitchen_Elements_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 348
-        height: 585
+        width: 1693
+        height: 906
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 13a64aefa2698be70800000000000000
-      internalID: 9131213355898661425
+      spriteID: 41d1c7422a188bcf0800000000000000
+      internalID: -236296447040152300
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      25.Room_Chiar_0: 9131213355898661425
+      7.Kitchen_Elements_0: -236296447040152300
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

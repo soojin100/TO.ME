@@ -10,6 +10,8 @@ namespace TOME.Managers
         public static MapManager I { get; private set; }
 
         [SerializeField] List<NodeSO> allNodes;
+        [Tooltip("진행 순서대로의 챕터 목록. 저장된 진행 챕터를 복원하는 데 쓴다.")]
+        [SerializeField] List<ChapterSO> allChapters;
 
         readonly HashSet<string> unlocked = new();
 
@@ -20,6 +22,8 @@ namespace TOME.Managers
             if (transform.parent != null) transform.SetParent(null, true);
             DontDestroyOnLoad(gameObject);
             RebuildUnlockSet();
+            // 세이브에 기록된 진행 챕터를 복원 — 없으면 GameManager가 원래 값을 유지한다.
+            GameManager.I?.RestoreChapter(allChapters != null ? allChapters.ToArray() : null);
         }
 
         void OnDestroy() { if (I == this) I = null; }
