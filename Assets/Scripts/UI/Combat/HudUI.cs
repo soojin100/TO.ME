@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using TOME.Managers;
@@ -23,6 +23,12 @@ namespace TOME.UI.Combat
         [SerializeField] TMP_Text circleLabel;              
         [SerializeField] Image timerBarFill;        
         [SerializeField] float labelSwapInterval = 1.5f;
+        [Tooltip("하단 인벤토리 진입 버튼 루트(선택). StageSO.allowInventory가 false면 숨긴다.")]
+        [SerializeField] GameObject inventoryButtonRoot;
+        [Tooltip("라운드 표시(선택). 라운드가 2개 이상인 스테이지에서만 보인다.")]
+        [SerializeField] TMP_Text roundLabel;
+        [Tooltip("라운드 표시 형식. {0}=현재 라운드, {1}=총 라운드 수, {2}=라운드 이름.")]
+        [SerializeField] string roundFormat = "{2}  {0}/{1}";
 
         Image[] _hearts;
         float   _lastMax = -1f;
@@ -44,17 +50,23 @@ namespace TOME.UI.Combat
             {
                 _maxTime = CombatManager.I.TimeLeft;   // BeginStage 직후 HudUI가 Start되면 정확한 값
                 CombatManager.I.OnCountChanged += OnCount;
+                CombatManager.I.OnRoundChanged += OnRound;
                 CombatManager.I.OnTimerChanged += OnTimer;
 
                 // 이미 스테이지 진행 중이면 현재 값으로 즉시 갱신
                 OnCount(CombatManager.I.RemainingToKill, CombatManager.I.TotalEnemies);
                 OnTimer(CombatManager.I.TimeLeft);
+                OnRound(CombatManager.I.RoundNumber, CombatManager.I.RoundCount, CombatManager.I.RoundLabel);
             }
             if (player)
             {
                 player.OnHpChanged += OnHp;
                 OnHp(player.Hp, player.MaxHp);
             }
+
+            // 튜토리얼 전투 등 조합이 잠긴 스테이지에서는 진입 버튼 자체를 숨긴다(기획서 p15).
+            if (inventoryButtonRoot && !InventoryAllowed())
+                inventoryButtonRoot.SetActive(false);
 
 
         }
@@ -79,8 +91,18 @@ namespace TOME.UI.Combat
             {
                 CombatManager.I.OnCountChanged -= OnCount;
                 CombatManager.I.OnTimerChanged -= OnTimer;
+                CombatManager.I.OnRoundChanged -= OnRound;
             }
             if (player) player.OnHpChanged -= OnHp;
+        }
+
+        // 라운드가 하나뿐인 스테이지에서는 굳이 표시하지 않는다(화면만 복잡해진다).
+        void OnRound(int number, int count, string label)
+        {
+            if (roundLabel == null) return;
+            bool show = count > 1 && number > 0;
+            roundLabel.gameObject.SetActive(show);
+            if (show) roundLabel.text = string.Format(roundFormat, number, count, label);
         }
 
         void OnCount(int rem, int tot)
@@ -177,8 +199,17 @@ namespace TOME.UI.Combat
         /// 하단 인벤토리 버튼 OnClick에 연결.
         public void OnClickInventory()
         {
+            // 버튼을 숨기지 못한 경로(직접 호출 등)도 여기서 차단한다.
+            if (!InventoryAllowed()) return;
             CombatManager.I?.Pause();
             if (craftPanel) craftPanel.Open();
+        }
+
+        // 현재 스테이지가 조합창 사용을 허용하는지. 스테이지 정보가 없으면 허용(기존 동작 유지).
+        static bool InventoryAllowed()
+        {
+            var stage = GameManager.I != null ? GameManager.I.CurrentStage : null;
+            return stage == null || stage.allowInventory;
         }
 
         /// CraftPanelUI가 닫힐 때 호출.

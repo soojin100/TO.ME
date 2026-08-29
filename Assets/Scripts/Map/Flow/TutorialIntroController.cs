@@ -14,7 +14,7 @@ namespace TOME.Map
     {
         public static TutorialIntroController I { get; private set; }
 
-        [SerializeField] string  startLineId = "c1_01";
+        [SerializeField] string  startLineId = "tut1_00";
         [SerializeField] NodeSO  tutorialNode;     // 튜토리얼 전투 노드
         [SerializeField] StageSO tutorialStage;    // 튜토리얼 전투 스테이지
         [SerializeField] bool    onlyOnFirstLaunch = true;
@@ -34,26 +34,36 @@ namespace TOME.Map
             if (fightButton) fightButton.onClick.AddListener(OnFightClicked);
 
             if (DialogueManager.I == null) return;
+            DialogueManager.I.OnBattleStartRequested += OnBattleStart;
+
+            // 튜토리얼 대사를 튼다. 연출(암전·소환·이름입력·에너미 배치)은 이 대사의
+            // trigger 컬럼이 불러내므로, 흐름은 dialogue 시트가 결정한다.
             if (onlyOnFirstLaunch && SaveSystemManager.I != null && SaveSystemManager.I.SeenIntro) return;
 
-            DialogueManager.I.OnBattleStartRequested += OnBattleStart;
+            DialogueManager.I.OnEnd += OnTutorialDialogueEnd;
             DialogueManager.I.TryPlay(startLineId);
+        }
+
+        // 튜토리얼 대사가 끝나면 다시 보지 않도록 기록한다.
+        void OnTutorialDialogueEnd()
+        {
+            if (DialogueManager.I != null) DialogueManager.I.OnEnd -= OnTutorialDialogueEnd;
+            SaveSystemManager.I?.MarkIntroSeen();
         }
 
         void OnDestroy()
         {
             if (DialogueManager.I != null)
+            {
                 DialogueManager.I.OnBattleStartRequested -= OnBattleStart;
+                DialogueManager.I.OnEnd -= OnTutorialDialogueEnd;
+            }
             if (fightButton) fightButton.onClick.RemoveListener(OnFightClicked);
             if (I == this) I = null;
         }
 
-        // 튜토리얼 대사 끝(StartBattle 트리거) → 싸우자 UI 노출(튜토리얼 스테이지 대상)
-        void OnBattleStart()
-        {
-            SaveSystemManager.I?.MarkIntroSeen();
-            Show(tutorialNode, tutorialStage);
-        }
+        // StartBattle 트리거 → 싸우자 UI 노출(지정된 튜토리얼 스테이지 대상).
+        void OnBattleStart() => Show(tutorialNode, tutorialStage);
 
         /// <summary>맵 스테이지 버튼 등에서 호출: 싸우자 UI를 띄우고 진입 대상 스테이지를 지정.</summary>
         public void Show(NodeSO node, StageSO stage)

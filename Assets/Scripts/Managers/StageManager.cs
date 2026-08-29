@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TOME.Core;
@@ -62,8 +62,33 @@ namespace TOME.Managers
             if (player != null)              player.OnDied                     += OnPlayerDied;
 
             CombatManager.I?.BeginStage(stage);
-            if (itemDropManager != null && stage.spawns != null && stage.spawns.Length > 0)
-                itemDropManager.Begin(stage.spawns[0].enemy);
+            // 튜토리얼 전투는 조합템이 드랍되지 않는다(기획서 p15).
+            if (stage.allowItemDrops && itemDropManager != null)
+            {
+                var dropSource = ResolveDropSource(stage);
+                if (dropSource != null) itemDropManager.Begin(dropSource);
+            }
+        }
+
+        /// <summary>드랍 테이블을 가져올 기준 적. 라운드가 있으면 첫 라운드의 첫 적을,
+        /// 없으면 기존처럼 스테이지 spawns의 첫 적을 쓴다.</summary>
+        static EnemySO ResolveDropSource(StageSO stage)
+        {
+            if (stage.rounds != null)
+                foreach (var r in stage.rounds)
+                {
+                    if (r?.spawns != null)
+                        foreach (var e in r.spawns) if (e?.enemy != null) return e.enemy;
+                    if (r?.enemyRoster != null)
+                        foreach (var e in r.enemyRoster) if (e != null) return e;
+                }
+            if (stage.spawns != null)
+                foreach (var e in stage.spawns) if (e?.enemy != null) return e.enemy;
+            if (stage.enemyRoster != null)
+                foreach (var e in stage.enemyRoster) if (e != null) return e;
+            if (stage.chapter != null && stage.chapter.enemyRoster != null)
+                foreach (var e in stage.chapter.enemyRoster) if (e != null) return e;
+            return null;
         }
 
         // 스테이지 배경 = 맵에서 stageButton 클릭 시 캡처된 화면 텍스처를 sprite로 표시 + 블러.

@@ -92,7 +92,17 @@ namespace TOME.Map
         {
             if (step.sectionIndex >= 0 && ScreenNavigator.Instance != null)
             {
-                var move = ScreenNavigator.Instance.MoveToSection(step.sectionIndex);
+                // 구역 수는 화면 비율·맵 폭에 따라 런타임에 정해진다. 예전에 잡아 둔 인덱스가 범위를 넘으면
+                // 이동이 조용히 무시되므로, 마지막 구역으로 당겨 주고 무엇이 어긋났는지 남긴다.
+                int last = ScreenNavigator.Instance.SectionCount - 1;
+                int idx  = step.sectionIndex;
+                if (idx > last)
+                {
+                    Debug.LogWarning($"[Cutscene] '{step.trigger}' 의 sectionIndex {idx} 가 구역 수({last + 1})를 넘습니다. " +
+                                     $"{last} 번 구역으로 대신 이동합니다.", this);
+                    idx = last;
+                }
+                var move = ScreenNavigator.Instance.MoveToSection(idx);
                 if (move != null) yield return move;   // 이미 같은 섹션이면 null → 즉시 진행
             }
 
@@ -103,6 +113,15 @@ namespace TOME.Map
             }
             else
             {
+                // 클릭 대상이 없으면 이 스텝은 영원히 끝나지 않는다. 대화는 멈춘 채 대사창까지 닫혀 있어
+                // 화면상 아무것도 반응하지 않는 상태가 된다 → 설정이 빈 경우는 그냥 재개한다.
+                if (step.clickTarget == null)
+                {
+                    Debug.LogWarning($"[Cutscene] '{step.trigger}' 스텝에 focusTarget/clickTarget 이 모두 비어 있어 " +
+                                     "진행할 수 없습니다. 대화를 재개합니다.", this);
+                    DialogueManager.I?.ResumeFromInteraction();
+                    yield break;
+                }
                 if (step.hintHighlight) step.hintHighlight.SetActive(true);
                 _active = step;   // 이동 완료 후에만 클릭 받기
             }

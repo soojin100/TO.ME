@@ -295,6 +295,9 @@ MonoBehaviour:
   circleLabel: {fileID: 698487162}
   timerBarFill: {fileID: 695254619}
   labelSwapInterval: 1.5
+  inventoryButtonRoot: {fileID: 0}
+  roundLabel: {fileID: 1929278648}
+  roundFormat: '{2}  {0}/{1}'
 --- !u!224 &213974955
 RectTransform:
   m_ObjectHideFlags: 0
@@ -310,6 +313,7 @@ RectTransform:
   - {fileID: 1970244658}
   - {fileID: 1538506652}
   - {fileID: 420257640}
+  - {fileID: 1929278650}
   m_Father: {fileID: 1400442370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1348,13 +1352,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5850625723555694762, guid: 452524ee6737f2d4e99dc75c35755396, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1103580903}
   m_SourcePrefab: {fileID: 100100000, guid: 452524ee6737f2d4e99dc75c35755396, type: 3}
 --- !u!224 &1103580901 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6775252259768471966, guid: 452524ee6737f2d4e99dc75c35755396, type: 3}
   m_PrefabInstance: {fileID: 1103580900}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1103580902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5850625723555694762, guid: 452524ee6737f2d4e99dc75c35755396, type: 3}
+  m_PrefabInstance: {fileID: 1103580900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1103580903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103580902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c61dfe814e0bdb48af194e432367b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TOME::TOME.UI.HideDuringDialogue
 --- !u!1 &1138778917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Managers.MapManager
   allNodes:
   - {fileID: 11400000, guid: cbe53d7f628bd2946ac2ce13f1de3123, type: 2}
+  allChapters: []
 --- !u!114 &1201343086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1656,6 +1681,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8251478003384114051, guid: aa91c66854575d143b892fd6a3219588, type: 3}
   m_PrefabInstance: {fileID: 2132475725}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1253700531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253700529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c61dfe814e0bdb48af194e432367b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TOME::TOME.UI.HideDuringDialogue
 --- !u!1 &1313872603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2888,6 +2925,143 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 232cf618a5a421f4e945b71a13ba0575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1929278647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1929278650}
+  - component: {fileID: 1929278649}
+  - component: {fileID: 1929278648}
+  m_Layer: 0
+  m_Name: RoundLabel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1929278648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929278647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\uB77C\uC6B4\uB4DC 1/3"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 45ea1dd21966f37409748e22e52051cc, type: 2}
+  m_sharedMaterial: {fileID: 5786754518360096851, guid: 45ea1dd21966f37409748e22e52051cc, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 29.76
+  m_fontSizeBase: 29.76
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1929278649
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929278647}
+  m_CullTransparentMesh: 1
+--- !u!224 &1929278650
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929278647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 213974955}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -40, y: -270}
+  m_SizeDelta: {x: 400, y: 60}
+  m_Pivot: {x: 1, y: 1}
 --- !u!1 &1952337545
 GameObject:
   m_ObjectHideFlags: 0
@@ -3293,6 +3467,7 @@ GameObject:
   - component: {fileID: 2090185364}
   - component: {fileID: 2090185363}
   - component: {fileID: 2090185366}
+  - component: {fileID: 2090185367}
   m_Layer: 0
   m_Name: CraftHandleBar
   m_TagString: Untagged
@@ -3429,6 +3604,18 @@ MonoBehaviour:
   toDeactivate: {fileID: 1400442369}
   pauseCombat: 1
   resumeCombat: 0
+--- !u!114 &2090185367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090185361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c61dfe814e0bdb48af194e432367b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TOME::TOME.UI.HideDuringDialogue
 --- !u!1001 &2132475725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3737,6 +3924,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1673783959517367078, guid: aa91c66854575d143b892fd6a3219588, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1253700531}
     - targetCorrespondingSourceObject: {fileID: 2304733711166783848, guid: aa91c66854575d143b892fd6a3219588, type: 3}
       insertIndex: -1
       addedObject: {fileID: 751406998}
@@ -3928,7 +4118,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: TOME::TOME.Core.SceneFader
   group: {fileID: 4208742737949052912}
-  defaultDuration: 0.35
+  defaultDuration: 0.5
+  ease:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  holdSeconds: 0.08
+  fadeInOnLaunch: 1
 --- !u!114 &7339883013161225350
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -149,7 +149,7 @@ namespace TOME.UI
             if (GameManager.I != null && GameManager.I.CurrentStage != null)
                 GameManager.I.EnterStage(GameManager.I.CurrentNode, GameManager.I.CurrentStage);
             else
-                UnityEngine.SceneManagement.SceneManager.LoadScene(
+                TOME.Core.SceneFader.Go(
                     UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
     }

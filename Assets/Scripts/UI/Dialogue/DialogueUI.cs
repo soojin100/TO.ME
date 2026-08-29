@@ -15,7 +15,9 @@ namespace TOME.UI
     /// - 입(Mouth): 타이핑 중 = Talking 01(닫힘) ↔ 02/03(벌림) 교차, 대기 = 01 고정.
     /// - 눈(Blink): 독립 타이머로 평균 blinkIntervalAvg ± jitter 마다 Blink 시퀀스 1회 오버레이.
     /// - Intro: 대화 세션 첫 줄에 1회 리드인 후 일반 루프.
-    /// - Angry: 특정 대사가 speakerSprite="angry"일 때만 활성, 기본 흐름에서 제외.</summary>
+    /// - Angry/Happy: speakerSprite 컬럼의 감정 키로 활성(angry/화남, happy/웃음). 이때는 감정 시퀀스가
+    ///   초상화 텍스처를 전담하고 입·눈 채널은 비켜선다. 감정 시퀀스는 [도입 1회][지속 반복][정지 고정] 3단계.
+    /// - effect 컬럼: "shake" 면 초상화가 랜덤하게 흔들린다(기획서 p12). 빈칸이면 멈춘다(p13).</summary>
     public class DialogueUI : MonoBehaviour
     {
         [Header("Dialogue")]
@@ -63,13 +65,45 @@ namespace TOME.UI
         [Tooltip("Blink 폴더에서 깜빡임 시퀀스 시작 인덱스. Blink/01(=인덱스 0)은 입 벌림이라 제외 → 1부터 시작.")]
         [SerializeField] int blinkStartIndex = 1;
 
+        [Header("Angry Sequence (기획서 p9/p12)")]
+        [Tooltip("Angry 시퀀스 앞쪽 '화가 치밀어 오르는' 도입 프레임 수(01~). 이 구간은 화가 시작될 때 한 번만 재생하고 " +
+                 "그 뒤 프레임만 반복한다. 전체를 반복하면 화난 도중에 자꾸 팔 내린 차분한 포즈로 되돌아간다.")]
+        [Min(0)] [SerializeField] int angryWindupCount = 5;
+        [Tooltip("대사를 다 친 뒤(플레이어가 읽는 동안) 유지할 Angry 프레임 인덱스 — 입 닫힌 분노 표정. " +
+                 "0번은 팔 내린 무표정이라 여기 두면 줄이 끝날 때마다 화가 풀려 버린다.")]
+        [Min(0)] [SerializeField] int angryHoldIndex = 15;
+
+        [Header("Happy Sequence (기획서 p10: 웃는 강아지 스탠딩)")]
+        [Tooltip("웃는 표정 프레임 cps.")]
+        [SerializeField, Range(2f, 20f)] float happyFps = 6f;
+        [Tooltip("대사를 다 친 뒤 유지할 웃는 표정 프레임 인덱스.")]
+        [Min(0)] [SerializeField] int happyHoldIndex = 0;
+
+        [Header("Effect (기획서 p12: 분노 스탠딩이 랜덤하게 움직임)")]
+        [Tooltip("dialogue 시트의 effect 컬럼이 이 값이면 초상화를 흔든다.")]
+        [SerializeField] string shakeEffectKey = "shake";
+        [Tooltip("흔들림 이동량(px) 최소~최대. 기획서: 위아래 좌우로 1~5픽셀 정도.")]
+        [SerializeField] Vector2 shakeRange = new(1f, 5f);
+        [Tooltip("흔들림 위치 갱신 간격(초).")]
+        [SerializeField, Range(0.01f, 0.5f)] float shakeInterval = 0.05f;
+
         [Header("Portrait Frames (선택: 직접 와이어링. 비우면 Resources/Dialogue/* 로 폴백)")]
         [SerializeField] Texture2D[] talkingFramesOverride;
         [SerializeField] Texture2D[] blinkFramesOverride;
         [SerializeField] Texture2D[] angryFramesOverride;
         [SerializeField] Texture2D[] introFramesOverride;
+        [Tooltip("웃는 표정 프레임. 비우면 Intro 프레임(전부 웃는 얼굴)을 그대로 쓴다.")]
+        [SerializeField] Texture2D[] happyFramesOverride;
+
+        [Header("Narration")]
+        [Tooltip("이 화자 이름이면 초상화를 띄우지 않는다(나레이션 줄). 기획서 p7.")]
+        [SerializeField] string narrationSpeaker = "나레이션";
 
         [Header("Name Input (optional)")]
+        [Tooltip("nameInputPanel 이 비어 있을 때 즉시 기본 이름으로 넘길지. " +
+                 "다른 컴포넌트(예: 튜토리얼 나무판자)가 이름 입력을 담당하면 반드시 해제한다 — " +
+                 "켜 두면 입력을 받기도 전에 기본 이름으로 확정돼 버린다.")]
+        [SerializeField] bool           autoSubmitWhenNoPanel = true;
         [SerializeField] GameObject     nameInputPanel;
         [SerializeField] TMP_InputField nameInputField;
         [SerializeField] Button         nameConfirmButton;
@@ -79,10 +113,15 @@ namespace TOME.UI
         Texture2D[] _framesBlink;
         Texture2D[] _framesAngry;
         Texture2D[] _framesIntro;
+        Texture2D[] _framesHappy;
 
         // idle(가만히) 기준 프레임 = "입 닫힘 + 눈 뜸". 디자인상 Talking 시퀀스는 전부 입 벌림(말하기)이라
         // 진짜 입 닫힘은 Blink 시퀀스(blinkStartIndex)에 있음. 말 안 할 땐 이 프레임 고정 + 눈만 깜빡.
         Texture2D _idleFrame;
+
+        // 현재 줄의 표정. Angry 는 EmotionLoopRoutine 이 portraitImage.texture 를 전담하므로
+        // 입 애니메이션(TypeRoutine)이 같은 텍스처를 건드리지 않도록 이 값으로 구분한다.
+        Mood _currentMood = Mood.Talking;
 
         bool _npcAppeared;   // 유령이 한 번이라도 화자가 됐으면 true → 이후 NPC 초상화 계속 표시
         bool _npcSpeaking;   // 현재 줄의 화자가 유령이면 true → 플레이어 입 정지 + 플레이어 회색
@@ -114,6 +153,15 @@ namespace TOME.UI
             _framesBlink   = (blinkFramesOverride   != null && blinkFramesOverride.Length   > 0) ? blinkFramesOverride   : LoadFrames("Dialogue/Blink");
             _framesAngry   = (angryFramesOverride   != null && angryFramesOverride.Length   > 0) ? angryFramesOverride   : LoadFrames("Dialogue/Angry");
             _framesIntro   = (introFramesOverride   != null && introFramesOverride.Length   > 0) ? introFramesOverride   : LoadFrames("Dialogue/Intro");
+            // Talking 세트는 01=닫힘, 02·03=벌림. 벌림 프레임만 따로 모아 둔다.
+            if (_framesTalking != null && _framesTalking.Length > 1)
+            {
+                _openTalking = new Texture2D[_framesTalking.Length - 1];
+                System.Array.Copy(_framesTalking, 1, _openTalking, 0, _openTalking.Length);
+            }
+            // 전용 웃음 프레임이 없으면 Intro 프레임을 쓴다 — Intro/01~04가 전부 웃는 얼굴이라 그대로 성립한다.
+            _framesHappy   = (happyFramesOverride   != null && happyFramesOverride.Length   > 0) ? happyFramesOverride
+                           : (LoadFrames("Dialogue/Happy") ?? _framesIntro);
         }
 
         static Texture2D[] LoadFrames(string resourcePath)
@@ -178,7 +226,12 @@ namespace TOME.UI
             if (npcPortraitRoot) npcPortraitRoot.SetActive(_npcAppeared);
             ApplySpeakerTint();                                     // 화자 아닌 쪽 회색
 
-            ShowPortrait(e, playIntro);
+            // 나레이션 줄(화자 없음 또는 "나레이션")은 초상화를 띄우지 않는다 — 기획서 p7.
+            if (IsNarration(e.speaker)) HidePortrait();
+            else                        ShowPortrait(e, playIntro);
+
+            ApplyEffect(e.effect);   // effect 가 비면 흔들림이 멈춘다 (기획서 p13: 움직임이 갑자기 멈춤)
+
             if (speakerLabel) speakerLabel.text = e.speaker;
 
             _fullText = e.text ?? "";
@@ -195,10 +248,12 @@ namespace TOME.UI
             if (textLabel) textLabel.text = "";
             var wait = new WaitForSecondsRealtime(typingSpeed);
 
-            bool hasFrames = portraitImage != null && _framesTalking != null && _framesTalking.Length >= 3 && !_npcSpeaking;
-            if (hasFrames) portraitImage.texture = _framesTalking[0];   // 시작: 입 닫힘
+            // Angry 는 EmotionLoopRoutine 이 텍스처를 전담한다 — 여기서 입을 그리면 두 코루틴이 충돌해 깨진다.
+            bool hasFrames = portraitImage != null && MouthClosedFrame != null && MouthOpenFrames.Length > 0
+                             && !_npcSpeaking && !EmotionOwnsPortrait && HasSpeech(text);
+            if (hasFrames) portraitImage.texture = MouthClosedFrame;    // 시작: 입 닫힘
             bool mouthOpen = false;
-            int openVariant = 2;                                        // 벌림일 때 02↔03 번갈아(벌림 크기 변화)
+            int openVariant = -1;                                       // 벌림 프레임을 번갈아(벌림 크기 변화)
             float lastMouth = float.NegativeInfinity;
             float half = Mathf.Max(0.06f, mouthMinInterval * 0.5f);     // 입 한 상태(벌림 또는 닫힘) 유지 시간
 
@@ -210,17 +265,21 @@ namespace TOME.UI
                 if (hasFrames && Time.unscaledTime - lastMouth >= half)
                 {
                     mouthOpen = !mouthOpen;
-                    portraitImage.texture = mouthOpen
-                        ? _framesTalking[openVariant = (openVariant == 1) ? 2 : 1]
-                        : _framesTalking[0];
+                    if (mouthOpen)
+                    {
+                        var open = MouthOpenFrames;
+                        openVariant = (openVariant + 1) % open.Length;
+                        portraitImage.texture = open[openVariant];
+                    }
+                    else portraitImage.texture = MouthClosedFrame;
                     lastMouth = Time.unscaledTime;
                 }
                 yield return wait;
             }
             _isTyping = false;
-            // 타이핑 끝 → 입 닫힘 보장 (이후 BlinkLoop가 눈만 깜빡).
-            if (portraitImage != null && _framesTalking != null && _framesTalking.Length > 0)
-                portraitImage.texture = _framesTalking[0];
+            // 타이핑 끝 → 입 닫힘 보장 (이후 BlinkLoop가 눈만 깜빡). Angry 는 제 시퀀스를 유지한다.
+            if (!EmotionOwnsPortrait && portraitImage != null && MouthClosedFrame != null)
+                portraitImage.texture = MouthClosedFrame;
         }
 
         /// <summary>대사창 탭 시 호출(DialogueAdvanceArea). 타이핑 중이면 즉시 완성, 아니면 다음 줄.</summary>
@@ -233,8 +292,8 @@ namespace TOME.UI
                 _isTyping = false;
                 if (textLabel) textLabel.text = _fullText;
                 // 즉시 완성(스킵) 시에도 입 닫힘 보장 — 토글 도중 멈춰 입이 열린 채 남지 않게.
-                if (!_npcSpeaking && portraitImage != null && _framesTalking != null && _framesTalking.Length > 0)
-                    portraitImage.texture = _framesTalking[0];
+                if (!_npcSpeaking && !EmotionOwnsPortrait && portraitImage != null && MouthClosedFrame != null)
+                    portraitImage.texture = MouthClosedFrame;
                 return;
             }
             DialogueManager.I?.Advance();
@@ -254,6 +313,7 @@ namespace TOME.UI
             _isFirstLineOfSession = true;
             _npcAppeared = false;
             _npcSpeaking = false;
+            _currentMood = Mood.Talking;
             if (npcPortraitRoot) npcPortraitRoot.SetActive(false);
             if (portraitImage)
             {
@@ -275,17 +335,25 @@ namespace TOME.UI
             StopPortraitCoroutines();
 
             var mood = ResolveMood(e);
+            // 같은 감정이 이어지는 줄에서는 도입(치밀어 오르는 구간)을 다시 재생하지 않는다.
+            // 매 줄 다시 감으면 연속된 분노 대사가 "무표정 → 폭발"을 반복해 감정이 끊긴다.
+            bool moodChanged = mood != _currentMood;
+            _currentMood = mood;
 
-            // Angry: 분노 표정. 타이핑 중에는 angry 프레임을 빠르게 사이클(격렬한 표정 변화),
-            //        타이핑 끝나면 첫 프레임 고정. 입+눈 합성 없음.
+            // Angry: 도입(01~)은 화가 시작될 때 한 번만, 이후에는 폭발 구간만 반복.
+            //        대사를 다 치면 angryHoldIndex(입 닫힌 분노)로 고정 — 화가 풀리지 않게.
             if (mood == Mood.Angry)
             {
                 if (_framesAngry != null && _framesAngry.Length > 0)
-                    _portraitCo = StartCoroutine(EmotionLoopRoutine(_framesAngry, angryFps));
+                    _portraitCo = StartCoroutine(EmotionLoopRoutine(
+                        _framesAngry, angryFps, angryWindupCount, angryHoldIndex, moodChanged));
                 else if (_framesTalking != null && _framesTalking.Length > 0)
                     _portraitCo = StartCoroutine(MouthRoutine(false));
                 return;
             }
+
+            // Happy(기획서 p10 웃는 스탠딩)는 아래 기본 2채널 경로를 그대로 탄다.
+            // 입은 TypeRoutine 이 웃는 벌림 프레임 ↔ 다문 프레임으로 뻐끔거리고, 눈은 BlinkLoop 가 깜빡인다.
 
             // 기본 2채널: 입 = TypeRoutine(글자 타이핑에 동기, 끝나면 닫힘), 눈 = BlinkLoop(대기 중 깜빡).
             if (_framesTalking == null || _framesTalking.Length == 0) return;
@@ -308,10 +376,40 @@ namespace TOME.UI
         void HidePortrait()
         {
             StopPortraitCoroutines();
+            StopShake();
+            // 초상화가 사라졌다 다시 나오면 감정도 처음부터 — 다음 분노 줄에서 도입이 다시 재생된다.
+            _currentMood = Mood.Talking;
             if (portraitRoot) portraitRoot.SetActive(false);
         }
 
-        enum Mood { Talking, Angry, Intro }
+        enum Mood { Talking, Angry, Intro, Happy }
+
+        // Angry 만 EmotionLoopRoutine 이 portraitImage.texture 를 전담한다(분노는 팔 동작까지 있는 전신 시퀀스).
+        // Happy 는 얼굴만 바뀌므로 기존 입 채널(TypeRoutine)을 그대로 쓴다 — 그래야 입이 뻐끔거린다.
+        bool EmotionOwnsPortrait => _currentMood == Mood.Angry;
+
+        /// <summary>입을 다문 프레임. 웃는 프레임(Intro)은 4장 전부 입이 벌어져 있어 닫힘이 없다 →
+        /// 닫힘은 항상 Talking/01(다문 미소)을 쓴다. 이게 없으면 입이 벌어진 채로 굳는다.</summary>
+        Texture2D MouthClosedFrame
+            => (_framesTalking != null && _framesTalking.Length > 0) ? _framesTalking[0] : null;
+
+        /// <summary>입을 벌린 프레임들. 번갈아 써서 벌림 크기가 변한다.
+        /// Happy 면 웃는 프레임(전부 입 벌림), 아니면 Talking/02·03.</summary>
+        Texture2D[] MouthOpenFrames
+        {
+            get
+            {
+                if (_currentMood == Mood.Happy && _framesHappy != null && _framesHappy.Length > 0)
+                    return _framesHappy;
+                return _openTalking;
+            }
+        }
+        Texture2D[] _openTalking = System.Array.Empty<Texture2D>();
+
+        // 화자가 비었거나 나레이션이면 초상화 없음.
+        bool IsNarration(string speaker)
+            => string.IsNullOrWhiteSpace(speaker)
+            || string.Equals(speaker.Trim(), narrationSpeaker, System.StringComparison.Ordinal);
 
         Mood ResolveMood(DialogueEntry e)
         {
@@ -319,36 +417,104 @@ namespace TOME.UI
             if (key.Length > 0)
             {
                 if (key.Contains("angry") || key.Contains("화남") || key.Contains("mad")) return Mood.Angry;
+                if (key.Contains("happy") || key.Contains("웃음") || key.Contains("웃는") || key.Contains("smile")) return Mood.Happy;
                 if (key.Contains("intro") || key.Contains("도입")) return Mood.Intro;
                 if (key.Contains("talk")  || key.Contains("말하")) return Mood.Talking;
             }
             return Mood.Talking;
         }
 
-        // 감정 시퀀스(분노 등): 타이핑 중에만 frames를 사이클. 타이핑 끝나면 첫 프레임 고정.
-        // → 대사 길이에 정확히 비례한 표정 변화 (짧은 대사=짧은 변화, 긴 대사=긴 변화).
-        IEnumerator EmotionLoopRoutine(Texture2D[] frames, float fps)
+        // 감정 시퀀스(분노/웃음). 시퀀스는 [도입 windup][지속 loop] 두 구간으로 나눠 재생한다.
+        //  - 도입: 감정이 바뀌는 순간 한 번만. 분노 시퀀스의 01~05가 "팔 내림 → 주먹 들어올림"이라
+        //          여기를 반복하면 화난 도중에 자꾸 차분한 포즈로 되돌아간다.
+        //  - 지속: 타이핑 중에만 반복 → 표정 변화 길이가 대사 길이에 비례.
+        //  - 정지: 타이핑이 끝나면 holdIndex 고정. 플레이어가 대사를 읽는 동안(가장 오래 보는 시점)
+        //          감정이 유지돼야 한다. 0번으로 돌리면 분노가 매 줄 풀린다.
+        IEnumerator EmotionLoopRoutine(Texture2D[] frames, float fps, int windupCount, int holdIndex, bool playWindup)
         {
             var wait = new WaitForSecondsRealtime(1f / Mathf.Max(1f, fps));
-            int i = 0;
-            portraitImage.texture = frames[0];
+            int windup = Mathf.Clamp(windupCount, 0, frames.Length - 1);
+            int hold   = Mathf.Clamp(holdIndex,   0, frames.Length - 1);
+
+            if (playWindup)
+            {
+                for (int w = 0; w < windup; w++)
+                {
+                    portraitImage.texture = frames[w];
+                    yield return wait;
+                }
+            }
+
+            int i = windup;
+            portraitImage.texture = frames[hold];
             bool wasTyping = false;
             while (true)
             {
                 if (_isTyping)
                 {
                     portraitImage.texture = frames[i];
-                    i = (i + 1) % frames.Length;
+                    if (++i >= frames.Length) i = windup;    // 도입 구간으로는 되돌아가지 않는다
                     wasTyping = true;
                 }
                 else if (wasTyping)
                 {
-                    // 타이핑 끝나는 순간 1회만 첫 프레임으로 복귀. 그 뒤엔 텍스처 건드리지 않음
-                    // (Blink 등 다른 채널이 표시할 수 있게).
-                    portraitImage.texture = frames[0];
-                    i = 0;
+                    portraitImage.texture = frames[hold];
+                    i = windup;
                     wasTyping = false;
                 }
+                yield return wait;
+            }
+        }
+
+        // 글자가 하나도 없는 줄("...", "!!!" 등)은 말하는 게 아니라 '사이'다 → 입을 움직이지 않는다.
+        static bool HasSpeech(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return false;
+            foreach (char c in text) if (char.IsLetterOrDigit(c)) return true;
+            return false;
+        }
+
+        // --- effect (기획서 p12: 분노 스탠딩이 위아래 좌우로 1~5픽셀 랜덤하게 움직임) ---
+
+        Coroutine _shakeCo;
+        Vector2   _shakeBase;
+        bool      _shakeActive;
+
+        void ApplyEffect(string effect)
+        {
+            bool wantShake = !string.IsNullOrWhiteSpace(effect) && !string.IsNullOrEmpty(shakeEffectKey)
+                && string.Equals(effect.Trim(), shakeEffectKey, System.StringComparison.OrdinalIgnoreCase);
+            if (wantShake) StartShake();
+            else           StopShake();
+        }
+
+        void StartShake()
+        {
+            if (_shakeActive || portraitImage == null) return;
+            _shakeBase = portraitImage.rectTransform.anchoredPosition;   // 흔들기 전 위치를 기억해 뒀다 복구
+            _shakeActive = true;
+            _shakeCo = StartCoroutine(ShakeRoutine());
+        }
+
+        void StopShake()
+        {
+            if (_shakeCo != null) { StopCoroutine(_shakeCo); _shakeCo = null; }
+            if (_shakeActive && portraitImage != null)
+                portraitImage.rectTransform.anchoredPosition = _shakeBase;
+            _shakeActive = false;
+        }
+
+        IEnumerator ShakeRoutine()
+        {
+            var rt = portraitImage.rectTransform;
+            var wait = new WaitForSecondsRealtime(shakeInterval);
+            float min = Mathf.Min(shakeRange.x, shakeRange.y);
+            float max = Mathf.Max(shakeRange.x, shakeRange.y);
+            while (true)
+            {
+                float dx = UnityEngine.Random.Range(min, max) * (UnityEngine.Random.value < 0.5f ? -1f : 1f);
+                float dy = UnityEngine.Random.Range(min, max) * (UnityEngine.Random.value < 0.5f ? -1f : 1f);
+                rt.anchoredPosition = _shakeBase + new Vector2(dx, dy);
                 yield return wait;
             }
         }
@@ -435,7 +601,7 @@ namespace TOME.UI
                 nameInputField.text = "";
                 nameInputField.ActivateInputField();
             }
-            else
+            else if (autoSubmitWhenNoPanel)
             {
                 DialogueManager.I?.SubmitName(null);
             }

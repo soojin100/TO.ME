@@ -19,7 +19,7 @@ MonoBehaviour:
   backgroundPrefab: {fileID: 0}
   bgm: {fileID: 8300000, guid: a4a64d885d8ae70469c93e85e3bfa15d, type: 3}
   mapSceneName: Map_Yard
-  finalNode: {fileID: 11400000, guid: 41104bd09f0f877899d7e43b1eaaecec, type: 2}
+  finalNode: {fileID: 11400000, guid: 63085987e1fe7ca0fff8d7058e39a2bd, type: 2}
   nextChapter: {fileID: 0}
   enemyRoster:
   - {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}

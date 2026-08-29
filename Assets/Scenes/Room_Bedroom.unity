@@ -5188,33 +5188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f5d0bc07b34e4469c4589c3c42c980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TOME::TOME.Map.CutsceneInteractionController
-  steps:
-  - trigger: 3
-    sectionIndex: 5
-    focusTarget: {fileID: 1074708479}
-    zoomOrthoSize: 4
-    focusOffset: {x: 0, y: 0}
-    holdSeconds: 1.6
-    panZoomDuration: 0.45
-    clickTarget: {fileID: 0}
-    revealOnClick: {fileID: 0}
-    animator: {fileID: 0}
-    animatorTrigger: React
-    resumeDelay: 0
-    hintHighlight: {fileID: 0}
-  - trigger: 4
-    sectionIndex: 5
-    focusTarget: {fileID: 452643640}
-    zoomOrthoSize: 4
-    focusOffset: {x: 0, y: 2.2}
-    holdSeconds: 1.6
-    panZoomDuration: 0.45
-    clickTarget: {fileID: 0}
-    revealOnClick: {fileID: 0}
-    animator: {fileID: 0}
-    animatorTrigger: React
-    resumeDelay: 0
-    hintHighlight: {fileID: 0}
+  steps: []
   worldCamera: {fileID: 555924971}
 --- !u!1 &1074708478
 GameObject:
@@ -5372,6 +5346,8 @@ MonoBehaviour:
   - {fileID: 770000041}
   - {fileID: 1276119192}
   - {fileID: 1438035287}
+  mapRoot: {fileID: 0}
+  minSections: 0
   startIndex: 6
   moveDuration: 0.3
   moveCurve:
@@ -5400,6 +5376,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   arrowLeft: {fileID: 304296893}
   arrowRight: {fileID: 353012480}
+  showOnlyCurrentSectionButtons: 1
+  sectionCountSlack: 0.05
 --- !u!4 &1103825835
 Transform:
   m_ObjectHideFlags: 0
@@ -5596,6 +5574,10 @@ PrefabInstance:
     - target: {fileID: 896327030206195146, guid: 01c71f4389b7a5d4d9bd9f88d601872c, type: 3}
       propertyPath: m_Name
       value: Dog_halfside
+      objectReference: {fileID: 0}
+    - target: {fileID: 896327030206195146, guid: 01c71f4389b7a5d4d9bd9f88d601872c, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3403167664198718419, guid: 01c71f4389b7a5d4d9bd9f88d601872c, type: 3}
       propertyPath: m_Enabled
@@ -6601,6 +6583,7 @@ MonoBehaviour:
   unlockResult: {fileID: 11400000, guid: 3ec90895784d3664483eb26068dd502c, type: 2}
   stageButton: {fileID: 0}
   sectionIndex: 3
+  sectionAnchor: {fileID: 0}
 --- !u!114 &1278936090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6687,6 +6670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Managers.MapManager
   allNodes:
   - {fileID: 11400000, guid: cbe53d7f628bd2946ac2ce13f1de3123, type: 2}
+  allChapters: []
 --- !u!114 &1278936096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9241,6 +9225,7 @@ MonoBehaviour:
   dragAnimationId: climbing
   dragThreshold: 3
   dropSpeed: 2
+  autoStartWander: 1
   animator: {fileID: 1880104135}
 --- !u!50 &1880104139
 Rigidbody2D:
@@ -10831,8 +10816,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1673783959517367078, guid: aa91c66854575d143b892fd6a3219588, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5375159652846730209}
   m_SourcePrefab: {fileID: 100100000, guid: aa91c66854575d143b892fd6a3219588, type: 3}
+--- !u!1 &2489983939813378294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1673783959517367078, guid: aa91c66854575d143b892fd6a3219588, type: 3}
+  m_PrefabInstance: {fileID: 2489983939813378293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2909395920377574294
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11118,6 +11111,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8251478003384114051, guid: aa91c66854575d143b892fd6a3219588, type: 3}
   m_PrefabInstance: {fileID: 2489983939813378293}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5375159652846730209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2489983939813378294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c61dfe814e0bdb48af194e432367b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TOME::TOME.UI.HideDuringDialogue
 --- !u!224 &5428178277553789304
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11205,7 +11210,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: TOME::TOME.Core.SceneFader
   group: {fileID: 867617752546945735}
-  defaultDuration: 0.35
+  defaultDuration: 0.5
+  ease:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  holdSeconds: 0.08
+  fadeInOnLaunch: 1
 --- !u!1001 &7095512109170459269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11635,8 +11666,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5199027360463491988, guid: f0eadc594df46a140900ec3ce5623cd9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8807454835400907692}
   m_SourcePrefab: {fileID: 100100000, guid: f0eadc594df46a140900ec3ce5623cd9, type: 3}
+--- !u!1 &8807454835400907691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5199027360463491988, guid: f0eadc594df46a140900ec3ce5623cd9, type: 3}
+  m_PrefabInstance: {fileID: 8807454835400907690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8807454835400907692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8807454835400907691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c61dfe814e0bdb48af194e432367b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TOME::TOME.UI.HideDuringDialogue
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
