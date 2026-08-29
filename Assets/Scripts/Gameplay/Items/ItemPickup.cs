@@ -1,7 +1,7 @@
 using UnityEngine;
 using TOME.Core;
 using TOME.Data;
-using TOME.Managers;
+using TOME.Systems;
 using TOME.Gameplay.Player;
 
 namespace TOME.Gameplay.Items

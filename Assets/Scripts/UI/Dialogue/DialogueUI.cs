@@ -1,12 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using TMPro;
-using TOME.Core;
 using TOME.Data;
-using TOME.Managers;
+using TOME.Systems;
 
 namespace TOME.UI
 {
@@ -110,21 +109,12 @@ namespace TOME.UI
             if (skipButton) skipButton.onClick.AddListener(OnSkip);
             if (nameConfirmButton) nameConfirmButton.onClick.AddListener(OnConfirmName);
 
-            _framesTalking = (talkingFramesOverride != null && talkingFramesOverride.Length > 0) ? talkingFramesOverride : LoadFrames("Dialogue/Talking");
-            _framesBlink   = (blinkFramesOverride   != null && blinkFramesOverride.Length   > 0) ? blinkFramesOverride   : LoadFrames("Dialogue/Blink");
-            _framesAngry   = (angryFramesOverride   != null && angryFramesOverride.Length   > 0) ? angryFramesOverride   : LoadFrames("Dialogue/Angry");
-            _framesIntro   = (introFramesOverride   != null && introFramesOverride.Length   > 0) ? introFramesOverride   : LoadFrames("Dialogue/Intro");
+            _framesTalking = talkingFramesOverride;
+            _framesBlink   = blinkFramesOverride;
+            _framesAngry   = angryFramesOverride;
+            _framesIntro   = introFramesOverride;
         }
 
-        static Texture2D[] LoadFrames(string resourcePath)
-        {
-            // Resources.LoadAll 은 알파벳 순으로 반환 → 파일명을 01, 02, 03 … 으로 맞춰 두면 안정적 순서.
-            var arr = Resources.LoadAll<Texture2D>(resourcePath);
-            if (arr == null || arr.Length == 0) return null;
-            System.Array.Sort(arr, (a, b) =>
-                string.Compare(a.name, b.name, System.StringComparison.Ordinal));
-            return arr;
-        }
 
         bool _subscribed;
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using TOME.Core;
 using TOME.Data;
 using TOME.Gameplay.Combat;
 using TOME.Gameplay.Player;

@@ -1,12 +1,11 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using TOME.Managers;
-using TOME.Gameplay;
+using TOME.Systems;
 
 namespace TOME.Map
 {
     /// <summary>대화/컷신이 진행되는 동안(=DialogueManager.IsPlaying) 맵의 상호작용 요소를 화면에서 숨긴다.
-    /// 숨김 대상: 좌우 화살표(ScreenNavigator), 배회 강아지(CharacterWander), 스테이지/맵 버튼(MapNode·StageNodeButton).
+    /// 숨김 대상: 좌우 화살표(ScreenNavigator), 배회 강아지(CharacterWander), 스테이지 버튼(StageNodeButton).
     ///
     /// 모든 컷신(Timeline / 인터랙티브 클릭 / CutsceneManager)은 DialogueManager.HandleTrigger를 통해
     /// "대화 재생 중"에 실행되므로 IsPlaying 한 가지 신호로 대화·컷신을 모두 커버한다.
@@ -42,7 +41,6 @@ namespace TOME.Map
             _hidden = true;
             _hiddenObjects.Clear();
             CollectAndHide<CharacterWander>();     // 배회 강아지 (Update에서 클릭도 가로채므로 비활성 필요)
-            CollectAndHide<MapNode>();             // 맵 노드 버튼
             CollectAndHide<StageNodeButton>();     // 스테이지 버튼
             // 화살표는 ScreenNavigator가 IsPlaying을 보고 스스로 숨긴다.
             ScreenNavigator.Instance?.RefreshArrows();

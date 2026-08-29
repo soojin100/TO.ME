@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using TOME.Data;
-using TOME.Gameplay.Merge;
+using TOME.Systems;
 
 namespace TOME.Tests.EditMode
 {

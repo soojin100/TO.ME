@@ -7,9 +7,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-using Interactables;
 using TOME.Data;
-using TOME.Managers;
+using TOME.Systems;
 using TOME.Map;
 
 namespace TOME.EditorTools
@@ -262,13 +261,13 @@ namespace TOME.EditorTools
         /// 비어 있으면 해금 판정과 챕터 복원이 동작하지 않는다(모든 스테이지가 잠긴 것처럼 보인다).</summary>
         static void WireManagers(List<GameObject> moved, string mapName)
         {
-            foreach (MapManager mm in EachComponent<MapManager>(moved))
+            foreach (MapProgressionManager mm in EachComponent<MapProgressionManager>(moved))
             {
                 var so = new SerializedObject(mm);
                 FillList(so.FindProperty("allNodes"), CollectAssets<NodeSO>("t:NodeSO"));
                 FillList(so.FindProperty("allChapters"), CollectAssets<ChapterSO>("t:ChapterSO"));
                 so.ApplyModifiedPropertiesWithoutUndo();
-                Debug.Log($"[MapSceneFeatureMigrator] Map_{mapName}: MapManager 노드 {so.FindProperty("allNodes").arraySize}개, 챕터 {so.FindProperty("allChapters").arraySize}개 연결");
+                Debug.Log($"[MapSceneFeatureMigrator] Map_{mapName}: MapProgressionManager 노드 {so.FindProperty("allNodes").arraySize}개, 챕터 {so.FindProperty("allChapters").arraySize}개 연결");
             }
         }
 

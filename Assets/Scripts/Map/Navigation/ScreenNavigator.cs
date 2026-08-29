@@ -68,8 +68,8 @@ namespace TOME.Map
         void OnDestroy()
         {
             // 씬을 떠날 때(스테이지 진입 등) 현재 구역을 저장 → 복귀 시 그 구역으로 복원
-            if (TOME.Managers.GameManager.I != null)
-                TOME.Managers.GameManager.I.SetPendingSectionIndex(_index);
+            if (TOME.Systems.GameManager.I != null)
+                TOME.Systems.GameManager.I.SetPendingSectionIndex(_index);
             if (Instance == this) Instance = null;
         }
 
@@ -78,7 +78,7 @@ namespace TOME.Map
             BuildAnchors();
 
             // 저장된 구역이 있으면 그곳으로(스테이지에서 복귀), 없으면 startIndex
-            int saved = TOME.Managers.GameManager.I != null ? TOME.Managers.GameManager.I.CurrentSectionIndex : -1;
+            int saved = TOME.Systems.GameManager.I != null ? TOME.Systems.GameManager.I.CurrentSectionIndex : -1;
             int desired = saved >= 0 ? saved : startIndex;
             _index = _anchors.Length > 0 ? Mathf.Clamp(desired, 0, _anchors.Length - 1) : 0;
             SnapToCurrent();
@@ -183,7 +183,7 @@ namespace TOME.Map
         public void TryMove(Direction dir)
         {
             // 대화/컷신 중에는 카메라 이동 금지
-            if (TOME.Managers.DialogueManager.I != null && TOME.Managers.DialogueManager.I.IsPlaying) return;
+            if (TOME.Systems.DialogueManager.I != null && TOME.Systems.DialogueManager.I.IsPlaying) return;
             if (_isMoving || _anchors.Length == 0) return;
             int next = _index + (dir == Direction.Left ? -1 : 1);
             if (next < 0 || next >= _anchors.Length) return;
@@ -223,7 +223,7 @@ namespace TOME.Map
         /// MapBusyVisibility가 대화 시작/종료 시 호출해 즉시 반영한다.</summary>
         public void RefreshArrows()
         {
-            bool busy = TOME.Managers.DialogueManager.I != null && TOME.Managers.DialogueManager.I.IsPlaying;
+            bool busy = TOME.Systems.DialogueManager.I != null && TOME.Systems.DialogueManager.I.IsPlaying;
             if (arrowLeft)  arrowLeft.SetActive(!busy && _index > 0);
             if (arrowRight) arrowRight.SetActive(!busy && _index < _anchors.Length - 1);
         }
