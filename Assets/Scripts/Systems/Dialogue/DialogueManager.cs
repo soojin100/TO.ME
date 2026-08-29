@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -100,13 +100,20 @@ namespace TOME.Systems
                 e.text    = Substitute(e.text);
                 _history.Add(e);
 
-                OnLine?.Invoke(e);
-                _advance = false;
-                // 일반: 탭 대기. 빨리감기: 입력 없이 즉시 다음 줄.
-                if (!_fastForward)
-                    while (!_advance && !_fastForward) yield return null;
-                else
-                    yield return null;
+                // 텍스트가 빈 줄 = 연출 전용 줄. 대사창을 띄우지 않고 트리거만 실행한다.
+                // (튜토리얼 도입처럼 첫 대사보다 먼저 나와야 하는 컷신을 CSV 순서로 표현하기 위함)
+                bool stagingOnly = string.IsNullOrEmpty(e.text);
+
+                if (!stagingOnly)
+                {
+                    OnLine?.Invoke(e);
+                    _advance = false;
+                    // 일반: 탭 대기. 빨리감기: 입력 없이 즉시 다음 줄.
+                    if (!_fastForward)
+                        while (!_advance && !_fastForward) yield return null;
+                    else
+                        yield return null;
+                }
 
                 if (e.trigger != DialogueTrigger.None)
                 {
@@ -139,6 +146,10 @@ namespace TOME.Systems
                     break;
                 case DialogueTrigger.InspectWall:
                 case DialogueTrigger.InspectHolyWater:
+                case DialogueTrigger.TutorialSummon:
+                case DialogueTrigger.TutorialDogLine:
+                case DialogueTrigger.TutorialEnemy:
+                case DialogueTrigger.TutorialBear:
                     _resume = false;
                     OnInteractionRequested?.Invoke(e.trigger);
                     while (!_resume) yield return null;

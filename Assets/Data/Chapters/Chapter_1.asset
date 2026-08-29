@@ -19,7 +19,7 @@ MonoBehaviour:
   backgroundPrefab: {fileID: 0}
   bgm: {fileID: 8300000, guid: 081ec8076e0d22544bda53bb74c82da8, type: 3}
   mapSceneName: Map_Room
-  finalNode: {fileID: 11400000, guid: f9952a9d86e293a87991a6bb2b2ab362, type: 2}
+  finalNode: {fileID: 11400000, guid: 630d5808e5c74d8de913f32efcc893c5, type: 2}
   nextChapter: {fileID: 11400000, guid: 6f2d6c146be65224793991b9759e3667, type: 2}
   enemyRoster:
   - {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}

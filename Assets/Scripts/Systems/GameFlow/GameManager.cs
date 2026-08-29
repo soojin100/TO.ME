@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using TOME.Core;
 using TOME.Data;
@@ -76,7 +76,7 @@ namespace TOME.Systems
             if (stage != null && stage.chapter != null) CurrentChapter = stage.chapter;
             LastStageResult = StageResult.None;
             PendingPostDialogueId = null;
-            SceneFader.I.TransitionToScene(SceneKeys.Stage);
+            SceneFader.Go(SceneKeys.Stage);
         }
 
         // StageManager.OnFinished에서 호출 — 대사 책임을 맵 씬으로 이전하는 와이어링
@@ -119,7 +119,7 @@ namespace TOME.Systems
             // 현재 챕터에 지정된 맵 씬이 있으면 그쪽으로, 없으면 기본 맵
             string scene = (CurrentChapter != null && !string.IsNullOrEmpty(CurrentChapter.mapSceneName))
                            ? CurrentChapter.mapSceneName : SceneKeys.Map;
-            SceneFader.I.TransitionToScene(scene);
+            SceneFader.Go(scene);
         }
     }
 }

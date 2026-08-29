@@ -21,7 +21,7 @@ MonoBehaviour:
   clearedIntroText: "\uAE54\uB054\uD558\uAC8C \uD074\uB9AC\uC5B4!"
   bgm: {fileID: 8300000, guid: 0d6270f4a0f9b8d4da4210aa9e2894fa, type: 3}
   startCharacter: {fileID: 11400000, guid: 72c123b18ca981144b8c72ebd23092b8, type: 2}
-  timeLimit: 60
+  timeLimit: 30
   enemyRoster: []
   spawns:
   - enemy: {fileID: 11400000, guid: c08153f042a7ea04f9e4670a860eb4bb, type: 2}
@@ -29,7 +29,18 @@ MonoBehaviour:
     simultaneous: 2
     spawnInterval: 1.9
     startDelay: 0.5
+  rounds:
+  - label: 
+    difficulty: 1
+    enemyRoster:
+    - {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}
+    spawns: []
+    startDelay: 0.5
+    timeBonus: 0
   preDialogueId: intro_stage1_pre
   postDialogueId: 
+  allowItemDrops: 1
+  allowInventory: 1
+  countsForEnding: 1
   rewards:
   - {fileID: 11400000, guid: 415a62ec1a23d474e8bdc87841d0e43e, type: 2}

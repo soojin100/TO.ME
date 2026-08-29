@@ -15,13 +15,13 @@ MonoBehaviour:
   id: 2-1
   title: "\uCE68\uC2E4 \uC9C4\uC785"
   chapter: {fileID: 11400000, guid: 6f2d6c146be65224793991b9759e3667, type: 2}
-  difficulty: 1
+  difficulty: 2
   thumbnail: {fileID: 0}
   introText: "\uCE68\uC2E4\uC774\uB2E4"
   clearedIntroText: 
   bgm: {fileID: 8300000, guid: 0d6270f4a0f9b8d4da4210aa9e2894fa, type: 3}
   startCharacter: {fileID: 11400000, guid: 72c123b18ca981144b8c72ebd23092b8, type: 2}
-  timeLimit: 60
+  timeLimit: 30
   enemyRoster: []
   spawns:
   - enemy: {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}
@@ -29,7 +29,18 @@ MonoBehaviour:
     simultaneous: 2
     spawnInterval: 1.7
     startDelay: 0.5
+  rounds:
+  - label: 
+    difficulty: 2
+    enemyRoster:
+    - {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}
+    spawns: []
+    startDelay: 0.5
+    timeBonus: 0
   preDialogueId: 
   postDialogueId: 
+  allowItemDrops: 1
+  allowInventory: 1
+  countsForEnding: 1
   rewards:
   - {fileID: 11400000, guid: 415a62ec1a23d474e8bdc87841d0e43e, type: 2}

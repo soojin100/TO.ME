@@ -5,7 +5,7 @@ using TOME.Data;
 namespace TOME.Systems
 {
     /// 런타임 대사 CSV 로더. 헤더 기반이라 컬럼 순서/추가에 유연하다.
-    /// 인식 컬럼: id, speaker, text, next, chapter, speakerSprite, trigger
+    /// 인식 컬럼: id, speaker, text, next, chapter, speakerSprite, trigger, cutsceneId, standing, effect
     public static class DialogueCsvImporter
     {
         public static Dictionary<string, DialogueEntry> LoadDialogue(TextAsset csv)
@@ -27,6 +27,7 @@ namespace TOME.Systems
             int iId = Col("id"), iSpeaker = Col("speaker"), iText = Col("text"), iNext = Col("next");
             int iChapter = Col("chapter"), iSprite = Col("speakerSprite"), iTrigger = Col("trigger");
             int iCutscene = Col("cutsceneId");
+            int iStanding = Col("standing"), iEffect = Col("effect");
 
 
             for (int i = 1; i < lines.Length; i++)
@@ -45,7 +46,9 @@ namespace TOME.Systems
                     chapter       = Get(iChapter),
                     speakerSprite = Get(iSprite),
                     trigger       = ParseTrigger(Get(iTrigger)),
-                    cutsceneId = Get(iCutscene)
+                    cutsceneId    = Get(iCutscene),
+                    standing      = Get(iStanding),
+                    effect        = Get(iEffect)
                 };
                 if (!string.IsNullOrEmpty(e.id)) dict[e.id] = e;
             }

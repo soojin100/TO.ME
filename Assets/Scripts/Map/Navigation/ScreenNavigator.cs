@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,9 +27,19 @@ namespace TOME.Map
         [SerializeField] AnimationCurve moveCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
         [SerializeField] GameObject     arrowLeft;
         [SerializeField] GameObject     arrowRight;
+        [Tooltip("현재 구역의 스테이지 버튼만 남기고 나머지는 숨긴다. " +
+                 "화면 폭이 구역 간격의 약 2배라 그냥 두면 이웃 구역 버튼이 화면 양끝에 절반쯤 걸쳐 보인다. " +
+                 "배치 좌표는 건드리지 않고 표시 여부만 제어한다.")]
+        [SerializeField] bool showOnlyCurrentSectionButtons = true;
+        [Tooltip("맵 폭이 화면 폭의 배수를 아주 조금만 넘을 때(예: 4.02화면) 구역을 하나 더 만들지 않도록 두는 여유. " +
+                 "화면 폭 대비 비율이며, 이만큼은 같은 구역 수로 본다. 0이면 조금만 넘쳐도 구역이 하나 늘어난다.")]
+        [Range(0f, 0.5f)] [SerializeField] float sectionCountSlack = 0.05f;
 
         Vector3[] _anchors = Array.Empty<Vector3>();
         int  _index;
+        // 이동 중에는 떠나는 구역의 버튼도 함께 켜 둔다. 즉시 끄면 이동하는 0.25초 동안
+        // 화면에 버튼이 하나도 없다가 도착해서야 툭 나타난다.
+        int  _leavingIndex = -1;
         bool _isMoving;
         Coroutine _moveCo;
         int _builtForWidth, _builtForHeight;
@@ -83,6 +93,7 @@ namespace TOME.Map
             _index = _anchors.Length > 0 ? Mathf.Clamp(desired, 0, _anchors.Length - 1) : 0;
             SnapToCurrent();
             RefreshArrows();
+            RefreshSectionButtons();
         }
 
         void Update()
@@ -94,6 +105,7 @@ namespace TOME.Map
             _index = _anchors.Length > 0 ? SectionIndexAtWorldX(prevX) : 0;
             if (!_isMoving) SnapToCurrent();
             RefreshArrows();
+            RefreshSectionButtons();
         }
 
         /// <summary>구역 앵커 생성. sections가 지정돼 있으면 그 위치를 쓰고,
@@ -130,8 +142,9 @@ namespace TOME.Map
                 return;
             }
 
-            // 화면 폭 기준 개수가 하한이다(그보다 적으면 맵이 건너뛰어진다). 구역이 더 많은 건 안전하다.
-            int byScreen = Mathf.CeilToInt(b.size.x / (halfW * 2f));
+            // 화면 폭 기준 개수가 하한이다(그보다 적으면 맵이 건너뛰어진다).
+            // 다만 4.02화면처럼 아주 조금 넘칠 때까지 구역을 하나 더 만들면 배치가 어긋나므로 여유를 뺀다.
+            int byScreen = Mathf.CeilToInt(b.size.x / (halfW * 2f) - sectionCountSlack);
             int count = Mathf.Max(2, Mathf.Max(minSections, byScreen));
             var arr = new Vector3[count];
             for (int i = 0; i < count; i++)
@@ -173,24 +186,28 @@ namespace TOME.Map
         {
             if (idx < 0 || idx >= _anchors.Length) return null;
             if (idx == _index) return null;
+            _leavingIndex = _index;
             _index = idx;
             if (_moveCo != null) StopCoroutine(_moveCo);
             _moveCo = StartCoroutine(SmoothMove(_anchors[idx]));
             RefreshArrows();
+            RefreshSectionButtons();
             return _moveCo;
         }
 
         public void TryMove(Direction dir)
         {
-            // 대화/컷신 중에는 카메라 이동 금지
-            if (TOME.Systems.DialogueManager.I != null && TOME.Systems.DialogueManager.I.IsPlaying) return;
+            // 대화/컷신 중이거나 "이것만 누르세요" 구간에는 카메라 이동 금지
+            if (MapBusyVisibility.IsBusy) return;
             if (_isMoving || _anchors.Length == 0) return;
             int next = _index + (dir == Direction.Left ? -1 : 1);
             if (next < 0 || next >= _anchors.Length) return;
+            _leavingIndex = _index;
             _index = next;
             if (_moveCo != null) StopCoroutine(_moveCo);
             _moveCo = StartCoroutine(SmoothMove(_anchors[next]));
             RefreshArrows();
+            RefreshSectionButtons();
         }
 
         void SnapToCurrent()
@@ -217,15 +234,45 @@ namespace TOME.Map
             }
             targetCamera.transform.position = end;
             _isMoving = false;
+            // 도착했으니 떠나온 구역 버튼을 정리한다(이 시점엔 화면 가장자리 밖이다).
+            _leavingIndex = -1;
+            RefreshSectionButtons();
         }
 
         /// <summary>좌우 화살표 표시 갱신. 대화/컷신(DialogueManager.IsPlaying) 중에는 둘 다 숨김.
         /// MapBusyVisibility가 대화 시작/종료 시 호출해 즉시 반영한다.</summary>
         public void RefreshArrows()
         {
-            bool busy = TOME.Systems.DialogueManager.I != null && TOME.Systems.DialogueManager.I.IsPlaying;
+            bool busy = MapBusyVisibility.IsBusy;
             if (arrowLeft)  arrowLeft.SetActive(!busy && _index > 0);
             if (arrowRight) arrowRight.SetActive(!busy && _index < _anchors.Length - 1);
+        }
+
+        /// <summary>현재 구역에 속한 스테이지 버튼만 남긴다.
+        /// 버튼은 구역당 하나씩 배치돼 있지만 화면이 구역 간격의 약 2배라, 그냥 두면
+        /// 양옆 구역 버튼이 화면 가장자리에 절반쯤 걸쳐 보인다.
+        /// 배치 좌표는 기획대로 두고 표시 여부만 조절한다.
+        ///
+        /// 대사 중에는 MapBusyVisibility가 버튼을 숨기고 있으므로 켜지 않는다(숨김을 되돌려 버리지 않게).</summary>
+        public void RefreshSectionButtons()
+        {
+            if (!showOnlyCurrentSectionButtons || _anchors.Length == 0) return;
+
+            bool busy = MapBusyVisibility.IsBusy;
+            foreach (var b in FindObjectsByType<StageNodeButton>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            {
+                if (b == null) continue;
+                int sec = SectionIndexAtWorldX(b.transform.position.x);
+                bool mine = sec == _index || (_isMoving && sec == _leavingIndex);
+                if (!mine)
+                {
+                    if (b.gameObject.activeSelf) b.gameObject.SetActive(false);
+                }
+                else if (!busy && !b.gameObject.activeSelf)
+                {
+                    b.gameObject.SetActive(true);
+                }
+            }
         }
     }
 }

@@ -33,10 +33,22 @@ namespace TOME.Map
         [SerializeField] float dragThreshold = 0.1f;
         [SerializeField] float dropSpeed = 3f;
 
+        [Header("배회 시작 제어")]
+        [Tooltip("false면 Start에서 배회하지 않는다. 튜토리얼 소환 연출이 끝난 뒤 BeginWander()로 시작(기획서 p5).")]
+        [SerializeField] bool autoStartWander = true;
+
         [SerializeField] Animator animator;
 
         public void PlayAnimation(string id) => StartCoroutine(PlayAnimRoutine(id));
 
+        /// <summary>튜토리얼 소환 연출이 끝난 뒤 배회를 시작한다. 이미 배회 중이면 무시.
+        /// 이후 대화 중 SetActive 토글로 숨겼다 켜도 배회가 재개된다(autoStartWander가 켜지므로).</summary>
+        public void BeginWander()
+        {
+            if (autoStartWander) return;
+            autoStartWander = true;
+            if (_started && isActiveAndEnabled) StartCoroutine(WanderRoutine());
+        }
         bool _clickRequested;
         bool _isDragging;
         Vector3 _dragOffset;
@@ -63,14 +75,14 @@ namespace TOME.Map
             if (core) core.RebindOnly();
 
             _started = true;
-            StartCoroutine(WanderRoutine());
+            if (autoStartWander) StartCoroutine(WanderRoutine());
         }
 
         // 대화/컷신 동안 MapBusyVisibility가 SetActive(false)로 숨겼다가 다시 켜면 Start가 재호출되지 않으므로
         // 여기서 배회를 재개한다. (비활성화 시 코루틴은 Unity가 자동 정지)
         void OnEnable()
         {
-            if (_started) StartCoroutine(WanderRoutine());
+            if (_started && autoStartWander) StartCoroutine(WanderRoutine());
         }
 
         void Update()

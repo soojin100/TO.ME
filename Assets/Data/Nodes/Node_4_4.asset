@@ -23,6 +23,5 @@ MonoBehaviour:
     atkSpeedMul: 0
     hpMul: 0
     moveSpeedMul: 0
-  unlocksOnClear:
-  - {fileID: 11400000, guid: d58d03620b1e4ac439d2073e674483f3, type: 2}
+  unlocksOnClear: []
   unlockedByDefault: 0

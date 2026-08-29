@@ -8472,6 +8472,8 @@ MonoBehaviour:
   - {fileID: 770000041}
   - {fileID: 770000051}
   - {fileID: 770000061}
+  mapRoot: {fileID: 0}
+  minSections: 0
   startIndex: 3
   moveDuration: 0.3
   moveCurve:
@@ -8749,6 +8751,7 @@ MonoBehaviour:
   unlockResult: {fileID: 11400000, guid: 3ec90895784d3664483eb26068dd502c, type: 2}
   stageButton: {fileID: 0}
   sectionIndex: 3
+  sectionAnchor: {fileID: 0}
 --- !u!114 &1278936090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8835,6 +8838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: TOME::TOME.Managers.MapManager
   allNodes:
   - {fileID: 11400000, guid: cbe53d7f628bd2946ac2ce13f1de3123, type: 2}
+  allChapters: []
 --- !u!114 &1278936096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8872,6 +8876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe3b46b880634b46a570332d10ea199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TOME::TOME.Managers.GameManager
+  starterItems: []
 --- !u!1 &1304581749
 GameObject:
   m_ObjectHideFlags: 0
@@ -11902,8 +11907,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1673783959517367078, guid: aa91c66854575d143b892fd6a3219588, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5375159652846730209}
   m_SourcePrefab: {fileID: 100100000, guid: aa91c66854575d143b892fd6a3219588, type: 3}
+--- !u!1 &2489983939813378294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1673783959517367078, guid: aa91c66854575d143b892fd6a3219588, type: 3}
+  m_PrefabInstance: {fileID: 2489983939813378293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3243002409824476400
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11937,7 +11950,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: TOME::TOME.Core.SceneFader
   group: {fileID: 7665077498151251791}
-  defaultDuration: 0.35
+  defaultDuration: 0.5
+  ease:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  holdSeconds: 0.08
+  fadeInOnLaunch: 1
 --- !u!114 &3885241784358825017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12094,6 +12133,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8251478003384114051, guid: aa91c66854575d143b892fd6a3219588, type: 3}
   m_PrefabInstance: {fileID: 2489983939813378293}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5375159652846730209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2489983939813378294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c61dfe814e0bdb48af194e432367b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TOME::TOME.UI.HideDuringDialogue
 --- !u!224 &5635681866927601182
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12305,8 +12356,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5199027360463491988, guid: f0eadc594df46a140900ec3ce5623cd9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8807454835400907692}
   m_SourcePrefab: {fileID: 100100000, guid: f0eadc594df46a140900ec3ce5623cd9, type: 3}
+--- !u!1 &8807454835400907691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5199027360463491988, guid: f0eadc594df46a140900ec3ce5623cd9, type: 3}
+  m_PrefabInstance: {fileID: 8807454835400907690}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8807454835400907692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8807454835400907691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c61dfe814e0bdb48af194e432367b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TOME::TOME.UI.HideDuringDialogue
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
