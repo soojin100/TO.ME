@@ -1,15 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TOME.Data;
-using TOME.Managers;
-using TOME.UI;
+using TOME.Systems;
 
 namespace TOME.Map
 {
     /// <summary>노드 선택 → 사전 대사 → 팝업. 맵 진입 시 사후 대사 재생.</summary>
     public class MapFlowController : MonoBehaviour
     {
-        [SerializeField] StageInfoPopupUI stagePopup;
-
         NodeSO  _pendingNode;
         StageSO _pendingStage;
         bool    _waitingForPreDialogue;
