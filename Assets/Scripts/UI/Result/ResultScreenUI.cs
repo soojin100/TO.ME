@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using TOME.Data;
-using TOME.Managers;
+using TOME.Systems;
 using TOME.Gameplay.Player;
 
 namespace TOME.UI

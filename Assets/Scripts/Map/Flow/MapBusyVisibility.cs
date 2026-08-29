@@ -1,12 +1,11 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using TOME.Managers;
-using TOME.Gameplay;
+using TOME.Systems;
 
 namespace TOME.Map
 {
     /// <summary>대화/컷신이 진행되는 동안(=DialogueManager.IsPlaying) 맵의 상호작용 요소를 화면에서 숨긴다.
-    /// 숨김 대상: 좌우 화살표(ScreenNavigator), 배회 강아지(CharacterWander), 스테이지/맵 버튼(MapNode·StageNodeButton),
+    /// 숨김 대상: 좌우 화살표(ScreenNavigator), 배회 강아지(CharacterWander), 스테이지 버튼(StageNodeButton),
     /// HideDuringDialogue 가 붙은 UI(인벤토리·조합 진입 버튼 등), 그리고 마우스 호버 테두리(SpriteHighlight).
     ///
     /// 테두리는 "지금 누를 수 있다"는 신호라, 누를 수 없는 동안 떠 있으면 안 된다.
@@ -36,7 +35,7 @@ namespace TOME.Map
 
         // --- 호버 테두리 ---
         static GameObject _highlightFocus;
-        readonly List<Interactables.SpriteHighlight> _blockedHighlights = new();
+        readonly List<SpriteHighlight> _blockedHighlights = new();
         GameObject _appliedFocus;
         bool _appliedBusy, _applied;
 
@@ -91,7 +90,7 @@ namespace TOME.Map
             // 포커스가 있으면 그것만 허용, 없고 대화 중이면 전부 차단, 그 외엔 전부 허용.
             if (_highlightFocus != null || busy)
             {
-                foreach (var h in Object.FindObjectsByType<Interactables.SpriteHighlight>(
+                foreach (var h in Object.FindObjectsByType<SpriteHighlight>(
                              FindObjectsInactive.Include, FindObjectsSortMode.None))
                 {
                     if (h == null) continue;
@@ -113,7 +112,6 @@ namespace TOME.Map
             _hidden = true;
             _hiddenObjects.Clear();
             CollectAndHide<CharacterWander>();     // 배회 강아지 (Update에서 클릭도 가로채므로 비활성 필요)
-            CollectAndHide<MapNode>();             // 맵 노드 버튼
             CollectAndHide<StageNodeButton>();     // 스테이지 버튼
             CollectAndHide<TOME.UI.HideDuringDialogue>();   // 인벤토리·조합 진입 UI 등, 씬에서 표시해 둔 것들
             // 화살표는 ScreenNavigator가 IsPlaying을 보고 스스로 숨긴다.

@@ -1,12 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using TMPro;
-using TOME.Core;
 using TOME.Data;
-using TOME.Managers;
+using TOME.Systems;
 
 namespace TOME.UI
 {
@@ -173,6 +172,7 @@ namespace TOME.UI
                 string.Compare(a.name, b.name, System.StringComparison.Ordinal));
             return arr;
         }
+
 
         bool _subscribed;
 

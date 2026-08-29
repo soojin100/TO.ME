@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TOME.Data;
 using TOME.Gameplay.Combat;
-using TOME.Managers;
+using TOME.Systems;
 
 namespace TOME.Gameplay.Player
 {
