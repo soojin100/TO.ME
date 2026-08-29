@@ -63,13 +63,28 @@ Core  →  Data  →  Gameplay / Systems  →  Map / UI
 | `StageGameManager` `EnemyController` `EnemySpawner` `Bullet` `PlayerController` `DropItem` | 서로만 참조하는 폐쇄 섬. `CombatManager`/`EnemyBase`/`Projectile`/`PlayerShell` 이 대체 |
 | `GameConstants` | 사용처 0 + 값이 현 스펙과 불일치. 수치는 위 절로 이관 |
 | `MapNode` | 씬 배치 0. `StageNodeButton` 이 대체 |
+| `Room_Bedroom` `Room_Hallway` `Room_Kitchen` 씬 | `Map_*` 씬이 대체본. 빌드 세팅에서도 제외되어 있었음 |
+| `Making` 씬 | GameObject 4개·스크립트 0개의 빈 실험 씬. 참조·빌드 포함 모두 0 |
+| `MapSceneFeatureMigrator` | `Room_*` 씬을 소스로 읽어 `Map_*` 로 기능을 옮기던 **일회성 이관 도구**. 이관이 끝나고 소스 씬이 폐기되어 실행 불가 |
 
 ### 아직 씬에 남아 정리가 필요한 것
 
 - **`StageInfoPopupUI`** — `Show()` 호출부 0개라 런타임 도달 불가.
-  대체재 `TutorialIntroController`("싸우자" UI)가 같은 7개 씬에 전부 배치됨.
-  단 스크립트가 씬 오브젝트에 붙어 있어 지금 지우면 Missing Script 가 남는다.
-  → **Unity 에서 씬의 팝업 오브젝트를 먼저 지운 뒤** 스크립트를 삭제할 것.
+  대체재 `TutorialIntroController`("싸우자" UI, `Managers` → `UI/ScreenUI/FightUI`)가 전부 배치됨.
+  코드에도 씬 `m_Calls` 에도 호출부가 없다.
+
+  남은 위치 — `Map_Kitchen` `Map_Porch` `Map_Room` `Map_Yard` 4개 씬의 동일 경로:
+
+  ```
+  UI / ScreenUI / StageInfoPopup      ← StageInfoPopupUI 컴포넌트
+     └ PopupRoot (m_IsActive: 0)
+        Thumbnail, CharacterNameLabel, IntroLabel,
+        ClearBadge, StartButton, CloseButton
+  ```
+
+  프리팹 인스턴스가 아니라 씬 직접 배치라 씬마다 개별 삭제해야 한다.
+  스크립트를 먼저 지우면 Missing Script 가 남으므로
+  → **4개 씬에서 `StageInfoPopup` 오브젝트를 지우고 저장한 뒤** `StageInfoPopupUI.cs` 를 삭제할 것.
 
 ### 폐기가 아닌 것
 
