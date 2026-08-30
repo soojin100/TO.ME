@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+using TOME.GameFlow;
+using TOME.Title;
 namespace TOME.Core
 {
     public class SceneFader : MonoBehaviour

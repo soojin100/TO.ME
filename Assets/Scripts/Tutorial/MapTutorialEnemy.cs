@@ -1,9 +1,8 @@
 using UnityEngine;
-using TOME.Core;
-using TOME.Data;
-using TOME.Systems;
+using TOME.Dialogue;
+using TOME.GameFlow;
 using TOME.Map;
-
+using TOME.Progression;
 namespace TOME.Tutorial
 {
     /// <summary>맵에 배치되는 공격 능력 없는 에너미. 클릭하면 지정 스테이지로 바로 들어간다.

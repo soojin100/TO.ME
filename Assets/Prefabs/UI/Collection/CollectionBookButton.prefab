@@ -122,7 +122,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4505566814854469275}
-        m_TargetAssemblyTypeName: TOME.UI.CollectionBookUI, TOME
+        m_TargetAssemblyTypeName: TOME.Collection.CollectionBookUI, TOME
         m_MethodName: Open
         m_Mode: 1
         m_Arguments:

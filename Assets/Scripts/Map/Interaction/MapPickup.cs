@@ -1,8 +1,8 @@
 using UnityEngine;
 using TOME.Core;
-using TOME.Data;
-using TOME.Systems;
-
+using TOME.Crafting;
+using TOME.Dialogue;
+using TOME.Save;
 namespace TOME.Map
 {
     /// <summary>맵 줍기 오브젝트(SpriteRenderer + Collider2D). 첫 클릭은 선택(SpriteHighlight),

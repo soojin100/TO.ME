@@ -1,8 +1,10 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using TOME.Dialogue;
+using TOME.GameFlow;
 namespace TOME.Map
 {
     /// <summary>좌우 화살표로 카메라를 구역 사이로 부드럽게 이동. To.You RoomGridNavigator 기반 포팅.
@@ -78,8 +80,8 @@ namespace TOME.Map
         void OnDestroy()
         {
             // 씬을 떠날 때(스테이지 진입 등) 현재 구역을 저장 → 복귀 시 그 구역으로 복원
-            if (TOME.Systems.GameManager.I != null)
-                TOME.Systems.GameManager.I.SetPendingSectionIndex(_index);
+            if (TOME.GameFlow.GameManager.I != null)
+                TOME.GameFlow.GameManager.I.SetPendingSectionIndex(_index);
             if (Instance == this) Instance = null;
         }
 
@@ -88,7 +90,7 @@ namespace TOME.Map
             BuildAnchors();
 
             // 저장된 구역이 있으면 그곳으로(스테이지에서 복귀), 없으면 startIndex
-            int saved = TOME.Systems.GameManager.I != null ? TOME.Systems.GameManager.I.CurrentSectionIndex : -1;
+            int saved = TOME.GameFlow.GameManager.I != null ? TOME.GameFlow.GameManager.I.CurrentSectionIndex : -1;
             int desired = saved >= 0 ? saved : startIndex;
             _index = _anchors.Length > 0 ? Mathf.Clamp(desired, 0, _anchors.Length - 1) : 0;
             SnapToCurrent();
@@ -259,7 +261,7 @@ namespace TOME.Map
             if (!showOnlyCurrentSectionButtons || _anchors.Length == 0) return;
 
             bool busy = MapBusyVisibility.IsBusy;
-            foreach (var b in FindObjectsByType<StageNodeButton>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+            foreach (var b in FindObjectsByType<StageNodeButton>(FindObjectsInactive.Include))
             {
                 if (b == null) continue;
                 int sec = SectionIndexAtWorldX(b.transform.position.x);

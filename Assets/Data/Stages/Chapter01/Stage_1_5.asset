@@ -20,6 +20,7 @@ MonoBehaviour:
   introText: "\uAC70\uC758 \uB2E4 \uC654\uB2E4"
   clearedIntroText: 
   bgm: {fileID: 8300000, guid: 0d6270f4a0f9b8d4da4210aa9e2894fa, type: 3}
+  clearRequirement: 4
   startCharacter: {fileID: 11400000, guid: 72c123b18ca981144b8c72ebd23092b8, type: 2}
   timeLimit: 65
   enemyRoster: []
@@ -29,7 +30,11 @@ MonoBehaviour:
     simultaneous: 4
     spawnInterval: 1.3
     startDelay: 0.5
+  rounds: []
   preDialogueId: 
   postDialogueId: 
+  allowItemDrops: 1
+  allowInventory: 1
+  countsForEnding: 1
   rewards:
   - {fileID: 11400000, guid: 415a62ec1a23d474e8bdc87841d0e43e, type: 2}

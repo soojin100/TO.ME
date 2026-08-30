@@ -3539,7 +3539,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 213974954}
-        m_TargetAssemblyTypeName: TOME.UI.Combat.HudUI, TOME
+        m_TargetAssemblyTypeName: TOME.Combat.HudUI, TOME
         m_MethodName: OnClickInventory
         m_Mode: 1
         m_Arguments:

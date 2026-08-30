@@ -17,19 +17,24 @@ MonoBehaviour:
   chapter: {fileID: 11400000, guid: 31c2e0719e706a745b37f59fd4e6bc87, type: 2}
   difficulty: 5
   thumbnail: {fileID: 0}
-  introText: "\uBCF5\uB3C4\uB97C \uC9C0\uD0A4\uB294 \uBCF4\uC2A4"
+  introText: "\uBCF5\uB3C4\uB97C \uC9C0\uD0A4\uB294 \uBB34\uB9AC"
   clearedIntroText: "\uBCF5\uB3C4 \uC815\uBCF5!"
   bgm: {fileID: 8300000, guid: 144a18f1fdfb6eb428f5b6d733ec7e32, type: 3}
+  clearRequirement: 1
   startCharacter: {fileID: 11400000, guid: 72c123b18ca981144b8c72ebd23092b8, type: 2}
-  timeLimit: 90
+  timeLimit: 75
   enemyRoster: []
   spawns:
-  - enemy: {fileID: 11400000, guid: ebc4b62975349d64580e797fff6b1d47, type: 2}
-    totalCount: 1
-    simultaneous: 1
+  - enemy: {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}
+    totalCount: 16
+    simultaneous: 5
     spawnInterval: 1
-    startDelay: 1
+    startDelay: 0.5
+  rounds: []
   preDialogueId: 
   postDialogueId: 
+  allowItemDrops: 1
+  allowInventory: 1
+  countsForEnding: 1
   rewards:
   - {fileID: 11400000, guid: 415a62ec1a23d474e8bdc87841d0e43e, type: 2}

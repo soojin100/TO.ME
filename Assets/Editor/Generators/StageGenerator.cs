@@ -3,8 +3,10 @@ using System.IO;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
-using TOME.Data;
-
+using TOME.Characters;
+using TOME.Core;
+using TOME.Combat;
+using TOME.Progression;
 namespace TOME.EditorTools
 {
     /// <summary>stages.csv → StageSO 에셋 일괄 생성/갱신.
@@ -28,7 +30,7 @@ namespace TOME.EditorTools
             var lines = File.ReadAllText(CsvPath).Split('\n');
             if (lines.Length < 2) { Debug.LogWarning("[StageGenerator] 데이터 행 없음"); return; }
 
-            var header = SplitCsv(lines[0].TrimEnd('\r'));
+            var header = CsvUtility.SplitLine(lines[0].TrimEnd('\r'));
             var col = new Dictionary<string, int>();
             for (int i = 0; i < header.Count; i++) col[header[i].Trim().ToLowerInvariant()] = i;
 
@@ -39,7 +41,7 @@ namespace TOME.EditorTools
             {
                 var raw = lines[r].TrimEnd('\r');
                 if (string.IsNullOrWhiteSpace(raw)) continue;
-                var c = SplitCsv(raw);
+                var c = CsvUtility.SplitLine(raw);
 
                 string Get(string key)
                 {
@@ -53,7 +55,7 @@ namespace TOME.EditorTools
                 string folder  = string.IsNullOrEmpty(chapter)
                     ? OutRoot
                     : $"{OutRoot}/Chapter{chapter.PadLeft(2, '0')}";
-                EnsureFolder(folder);
+                EditorAssetUtility.EnsureFolder(folder);
 
                 string assetPath = $"{folder}/Stage_{id.Replace('-', '_')}.asset";
                 var so = AssetDatabase.LoadAssetAtPath<StageSO>(assetPath);
@@ -67,6 +69,7 @@ namespace TOME.EditorTools
                 so.preDialogueId    = Get("predialogueid");
                 so.postDialogueId   = Get("postdialogueid");
                 so.timeLimit        = ParseF(Get("timelimit"), 60f);
+                so.clearRequirement = Mathf.Clamp((int)ParseF(Get("clearrequirement"), 1), 1, 4);
 
                 so.startCharacter = FindByName<CharacterSO>(Get("startcharacter"), id, "startCharacter", sb, ref warned);
                 so.thumbnail      = FindByName<Sprite>(Get("thumbnail"), id, "thumbnail", sb, ref warned, optional: true);
@@ -139,36 +142,9 @@ namespace TOME.EditorTools
             return null;
         }
 
-        static void EnsureFolder(string path)
-        {
-            if (AssetDatabase.IsValidFolder(path)) return;
-            var parent = Path.GetDirectoryName(path).Replace('\\', '/');
-            var leaf = Path.GetFileName(path);
-            if (!AssetDatabase.IsValidFolder(parent)) EnsureFolder(parent);
-            AssetDatabase.CreateFolder(parent, leaf);
-        }
 
         static float ParseF(string s, float def)
             => float.TryParse(s, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out var v) ? v : def;
 
-        static List<string> SplitCsv(string line)
-        {
-            var result = new List<string>();
-            var buf = new StringBuilder();
-            bool inQ = false;
-            for (int i = 0; i < line.Length; i++)
-            {
-                char ch = line[i];
-                if (ch == '"')
-                {
-                    if (inQ && i + 1 < line.Length && line[i + 1] == '"') { buf.Append('"'); i++; }
-                    else inQ = !inQ;
-                }
-                else if (ch == ',' && !inQ) { result.Add(buf.ToString()); buf.Clear(); }
-                else buf.Append(ch);
-            }
-            result.Add(buf.ToString());
-            return result;
-        }
     }
 }

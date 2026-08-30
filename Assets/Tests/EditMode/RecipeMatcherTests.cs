@@ -1,9 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
-using TOME.Data;
-using TOME.Systems;
-
+using TOME.Crafting;
 namespace TOME.Tests.EditMode
 {
     public class RecipeMatcherTests

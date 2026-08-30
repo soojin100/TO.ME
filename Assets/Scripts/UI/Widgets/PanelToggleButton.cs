@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TOME.Systems;
-
+using TOME.Combat;
 namespace TOME.UI
 {
     /// <summary>버튼 클릭 시 한 패널을 켜고 다른 패널을 끈다. 선택적으로 전투를 일시정지/재개.</summary>

@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using UnityEditor;
 using UnityEngine;
-using TOME.Data;
-
+using TOME.Core;
+using TOME.Crafting;
 namespace TOME.EditorTools
 {
     /// <summary>items.csv → ItemSO 에셋 일괄 생성/갱신.
@@ -24,25 +23,25 @@ namespace TOME.EditorTools
             var lines = File.ReadAllText(CsvPath).Split('\n');
             if (lines.Length < 2) { Debug.LogWarning("[ItemGenerator] 데이터 행 없음"); return; }
 
-            var header = SplitCsv(lines[0].TrimEnd('\r'));
+            var header = CsvUtility.SplitLine(lines[0].TrimEnd('\r'));
             var col = new Dictionary<string, int>();
             for (int i = 0; i < header.Count; i++) col[header[i].Trim().ToLowerInvariant()] = i;
 
-            EnsureFolder(OutRoot);
+            EditorAssetUtility.EnsureFolder(OutRoot);
             int created = 0, updated = 0;
 
             for (int r = 1; r < lines.Length; r++)
             {
                 var raw = lines[r].TrimEnd('\r');
                 if (string.IsNullOrWhiteSpace(raw)) continue;
-                var c = SplitCsv(raw);
+                var c = CsvUtility.SplitLine(raw);
 
                 string Get(string key) => col.TryGetValue(key, out int idx) && idx < c.Count ? c[idx].Trim() : "";
 
                 string id = Get("id");
                 if (string.IsNullOrEmpty(id)) continue;
 
-                string assetPath = $"{OutRoot}/Item_{Pascal(id)}.asset";
+                string assetPath = $"{OutRoot}/Item_{EditorAssetUtility.Pascal(id)}.asset";
                 var so = AssetDatabase.LoadAssetAtPath<ItemSO>(assetPath);
                 bool isNew = so == null;
                 if (isNew) { so = ScriptableObject.CreateInstance<ItemSO>(); AssetDatabase.CreateAsset(so, assetPath); }
@@ -66,37 +65,5 @@ namespace TOME.EditorTools
             return Enum.TryParse<ItemTier>(s, true, out var t) ? t : ItemTier.Basic;
         }
 
-        // camelCase id → 첫 글자만 대문자로 (기존 파일명 규칙과 일치)
-        static string Pascal(string id)
-            => string.IsNullOrEmpty(id) ? id : char.ToUpperInvariant(id[0]) + id.Substring(1);
-
-        static void EnsureFolder(string path)
-        {
-            if (AssetDatabase.IsValidFolder(path)) return;
-            var parent = Path.GetDirectoryName(path).Replace('\\', '/');
-            var leaf = Path.GetFileName(path);
-            if (!AssetDatabase.IsValidFolder(parent)) EnsureFolder(parent);
-            AssetDatabase.CreateFolder(parent, leaf);
-        }
-
-        static List<string> SplitCsv(string line)
-        {
-            var result = new List<string>();
-            var buf = new StringBuilder();
-            bool inQ = false;
-            for (int i = 0; i < line.Length; i++)
-            {
-                char ch = line[i];
-                if (ch == '"')
-                {
-                    if (inQ && i + 1 < line.Length && line[i + 1] == '"') { buf.Append('"'); i++; }
-                    else inQ = !inQ;
-                }
-                else if (ch == ',' && !inQ) { result.Add(buf.ToString()); buf.Clear(); }
-                else buf.Append(ch);
-            }
-            result.Add(buf.ToString());
-            return result;
-        }
     }
 }
