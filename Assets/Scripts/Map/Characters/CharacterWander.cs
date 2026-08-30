@@ -1,9 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
-using TOME.Data;
-using TOME.Gameplay.Player;
 using UnityEngine;
 
+using TOME.Characters;
+using TOME.Combat;
 namespace TOME.Map
 {
     public class CharacterWander : MonoBehaviour
@@ -39,7 +39,39 @@ namespace TOME.Map
 
         [SerializeField] Animator animator;
 
+        bool _clickRequested;
+        bool _isDragging;
+        Vector3 _dragOffset;
+        Camera _cam;
+        Vector3 _originalScale;  // 좌우 반전 시 부호만 바꾸기 위한 원본 스케일
+        float _originalY;        // 드래그 후 되돌아갈 바닥 높이
+
+        readonly Dictionary<string, CharacterAnimationSO> _animTable = new();
+        bool _started;   // Start 1회 초기화 완료 여부 (재활성화 시 배회 재개 판단)
+        bool _paused;    // 스테이지 정보창이 떠 있는 동안 true — 이동·클릭 반응 정지, 제자리 idle만
+
         public void PlayAnimation(string id) => StartCoroutine(PlayAnimRoutine(id));
+
+        /// <summary>배회·입력 반응을 멈추고 제자리 idle 애니메이션만 남긴다(기획서: 스테이지 정보창 동안).
+        /// 해제하면 배회를 재개한다.</summary>
+        public void SetPaused(bool paused)
+        {
+            if (_paused == paused) return;
+            _paused = paused;
+            if (paused)
+            {
+                StopAllCoroutines();
+                _isDragging = false;
+                SetWalk(false);
+                // 드래그·등반 중이었다면 유지형 Bool을 내려 idle로 되돌린다.
+                if (_animTable.TryGetValue(dragAnimationId, out var dragAnim))
+                    animator.SetBool(dragAnim.animatorParamName, false);
+            }
+            else if (_started && isActiveAndEnabled && autoStartWander)
+            {
+                StartCoroutine(WanderRoutine());
+            }
+        }
 
         /// <summary>튜토리얼 소환 연출이 끝난 뒤 배회를 시작한다. 이미 배회 중이면 무시.
         /// 이후 대화 중 SetActive 토글로 숨겼다 켜도 배회가 재개된다(autoStartWander가 켜지므로).</summary>
@@ -49,19 +81,10 @@ namespace TOME.Map
             autoStartWander = true;
             if (_started && isActiveAndEnabled) StartCoroutine(WanderRoutine());
         }
-        bool _clickRequested;
-        bool _isDragging;
-        Vector3 _dragOffset;
-        Camera _cam;
-        Vector3 _originalScale;  // ← 추가
-        float _originalY;        // ← 추가
-
-        readonly Dictionary<string, CharacterAnimationSO> _animTable = new();
-        bool _started;   // Start 1회 초기화 완료 여부 (재활성화 시 배회 재개 판단)
 
         void Awake()
         {
-            _originalScale = transform.localScale;  // ← 추가
+            _originalScale = transform.localScale;
             foreach (var a in animations)
                 if (a != null) _animTable[a.animationId] = a;
         }
@@ -82,11 +105,15 @@ namespace TOME.Map
         // 여기서 배회를 재개한다. (비활성화 시 코루틴은 Unity가 자동 정지)
         void OnEnable()
         {
-            if (_started && autoStartWander) StartCoroutine(WanderRoutine());
+            if (_started && autoStartWander && !_paused) StartCoroutine(WanderRoutine());
         }
 
         void Update()
         {
+            if (_paused) return;   // 정보창 동안 클릭/드래그 반응 정지
+            if (_cam == null) _cam = Camera.main;   // 씬 전환 직후 등 캐시가 빌 수 있다
+            if (_cam == null) return;
+
             if (Input.GetMouseButtonDown(0))
             {
                 var worldPos = _cam.ScreenToWorldPoint(Input.mousePosition);

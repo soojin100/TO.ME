@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
-using TOME.Data;
-
+using TOME.Characters;
+using TOME.Core;
+using TOME.Crafting;
 namespace TOME.EditorTools
 {
     /// <summary>recipes.csv → RecipeSO 에셋 일괄 생성/갱신.
@@ -44,11 +45,11 @@ namespace TOME.EditorTools
                     byName[it.displayName.Trim()] = it;
             }
 
-            var header = SplitCsv(lines[0].TrimEnd('\r'));
+            var header = CsvUtility.SplitLine(lines[0].TrimEnd('\r'));
             var col = new Dictionary<string, int>();
             for (int i = 0; i < header.Count; i++) col[header[i].Trim().ToLowerInvariant()] = i;
 
-            EnsureFolder(OutRoot);
+            EditorAssetUtility.EnsureFolder(OutRoot);
             int warned = 0;
             var log = new StringBuilder();
 
@@ -58,7 +59,7 @@ namespace TOME.EditorTools
             {
                 var raw = lines[r].TrimEnd('\r');
                 if (string.IsNullOrWhiteSpace(raw)) continue;
-                var c = SplitCsv(raw);
+                var c = CsvUtility.SplitLine(raw);
                 string Get(string key) => col.TryGetValue(key, out int idx) && idx < c.Count ? c[idx].Trim() : "";
 
                 string resultName = Get("resultname");
@@ -173,11 +174,8 @@ namespace TOME.EditorTools
         {
             var ids = ings.Where(i => i && !string.IsNullOrEmpty(i.id)).Select(i => i.id).OrderBy(s => s).ToList();
             if (ids.Count == 0) return "Recipe_Fallback";
-            return "Recipe_" + string.Join("_", ids.Select(Pascal));
+            return "Recipe_" + string.Join("_", ids.Select(EditorAssetUtility.Pascal));
         }
-
-        static string Pascal(string id)
-            => string.IsNullOrEmpty(id) ? id : char.ToUpperInvariant(id[0]) + id.Substring(1);
 
         // 파일명 불가 문자·공백만 정리 (영문명은 그대로 유지)
         static string Sanitize(string name)
@@ -189,33 +187,6 @@ namespace TOME.EditorTools
             return sb.ToString();
         }
 
-        static void EnsureFolder(string path)
-        {
-            if (AssetDatabase.IsValidFolder(path)) return;
-            var parent = Path.GetDirectoryName(path).Replace('\\', '/');
-            var leaf = Path.GetFileName(path);
-            if (!AssetDatabase.IsValidFolder(parent)) EnsureFolder(parent);
-            AssetDatabase.CreateFolder(parent, leaf);
-        }
 
-        static List<string> SplitCsv(string line)
-        {
-            var result = new List<string>();
-            var buf = new StringBuilder();
-            bool inQ = false;
-            for (int i = 0; i < line.Length; i++)
-            {
-                char ch = line[i];
-                if (ch == '"')
-                {
-                    if (inQ && i + 1 < line.Length && line[i + 1] == '"') { buf.Append('"'); i++; }
-                    else inQ = !inQ;
-                }
-                else if (ch == ',' && !inQ) { result.Add(buf.ToString()); buf.Clear(); }
-                else buf.Append(ch);
-            }
-            result.Add(buf.ToString());
-            return result;
-        }
     }
 }

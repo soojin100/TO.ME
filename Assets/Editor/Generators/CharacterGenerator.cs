@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using UnityEditor;
 using UnityEngine;
-using TOME.Data;
-
+using TOME.Characters;
+using TOME.Core;
 namespace TOME.EditorTools
 {
     /// <summary>characters.csv → CharacterSO 에셋 일괄 생성/갱신.
@@ -24,18 +23,18 @@ namespace TOME.EditorTools
             var lines = File.ReadAllText(CsvPath).Split('\n');
             if (lines.Length < 2) { Debug.LogWarning("[CharacterGenerator] 데이터 행 없음"); return; }
 
-            var header = SplitCsv(lines[0].TrimEnd('\r'));
+            var header = CsvUtility.SplitLine(lines[0].TrimEnd('\r'));
             var col = new Dictionary<string, int>();
             for (int i = 0; i < header.Count; i++) col[header[i].Trim().ToLowerInvariant()] = i;
 
-            EnsureFolder(OutRoot);
+            EditorAssetUtility.EnsureFolder(OutRoot);
             int created = 0, updated = 0;
 
             for (int r = 1; r < lines.Length; r++)
             {
                 var raw = lines[r].TrimEnd('\r');
                 if (string.IsNullOrWhiteSpace(raw)) continue;
-                var c = SplitCsv(raw);
+                var c = CsvUtility.SplitLine(raw);
 
                 string Get(string key) => col.TryGetValue(key, out int idx) && idx < c.Count ? c[idx].Trim() : "";
 
@@ -61,33 +60,6 @@ namespace TOME.EditorTools
             Debug.Log($"[CharacterGenerator] 완료 — 생성 {created}, 갱신 {updated}");
         }
 
-        static void EnsureFolder(string path)
-        {
-            if (AssetDatabase.IsValidFolder(path)) return;
-            var parent = Path.GetDirectoryName(path).Replace('\\', '/');
-            var leaf = Path.GetFileName(path);
-            if (!AssetDatabase.IsValidFolder(parent)) EnsureFolder(parent);
-            AssetDatabase.CreateFolder(parent, leaf);
-        }
 
-        static List<string> SplitCsv(string line)
-        {
-            var result = new List<string>();
-            var buf = new StringBuilder();
-            bool inQ = false;
-            for (int i = 0; i < line.Length; i++)
-            {
-                char ch = line[i];
-                if (ch == '"')
-                {
-                    if (inQ && i + 1 < line.Length && line[i + 1] == '"') { buf.Append('"'); i++; }
-                    else inQ = !inQ;
-                }
-                else if (ch == ',' && !inQ) { result.Add(buf.ToString()); buf.Clear(); }
-                else buf.Append(ch);
-            }
-            result.Add(buf.ToString());
-            return result;
-        }
     }
 }

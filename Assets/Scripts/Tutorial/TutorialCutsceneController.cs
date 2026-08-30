@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
-using TOME.Data;
-using TOME.Gameplay;
-using TOME.Systems;
+using TOME.Core;
+using TOME.Cutscene;
+using TOME.Dialogue;
 using TOME.Map;
-
+using TOME.Progression;
 namespace TOME.Tutorial
 {
     /// <summary>튜토리얼 1의 신규 컷신을 대사 트리거로 처리한다.
@@ -137,7 +137,7 @@ namespace TOME.Tutorial
             {
                 Vector3 focus = new(dogHouse.transform.position.x + zoomOffset.x,
                                     dogHouse.transform.position.y + zoomOffset.y, baseCamPos.z);
-                yield return LerpCamera(cam, baseCamPos, baseOrtho, focus, zoomOrthoSize, zoomDuration);
+                yield return CameraTween.PanZoom(cam, baseCamPos, baseOrtho, focus, zoomOrthoSize, zoomDuration);
             }
 
             if (dimmer != null)
@@ -152,35 +152,12 @@ namespace TOME.Tutorial
 
             // 확대를 풀고 원래 구역 화면으로 돌아온 뒤 강아지가 나온다.
             if (cam != null)
-                yield return LerpCamera(cam, cam.transform.position, cam.orthographicSize,
-                                        baseCamPos, baseOrtho, zoomDuration);
+                yield return CameraTween.PanZoom(cam, cam.transform.position, cam.orthographicSize,
+                                                 baseCamPos, baseOrtho, zoomDuration);
 
             yield return SummonDog();
 
             DialogueManager.I?.ResumeFromInteraction();
-        }
-
-        static IEnumerator LerpCamera(Camera cam, Vector3 fromPos, float fromSize,
-                                      Vector3 toPos, float toSize, float duration)
-        {
-            if (duration <= 0f)
-            {
-                cam.transform.position = toPos;
-                cam.orthographicSize = toSize;
-                yield break;
-            }
-
-            float t = 0f;
-            while (t < duration)
-            {
-                t += Time.unscaledDeltaTime;
-                float k = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(t / duration));
-                cam.transform.position = Vector3.Lerp(fromPos, toPos, k);
-                cam.orthographicSize   = Mathf.Lerp(fromSize, toSize, k);
-                yield return null;
-            }
-            cam.transform.position = toPos;
-            cam.orthographicSize   = toSize;
         }
 
         /// <summary>연출에 꼭 필요한 참조가 연결됐는지 확인한다. 비어 있으면 경고를 남기고 false.

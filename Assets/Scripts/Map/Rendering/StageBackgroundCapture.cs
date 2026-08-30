@@ -14,11 +14,11 @@ namespace TOME.Map
 
             // --- 캡처에서 제외할 오버레이를 잠시 숨김 ---
             var hiddenCanvases = new List<Canvas>();
-            foreach (var c in Object.FindObjectsByType<Canvas>(FindObjectsSortMode.None))
+            foreach (var c in Object.FindObjectsByType<Canvas>())
                 if (c != null && c.enabled) { c.enabled = false; hiddenCanvases.Add(c); }
 
             var hiddenRenderers = new List<Renderer>();
-            foreach (var p in Object.FindObjectsByType<MapPickup>(FindObjectsSortMode.None))
+            foreach (var p in Object.FindObjectsByType<MapPickup>())
             {
                 if (p == null) continue;
                 foreach (var r in p.GetComponentsInChildren<Renderer>(false))

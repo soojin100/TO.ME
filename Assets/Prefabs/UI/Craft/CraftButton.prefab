@@ -121,7 +121,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TOME.UI.CraftPanelUI, TOME
+        m_TargetAssemblyTypeName: TOME.Crafting.CraftPanelUI, TOME
         m_MethodName: Open
         m_Mode: 0
         m_Arguments:

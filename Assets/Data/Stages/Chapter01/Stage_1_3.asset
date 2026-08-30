@@ -20,11 +20,12 @@ MonoBehaviour:
   introText: "\uC810\uC810 \uAC70\uC138\uC9C4\uB2E4"
   clearedIntroText: 
   bgm: {fileID: 8300000, guid: 0d6270f4a0f9b8d4da4210aa9e2894fa, type: 3}
+  clearRequirement: 3
   startCharacter: {fileID: 11400000, guid: 72c123b18ca981144b8c72ebd23092b8, type: 2}
-  timeLimit: 30
+  timeLimit: 60
   enemyRoster: []
   spawns:
-  - enemy: {fileID: 11400000, guid: 7cccb7879b149b34aa2d407cb2ee43f4, type: 2}
+  - enemy: {fileID: 11400000, guid: cb1b0f61fb4477d47a594eea8bf556f7, type: 2}
     totalCount: 7
     simultaneous: 3
     spawnInterval: 1.6

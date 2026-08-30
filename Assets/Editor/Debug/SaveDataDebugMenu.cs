@@ -3,6 +3,7 @@ using System.IO;
 using UnityEngine;
 using UnityEditor;
 
+using TOME.Save;
 namespace TOME.EditorTools
 {
     /// <summary>세이브 디버그 메뉴. (To.You의 SaveDataDebugMenu를 TO.ME 세이브 구조에 맞춰 이식)
@@ -26,7 +27,7 @@ namespace TOME.EditorTools
             public string lastNodeId;
             public int    coins;
             public long   savedAtUnix;
-            public string playerName = "제임스";
+            public string playerName = TOME.Save.SaveSystemManager.DefaultPlayerName;
             public bool   seenIntro;
         }
 

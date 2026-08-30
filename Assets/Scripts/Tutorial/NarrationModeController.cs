@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using TOME.Core;
 namespace TOME.Tutorial
 {
     /// <summary>나레이션 구간 동안 화면을 균일하게 어둡게 하고 맵 오브젝트의 콜라이더를 꺼
